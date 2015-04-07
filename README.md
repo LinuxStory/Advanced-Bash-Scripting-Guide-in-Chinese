@@ -13,50 +13,53 @@
 - 译者：杨春敏 黄毅
 - 译著版本：Revision 3.7, 23 Oct 2005
 
+## 翻译作品
+翻译的部分都放置在[GitBook](https://www.gitbook.com/book/imcmy/advanced-bash-scripting-guide-in-chinese/details)上，欢迎阅读！
+
 ## 翻译进度
-- Part 1. Introduction
-	- 1 Shell Programming!
-	- 2 Starting Off With a Sha-Bang
+- Part 1. Introduction[@imcmy]
+	- 1\. Shell Programming![@imcmy]
+	- 2\. Starting Off With a Sha-Bang
 - Part 2. Basics
-	- 3 Special Characters
-	- 4 Introduction to Variables and Parameters
-	- 5 Quoting
-	- 6 Exit and Exit Status
-	- 7 Tests
-	- 8 Operations and Related Topics
+	- 3\. Special Characters
+	- 4\. Introduction to Variables and Parameters
+	- 5\. Quoting
+	- 6\. Exit and Exit Status
+	- 7\. Tests
+	- 8\. Operations and Related Topics
 - Part 3. Beyond the Basics
-	- 9 Another Look at Variables
-	- 10 Manipulating Variables
-	- 11 Loops and Branches
-	- 12 Command Substitution
-	- 13 Arithmetic Expansion
-	- 14 Recess Time
+	- 9\. Another Look at Variables
+	- 10\. Manipulating Variables
+	- 11\. Loops and Branches
+	- 12\. Command Substitution
+	- 13\. Arithmetic Expansion
+	- 14\. Recess Time
 - Part 4. Commands
-	- 15 Internal Commands and Builtins
-	- 16 External Filters, Programs and Commands
-	- 17 System and Administrative Commands
-- Part 5 Advanced Topics
-	- 18 Regular Expressions
-	- 19 Here Documents
-	- 20 I/O Redirection
-	- 21 Subshells
-	- 22 Restricted Shells
-	- 23 Process Substitution
-	- 24 Functions
-	- 25 Aliases
-	- 26 List Constructs
-	- 27 Arrays
-	- 28 Indirect References
-	- 29 /dev and /proc
-	- 30 Network Programming
-	- 31 Of Zeros and Nulls
-	- 32 Debugging
-	- 33 Options
-	- 34 Gotchas
-	- 35 Scripting With Style
-	- 36 Miscellany
-	- 37 Bash, versions 2, 3, and 4
-	- 38 Endnotes
+	- 15\. Internal Commands and Builtins
+	- 16\. External Filters, Programs and Commands
+	- 17\. System and Administrative Commands
+- Part 5. Advanced Topics
+	- 18\. Regular Expressions
+	- 19\. Here Documents
+	- 20\. I/O Redirection
+	- 21\. Subshells
+	- 22\. Restricted Shells
+	- 23\. Process Substitution
+	- 24\. Functions
+	- 25\. Aliases
+	- 26\. List Constructs
+	- 27\. Arrays
+	- 28\. Indirect References
+	- 29\. /dev and /proc
+	- 30\. Network Programming
+	- 31\. Of Zeros and Nulls
+	- 32\. Debugging
+	- 33\. Options
+	- 34\. Gotchas
+	- 35\. Scripting With Style
+	- 36\. Miscellany
+	- 37\. Bash, versions 2, 3, and 4
+	- 38\. Endnotes
 		- 38.1 Author's Note
 		- 38.2 About the Author
 		- 38.3 Where to Go For Help
@@ -65,32 +68,32 @@
 		- 38.6 Disclaimer
 - Bibliography
 - Appendix
-	- A Contributed Scripts
-	- B Reference Cards
-	- C A Sed and Awk Micro-Primer
+	- A\. Contributed Scripts
+	- B\. Reference Cards
+	- C\. A Sed and Awk Micro-Primer
 		- C.1 Sed
 		- C.2 Awk
-	- D Parsing and Managing Pathnames
-	- E Exit Codes With Special Meanings
-	- F A Detailed Introduction to I/O and I/O Redirection
-	- G Command-Line Options
+	- D\. Parsing and Managing Pathnames
+	- E\. Exit Codes With Special Meanings
+	- F\. A Detailed Introduction to I/O and I/O Redirection
+	- G\. Command-Line Options
 		- G.1 Standard Command-Line Options
 		- G.2 Bash Command-Line Options
-	- H Important Files
-	- I Important System Directories
-	- J An Introduction to Programmable Completion
-	- K Localization
-	- L History Commands
-	- M Sample .bashrc and .bash_profile Files
-	- N Converting DOS Batch Files to Shell Scripts
-	- O Exercises
+	- H\. Important Files
+	- I\. Important System Directories
+	- J\. An Introduction to Programmable Completion
+	- K\. Localization
+	- L\. History Commands
+	- M\. Sample .bashrc and .bash_profile Files
+	- N\. Converting DOS Batch Files to Shell Scripts
+	- O\. Exercises
 		- O.1 Analyzing Scripts
 		- O.2 Writing Scripts
-	- P Revision History
-	- Q Download and Mirror Sites
-	- R To Do List
-	- S Copyright
-	- T ASCII Table
+	- P\. Revision History
+	- Q\. Download and Mirror Sites
+	- R\. To Do List
+	- S\. Copyright
+	- T\. ASCII Table
 - Index
 - List of Tables
 - List of Examples
@@ -112,10 +115,11 @@
 ### 翻译流程
 1. 保证在在dev分支中
 2. 打开README.md，在翻译进度后加上你自己的github名
-	> 1 Shell Programming! [@imcmy]
+	> 1\. Shell Programming! [@imcmy]
 3. 本地提交修改，写明提交信息
 4. push到你fork的项目中，然后登录GitHub
-5. 在你fork的项目的首页可以看到一个 `pull request` 按钮，点击它，填写说明信息，然后提交即可 
+5. 在你fork的项目的首页可以看到一个 `pull request` 按钮，点击它，填写说明信息，然后提交即可
+	> 为了不重复工作，请等待我们确认了你的pull request(即你的名字出现在项目中时)，再进行翻译工作
 6. 进行翻译，重复3-5步提交翻译的作品
 
 ## 翻译建议
