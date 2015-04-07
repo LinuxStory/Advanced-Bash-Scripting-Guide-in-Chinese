@@ -13,6 +13,9 @@
 - 译者：杨春敏 黄毅
 - 译著版本：Revision 3.7, 23 Oct 2005
 
+## 翻译作品
+翻译的部分都放置在[GitBook](https://www.gitbook.com/book/imcmy/advanced-bash-scripting-guide-in-chinese/details)上，欢迎阅读！
+
 ## 翻译进度
 - Part 1. Introduction[@imcmy]
 	- 1\. Shell Programming![@imcmy]
