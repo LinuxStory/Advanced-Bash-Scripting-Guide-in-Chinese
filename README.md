@@ -21,7 +21,7 @@
 	- 1\. Shell Programming![@imcmy]
 	- 2\. Starting Off With a Sha-Bang
 - Part 2. Basics
-	- 3\. Special Characters
+	- 3\. Special Characters[@samita2030]
 	- 4\. Introduction to Variables and Parameters
 	- 5\. Quoting
 	- 6\. Exit and Exit Status
