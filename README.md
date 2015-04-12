@@ -19,9 +19,9 @@
 ## 翻译进度
 - Part 1. Introduction[@imcmy]
 	- 1\. Shell Programming![@imcmy]
-	- 2\. Starting Off With a Sha-Bang
-- Part 2. Basics
-	- 3\. Special Characters
+	- 2\. Starting Off With a Sha-Bang[@imcmy]
+- Part 2. Basics[@imcmy]
+	- 3\. Special Characters[@samita2030]
 	- 4\. Introduction to Variables and Parameters
 	- 5\. Quoting
 	- 6\. Exit and Exit Status
@@ -98,7 +98,7 @@
 - List of Tables
 - List of Examples
 
-## 翻译流程
+## 翻译校审流程
 ### 初始化
 1. 首先fork项目
 2. 把fork过去的项目clone到本地
@@ -112,22 +112,22 @@
 
 如果修改过程中项目有更新，请重复5、6、7步。
 
-### 翻译流程
-1. 保证在在dev分支中
+### 翻译校审流程
+1. 保证在dev分支中
 2. 打开README.md，在翻译进度后加上你自己的github名
-	> 1\. Shell Programming! [@imcmy]
+	> 1\. Shell Programming! [@翻译人][@校审人]
 3. 本地提交修改，写明提交信息
 4. push到你fork的项目中，然后登录GitHub
 5. 在你fork的项目的首页可以看到一个 `pull request` 按钮，点击它，填写说明信息，然后提交即可
-	> 为了不重复工作，请等待我们确认了你的pull request(即你的名字出现在项目中时)，再进行翻译工作
-6. 进行翻译，重复3-5步提交翻译的作品
+	> 为了不重复工作，请等待我们确认了你的pull request(即你的名字出现在项目中时)，再进行翻译校审工作
+6. 进行翻译校审，重复3-5步提交翻译校审的作品
 
-## 翻译建议
-1. 使用markdown进行翻译，文件名必须使用英文
-2. 翻译后的文档请放到source文件夹下的对应章节中，然后pull request即可
+## 翻译校审建议
+1. 使用markdown进行翻译校审，文件名必须使用英文
+2. 翻译校审后的文档请放到source文件夹下的对应章节中，然后pull request即可
 3. 有任何问题随时欢迎发issue
-4. 术语尽量保证和已翻译的一致，也可以查询[微软术语搜索](http://www.microsoft.com/Language/zh-cn/Search.aspx)
-5. 你可以将你认为是术语的词汇加入术语表`term.md`中
+4. 术语尽量保证和已翻译的一致，也可以查询[微软术语搜索](http://www.microsoft.com/Language/zh-cn/Search.aspx)或[Linux中国术语词典](https://github.com/LCTT/TranslateProject/blob/master/Dict.md)
+5. 你可以将你认为是术语的词汇加入术语表`TERM.md`中
 
 ## 关于版权
-根据原著作者的要求，翻译成果属于公有领域(CC0)。翻译参与人员及原著作者Mendel Cooper享有署名权
+根据原著作者的要求，翻译成果属于公有领域(CC0)，翻译参与人员及原著作者Mendel Cooper享有署名权
