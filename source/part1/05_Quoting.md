@@ -5,7 +5,7 @@
 * 5.1 引用变量
 * 5.2 反义字符
 * * * *
-<p>
+
 引用相当于将一个字符串用引号括起来。这样做的效果相当于保护了SHELL或者SHELL脚本中重新解释过或者有扩展功能的[特殊字符](http://tldp.org/LDP/abs/html/special-chars.html)（如果一个字符有其特殊解释而不仅仅是字面意义的话，那么这个字符就能称为“特殊字符”。比如星号“*”就能表示[正则表达式](http://tldp.org/LDP/abs/html/regexp.html#REGEXREF)中的一个[通配符](http://tldp.org/LDP/abs/html/globbingref.html)）。
 
 
