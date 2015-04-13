@@ -23,7 +23,7 @@
 - Part 2. Basics[@imcmy]
 	- 3\. Special Characters[@samita2030]
 	- 4\. Introduction to Variables and Parameters
-	- 5\. Quoting
+	- 5\. Quoting[@mr253727942]
 	- 6\. Exit and Exit Status
 	- 7\. Tests
 	- 8\. Operations and Related Topics
