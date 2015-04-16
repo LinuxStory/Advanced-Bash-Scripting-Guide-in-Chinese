@@ -56,7 +56,7 @@
 	- 32\. Debugging
 	- 33\. Options
 	- 34\. Gotchas
-	- 35\. Scripting With Style
+	- 35\. Scripting With Style[@chuchingkai]
 	- 36\. Miscellany
 	- 37\. Bash, versions 2, 3, and 4
 	- 38\. Endnotes
