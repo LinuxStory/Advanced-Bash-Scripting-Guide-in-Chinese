@@ -1,0 +1,1 @@
+text of advanced bash Scripting guide in chinese
