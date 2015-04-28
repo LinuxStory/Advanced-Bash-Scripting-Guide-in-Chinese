@@ -9,9 +9,10 @@
 - 原著版本：Revision 10, 10 Mar 2014
 
 ### 译著
-- 译著连接：http://www.linuxsir.org/bbs/thread256887.html
+- 早期译著连接：http://www.linuxsir.org/bbs/thread256887.html
 - 译者：杨春敏 黄毅
 - 译著版本：Revision 3.7, 23 Oct 2005
+- 最新 Revision 10 由 Linux Story 社区的 imcmy 同学发起并组织翻译。
 
 ## 翻译作品
 翻译的部分都放置在[GitBook](https://www.gitbook.com/book/imcmy/advanced-bash-scripting-guide-in-chinese/details)上，欢迎阅读！
@@ -21,11 +22,11 @@
 	- 1\. Shell Programming![@imcmy]
 	- 2\. Starting Off With a Sha-Bang[@imcmy]
 - Part 2. Basics[@imcmy]
-	- 3\. Special Characters[@samita2030]
+	- 3\. Special Characters[@imcmy]
 	- 4\. Introduction to Variables and Parameters
 	- 5\. Quoting[@mr253727942]
-	- 6\. Exit and Exit Status
-	- 7\. Tests
+	- 6\. Exit and Exit Status[@samita2030]
+	- 7\. Tests[@kuuyee]
 	- 8\. Operations and Related Topics
 - Part 3. Beyond the Basics
 	- 9\. Another Look at Variables
@@ -56,7 +57,7 @@
 	- 32\. Debugging
 	- 33\. Options
 	- 34\. Gotchas
-	- 35\. Scripting With Style
+	- 35\. Scripting With Style[@chuchingkai]
 	- 36\. Miscellany
 	- 37\. Bash, versions 2, 3, and 4
 	- 38\. Endnotes
@@ -121,6 +122,9 @@
 5. 在你fork的项目的首页可以看到一个 `pull request` 按钮，点击它，填写说明信息，然后提交即可
 	> 为了不重复工作，请等待我们确认了你的pull request(即你的名字出现在项目中时)，再进行翻译校审工作
 6. 进行翻译校审，重复3-5步提交翻译校审的作品
+
+
+> 新手可以参阅针对github小白的[《翻译流程详解》](https://github.com/LinuxStory/Advanced-Bash-Scripting-Guide-in-Chinese/wiki/%E7%BF%BB%E8%AF%91%E6%B5%81%E7%A8%8B%E8%AF%A6%E8%A7%A3),妹子写的呦～
 
 ## 翻译校审建议
 1. 使用markdown进行翻译校审，文件名必须使用英文

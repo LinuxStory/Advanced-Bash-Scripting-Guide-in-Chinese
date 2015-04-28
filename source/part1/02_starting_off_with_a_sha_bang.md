@@ -5,8 +5,8 @@
 > —— Larry Wall
 
 ### 本章目录
-- 2.1 调用一个脚本
-- 2.2 小试牛刀
+- [2.1 调用一个脚本](02_1_invoking_the_script.md)
+- [2.2 小试牛刀](02_2_preliminary_exercises.md)
 
 ---
 
