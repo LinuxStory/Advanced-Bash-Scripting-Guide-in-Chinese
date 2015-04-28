@@ -26,7 +26,7 @@
 	- 4\. Introduction to Variables and Parameters
 	- 5\. Quoting[@mr253727942]
 	- 6\. Exit and Exit Status[@samita2030]
-	- 7\. Tests
+	- 7\. Tests[@kuuyee]
 	- 8\. Operations and Related Topics
 - Part 3. Beyond the Basics
 	- 9\. Another Look at Variables
