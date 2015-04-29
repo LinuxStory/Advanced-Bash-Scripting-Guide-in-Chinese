@@ -27,7 +27,7 @@
 	- 5\. Quoting[@mr253727942]
 	- 6\. Exit and Exit Status[@samita2030]
 	- 7\. Tests[@kuuyee]
-	- 8\. Operations and Related Topics
+	- 8\. Operations and Related Topics[@samita2030]
 - Part 3. Beyond the Basics
 	- 9\. Another Look at Variables
 	- 10\. Manipulating Variables
