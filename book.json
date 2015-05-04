@@ -4,10 +4,10 @@
 		"readme": "README.md"
 	},
     "plugins": [
-        "gitbook-plugin-unicodecss",
-        "tocstyles"
+        "gitbook-plugin-unicodecss@0.0.8",
+        "tocstyles@0.0.1"
     ],
-	"pluginsConfig": {
+    "pluginsConfig": {
         "tocstyles" : [ "", "none", "none" ]
     }
 }
