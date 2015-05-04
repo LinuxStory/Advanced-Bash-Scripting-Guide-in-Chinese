@@ -14,121 +14,127 @@
 
 样例 2-1. *cleanup*：清理`/var/log`目录下的日志文件
 
-	# Cleanup
-	# 使用root权限运行
-	
-	cd /var/log
-	cat /dev/null > messages
-	cat /dev/null > wtmp
-	echo "Log files cleaned up."
+```bash
+# Cleanup
+# 使用root权限运行
+
+cd /var/log
+cat /dev/null > messages
+cat /dev/null > wtmp
+echo "Log files cleaned up."
+```
 	
 脚本仅仅是一些可以很容易地从终端或者控制台中调用的一行接一行的命令罢了，并没有什么奇怪的。将命令放在脚本中的好处就是让你不用再一遍遍重复的输入这些命令。脚本是一个程序、一款工具，它们可以很容易的被修改或者为特定的应用做定制。
 
 样例 2-2. *cleanup*：改进的清理脚本
 
-	#!/bin/bash
-	# Bash脚本标准起始行。
-	
-	# Cleanup, version 2
-	
-	# 使用root权限运行。
-	# 在这里插入代码用来打印错误信息，并且在未使用root权限时退出。
-	
-	LOG_DIR=/var/log
-	# 变量比硬编码（hard-coded）要更合适一些
-	cd $LOG_DIR
-	
-	cat /dev/null > messages
-	cat /dev/null > wtmp
-	
-	
-	echo "Logs cleaned up."
-	
-	exit # 这是正确终止脚本的方式。
-	     # 不带参数的exit返回的是上一条命令的结果。
+```bash
+#!/bin/bash
+# Bash脚本标准起始行。
+
+# Cleanup, version 2
+
+# 使用root权限运行。
+# 在这里插入代码用来打印错误信息，并且在未使用root权限时退出。
+
+LOG_DIR=/var/log
+# 变量比硬编码（hard-coded）要更合适一些
+cd $LOG_DIR
+
+cat /dev/null > messages
+cat /dev/null > wtmp
+
+
+echo "Logs cleaned up."
+
+exit # 这是正确终止脚本的方式。
+     # 不带参数的exit返回的是上一条命令的结果。
+```
 	     
 现在让我们看一个真正意义上的脚本，而且我们可以做的更多。
 
 样例 2-3. *cleanup*：改良、通用版
 
-	#!/bin/bash
-	# Cleanup, version 3
-	
-	# 注意：
-	# --------
-	# 这个脚本使用了许多后面才会涉及到的特性。
-	# 当你阅读完整本书的一半以后，就没有任何困难了。
-	
-	
-	LOG_DIR=/var/log
-	ROOT_UID=0     # UID为0的用户才拥有root权限。
-	LINES=50       # 缺省需要保存messages文件的行数。
-	E_XCD=86       # 无法切换工作目录的错误码。
-	E_NOTROOT=87   # 非root权限用户运行的错误码。
-	
-	
-	
-	# 使用root权限运行。
-	if [ "$UID" -ne "$ROOT_UID" ]
-	then
-	  echo "Must be root to run this script."
-	  exit $E_NOTROOT
-	fi
-	
-	if [ -n "$1" ]
-	# 测试命令行参数（保存的行数）是否为空
-	then
-	  lines=$1
-	else
-	  lines=$LINES # 使用缺省设置
-	fi
-	
-	
-	#  Stephane Chazelas建议使用下面的方法检查命令行参数，
-	#+ 但是这已经超出了这个阶段教程的范围。
-	#
-	#    E_WRONGARGS=85  # Non-numerical argument (bad argument format).
-	#    case "$1" in
-	#    ""      ) lines=50;;
-	#    *[!0-9]*) echo "Usage: `baseman $0` lines-to-cleanup";
-	#     exit $E_WRONGARGS;;
-	#    *       ) lines=$1;;
-	#    esac
-	#
-	#* 在第十一章“循环与分支”中会对此作详细的阐述。
-	
-	
-	cd $LOG_DIR
-	
-	if [ `pwd` != "$LOG_DIR" ]  # or   if [ "$PWD" != "$LOG_DIR" ]
-	                            # Not in /var/log?
-	then
-	  echo "Can't change to $LOG_DIR"
-	  exit $E_XCD
-	fi  # 在清理日志之前，重复确认是否在正确的工作目录下。
-	
-	# 更高效的方法是：
-	#
-	# cd /var/log || {
-	#   echo "Cannot change to necessary directory." > &2
-	#   exit $E_XCD;
-	# }
-	
-	
-	
-	
-	tail -n $lines messages > msg.temp # 保存messages的最后一部分
-	mv mesg.temp messages              # 替换原来的messages达到清理的目的
-	
-	#  cat /dev/null > messages
-	#* 我们不再需要使用这个方法了，使用上面的方法更安全
-	
-	cat /dev/null > wtmp  #  ': > wtmp' 与 '> wtmp' 都有同样的效果
-	echo "Log files cleaned up."
-	#  注意在/var/log目录下其他的日志文件将不会被这个脚本清除
-	
-	exit 0
-	#  返回0表示脚本运行成功
+```bash
+#!/bin/bash
+# Cleanup, version 3
+
+# 注意：
+# --------
+# 这个脚本使用了许多后面才会涉及到的特性。
+# 当你阅读完整本书的一半以后，就没有任何困难了。
+
+
+LOG_DIR=/var/log
+ROOT_UID=0     # UID为0的用户才拥有root权限。
+LINES=50       # 缺省需要保存messages文件的行数。
+E_XCD=86       # 无法切换工作目录的错误码。
+E_NOTROOT=87   # 非root权限用户运行的错误码。
+
+
+
+# 使用root权限运行。
+if [ "$UID" -ne "$ROOT_UID" ]
+then
+  echo "Must be root to run this script."
+  exit $E_NOTROOT
+fi
+
+if [ -n "$1" ]
+# 测试命令行参数（保存的行数）是否为空
+then
+  lines=$1
+else
+  lines=$LINES # 使用缺省设置
+fi
+
+
+#  Stephane Chazelas建议使用下面的方法检查命令行参数，
+#+ 但是这已经超出了这个阶段教程的范围。
+#
+#    E_WRONGARGS=85  # Non-numerical argument (bad argument format).
+#    case "$1" in
+#    ""      ) lines=50;;
+#    *[!0-9]*) echo "Usage: `baseman $0` lines-to-cleanup";
+#     exit $E_WRONGARGS;;
+#    *       ) lines=$1;;
+#    esac
+#
+#* 在第十一章“循环与分支”中会对此作详细的阐述。
+
+
+cd $LOG_DIR
+
+if [ `pwd` != "$LOG_DIR" ]  # or   if [ "$PWD" != "$LOG_DIR" ]
+                            # Not in /var/log?
+then
+  echo "Can't change to $LOG_DIR"
+  exit $E_XCD
+fi  # 在清理日志之前，重复确认是否在正确的工作目录下。
+
+# 更高效的方法是：
+#
+# cd /var/log || {
+#   echo "Cannot change to necessary directory." > &2
+#   exit $E_XCD;
+# }
+
+
+
+
+tail -n $lines messages > msg.temp # 保存messages的最后一部分
+mv mesg.temp messages              # 替换原来的messages达到清理的目的
+
+#  cat /dev/null > messages
+#* 我们不再需要使用这个方法了，使用上面的方法更安全
+
+cat /dev/null > wtmp  #  ': > wtmp' 与 '> wtmp' 都有同样的效果
+echo "Log files cleaned up."
+#  注意在/var/log目录下其他的日志文件将不会被这个脚本清除
+
+exit 0
+#  返回0表示脚本运行成功
+```
 
 因为你也许并不希望清空全部的系统日志，所以这个脚本保留了messages日志的最后一部分。随着后面部分的学习，你将会不断的发现提高上述脚本效率的方法。
 
@@ -150,17 +156,19 @@
 当脚本仅包含一些通用的系统命令而不使用shell内部指令时，可以省略#!。而第三个例子需要#!是因为当对变量赋值时，例如`lines=50`，是使用了与shell特性相关的结构[^7]。再重复一次，`#!/bin/sh`调用的是缺省的shell解释器，在Linux系统中默认是`/bin/bash`。
 
 > 这个例子鼓励读者使用模块化的方式编写脚本，并在平时记录和收集一些在以后可能会用到的代码模板。最终你将会拥有一个相当丰富易用的代码库。下面的代码是用来测试脚本被调用时的参数的数量是否正确。
-
-	E_WRONG_ARGS=85
-	script_parameters="-a -h -m -z"
-	#                  -a = all, -h = help等等
-	
-	if [ $# -ne $Number_of_expected_args ]
-	then
-	  echo "Usage: `basename $0` $script_parameters"
-	  # `basename $0`是脚本的文件名
-	  exit $E_WRONG_ARGS
-	fi
+>
+```bash
+E_WRONG_ARGS=85
+script_parameters="-a -h -m -z"
+#                  -a = all, -h = help等等
+>
+if [ $# -ne $Number_of_expected_args ]
+then
+  echo "Usage: `basename $0` $script_parameters"
+  # `basename $0`是脚本的文件名
+  exit $E_WRONG_ARGS
+fi
+```
 
 大多数情况下，你会针对特定的任务编写一个脚本。本章的第一个脚本就是这样一个例子。然后你也许会泛化（generalize）脚本使其能够适应相似的任务，比如用变量代替硬编码，用函数代替重复的代码都可以达到目的。
 
