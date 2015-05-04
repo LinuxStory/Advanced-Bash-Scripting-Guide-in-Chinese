@@ -2,5 +2,12 @@
 	"gitbook": ">=2.0.0",
 	"structure": {
 		"readme": "README.md"
-	}
+	},
+    "plugins": [
+        "gitbook-plugin-unicodecss",
+        "tocstyles"
+    ],
+	"pluginsConfig": {
+        "tocstyles" : [ "", "none", "none" ]
+    }
 }
