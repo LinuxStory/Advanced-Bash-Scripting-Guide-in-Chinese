@@ -4,10 +4,7 @@
 		"readme": "README.md"
 	},
     "plugins": [
-        "unicodecss",
-        "tocstyles"
-    ],
-    "pluginsConfig": {
-        "tocstyles" : [ "", "none", "none" ]
-    }
+        "yahei",
+        "unicodecss"
+    ]
 }
