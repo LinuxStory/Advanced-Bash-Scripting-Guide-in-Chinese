@@ -688,5 +688,203 @@ fi
 
 	bash$ grep '\<the\>' textfile
 
+### |
+
+管道（pipe）。管道可以将上一个命令的输出作为下一个命令的输入，或者直接输出到shell中。它是一种将一系列命令链接在一起的方法。
+
+```bash
+echo ls -l | sh
+#  将 "echo ls -l" 的结果输出到shell中，
+#+ 与直接输入 "ls -l" 的结果相同。
+
+
+cat *.lst | sort | uniq
+# 将所有后缀名为 lst 的文件合并后排序，接着删掉所有重复的行。
+```
+
+> 管道是一种在进程间通信的典型方法。它将一个进程的输出作为另一个进程的输入。举一个经典的例子，像 `cat` 或者 `echo` 这样的命令，可以通过管道将它们产生的数据流导入到过滤器（filter）中。过滤器是用来处理输入流的命令。
+>
+> `cat $filename1 $filename2 | grep $search_word`
+> 
+> 查看[UNIX FAQ第三章](http://www.faqs.org/faqs/unix-faq/faq/part3/)获得更多关于使用UNIX管道的信息。
+
+命令的输出同样可以通过管道输入到脚本中。
+
+```bash
+#!/bin/bash
+# uppercase.sh : 将所有输入变成大写
+
+tr 'a-z' 'A-Z'
+#  为了防止产生单个字符的文件名，
+#+ 必须使用' '引用字符范围。
+
+exit 0
+```
+
+现在，让我们将 `ls -l` 的输出通过管道导入到脚本中。
+
+	bash$ ls -l | ./uppercase.sh
+	-RW-RW-R--    1 BOZO  BOZO       109 APR  7 19:49 1.TXT
+	-RW-RW-R--    1 BOZO  BOZO       109 APR 14 16:48 2.TXT
+	-RW-R--R--    1 BOZO  BOZO       725 APR 20 20:56 DATA-FILE
+
+> ![extra](http://tldp.org/LDP/abs/images/note.gif) 在管道中每一个进程的输入必须作为下一个进程的输入被读入，如果不是这样，那么数据流将会被阻塞（block），管道也将不会按照预期的那样工作。
+> 
+```bash
+cat file1 file2 | ls -l | sort
+# "cat file1 file2" 的输出将会消失。
+```
+> 管道是在一个子进程中运行的，因此它并不能修改脚本中的变量。
+> 
+```bash
+variable="initial_value"
+echo "new_value" | read variable
+echo "variable = $variable"     # variable = initial_value
+```
+
+如果管道中的任意一个命令意外中止了，管道将会提前中断，我们称其为破损管道。在这种情况下，将会发送一个 `SIGPIPE` 信号。
+
+### >|
+
+强制重定向。即使在 `noclobber` 选项被设置的情况下，重定向也会覆盖已经存在的文件。
+
+### ||
+
+或（OR）逻辑运算符。在测试结构中，如果任意一个测试条件为真，则返回 0（成功标志位）。
+
+### &
+
+后台运行操作符。如果命令后有 &，将会使这个命令转至后台运行。
+
+	bash$ sleep 10 &
+	[1] 850
+	[1]+  Done                    sleep 10
+
+在脚本中，命令甚至循环都可以在后台运行。
+
+样例 3-3. 在后台运行的循环
+
+```bash
+#!/bin/bash
+# background-loop.sh
+
+for i in 1 2 3 4 5 6 7 8 9 10            # 第一个循环
+do
+  echo -n "$i "
+done & # 使这个循环在后台运行。
+       # 有是会在第二个循环结束之后才运行。
+
+echo   # 一些情况下 'echo' 将不会显示出来。
+
+for i in 11 12 13 14 15 16 17 18 19 20   # 第二个循环
+do
+  echo -n "$i "
+done
+
+echo   # 一些情况下 'echo' 将不会显示出来。
+
+# ======================================================
+
+# 脚本期望的输出结果：
+# 1 2 3 4 5 6 7 8 9 10
+# 11 12 13 14 15 16 17 18 19 20
+
+# 一些情况下可能会输出：
+# 11 12 13 14 15 16 17 18 19 20
+# 1 2 3 4 5 6 7 8 9 10 bozo $
+# 第二个 'echo' 没有被执行，为什么？
+
+# 另外一些情况下可能会输出：
+# 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+# 第一个 'echo' 没有被执行，为什么？
+
+# 非常罕见的情况下，可能会输出：
+# 11 12 13 1 2 3 4 5 6 7 8 9 10 14 15 16 17 18 19 20
+# 前台的循环抢占（preempt）了后台的循环。
+
+exit 0
+
+#  Nasimuddin Ansari 建议在第6行和第14行的
+#+ echo -n "$i " 后增加 sleep 1，
+#+ 会得到许多有趣的结果。
+```
+
+> ![notice](http://tldp.org/LDP/abs/images/caution.gif) 脚本在后台执行命令可能会导致脚本等待键盘事件而被挂起。幸运的是，有一套解决方案可以解决这个问题。
+
+### &&
+
+与（AND）逻辑操作符。在测试结构中，如果所有测试条件都为真，才返回 0（成功标志位）。
+
+### -
+
+选项与前缀。它可以作为命令的选项标志，也可以作为一个操作符的前缀，也可以作为在参数代换中作为缺省参数的前缀。
+
+`COMMAND -[Option1][Option2][..]`
+
+`ls -al`
+
+`sort -dfu $filename`
+
+```bash
+if [ $file1 -ot $file2 ]
+then #      ^
+  echo "File $file1 is older than $file2."
+fi
+
+if [ "$a" -eq "$b" ]
+then #    ^
+  echo "$a is equal to $b."
+fi
+
+if [ "$c" -eq 24 -a "$d" -eq 47 ]
+then #    ^              ^
+  echo "$c equals 24 and $d equals 47."
+fi
+
+
+param2=${param1:-$DEFAULTVAL}
+#               ^
+```
+
+### --
+
+双横线是作为命令的逐字长选项的前缀。
+
+`sort --ignore-leading-blanks`
+
+双横线与Bash内建命令一起使用时，意味着该命令选项的结束。
+
+> ![info](http://tldp.org/LDP/abs/images/tip.gif) 下面提供了一种删除文件名以横线开头的文件的简单方法。
+> 
+	bash$ ls -l
+	-rw-r--r-- 1 bozo bozo 0 Nov 25 12:29 -badname
+>
+>
+	bash$ rm -- -badname
+>
+	bash$ ls -l
+	total 0
+
+双横线通常也和 `set` 连用。
+
+`set -- $variable`（查看样例 15-18）。
+
+### -
+
+重定向输入输出[短横线]。
+
+	bash$ cat -
+	abc
+	abc
+
+	...
+
+	Ctl-D
+
+在这个例子中，`cat -` 输出由键盘读入的输入 *stdin* 到 *stdout*。但是在真实应用的 I/O 重定向中是否有使用 '-'？
+
+
+
+
 
 [^1]: 操作符（operator）用来执行表达式（operation）。最常见的例子就是算术运算符+ - * /。在Bash中，操作符和关键字的概念有一些重叠。
