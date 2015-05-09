@@ -18,11 +18,11 @@
 翻译的部分都放置在[GitBook](https://www.gitbook.com/book/imcmy/advanced-bash-scripting-guide-in-chinese/details)上，欢迎阅读！
 
 ## 翻译进度
-- Part 1. Introduction[@imcmy]
-	- 1\. Shell Programming![@imcmy]
-	- 2\. Starting Off With a Sha-Bang[@imcmy]
-- Part 2. Basics[@imcmy]
-	- 3\. Special Characters[@imcmy]
+- 第一部分 初见Shell[@imcmy]
+	- 1. 为什么使用shell编程[@imcmy]
+	- 2. Sha-Bang（#!）一起出发[@imcmy]
+- 第二部分 Shell基础[@imcmy]
+	- 3. 特殊字符[@imcmy]
 	- 4\. Introduction to Variables and Parameters
 	- 5\. Quoting[@mr253727942]
 	- 6\. Exit and Exit Status[@samita2030]

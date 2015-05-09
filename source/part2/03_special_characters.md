@@ -883,7 +883,22 @@ param2=${param1:-$DEFAULTVAL}
 
 在这个例子中，`cat -` 输出由键盘读入的输入 *stdin* 到 *stdout*。但是在真实应用的 I/O 重定向中是否有使用 '-'？
 
+```bash
+(cd /source/directory && tar cf - . ) | (cd /dest/directory && tar xpvf -)
+# 将整个文件树从一个目录移动到另一个目录。
+# [感谢 Alan Cox <a.cox@swansea.ac.uk> 所作出的部分改动]
 
+# 1) cd /source/directory
+#    工作目录定位到文件所属的源目录
+# 2) &&
+#    "与链"：如果 'cd' 命令操作成功，那么执行下一条命令
+# 3) tar cf - .
+#    'tar c' (create 创建) 创建一份新的档案
+#    'tar f -' (file 指定文件) 在 '-' 后指定一个目标文件作为输出
+#    '.' 代表当前目录
+# 4) |
+#    通过管道
+```
 
 
 
