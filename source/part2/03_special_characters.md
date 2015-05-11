@@ -333,7 +333,7 @@ not_empty ()
 
 测试操作符。在一些特定的语句中，? 表示一个条件测试。
 
-在一个双圆括号结构中，? 可以表示一个类似C语言风格的三元运算符的一个组成部分。[^2]
+在一个双圆括号结构中，? 可以表示一个类似C语言风格的三元（trinary）运算符的一个组成部分。[^2]
 
 `condition?result-if-true:result-if-false`
 
@@ -702,7 +702,7 @@ cat *.lst | sort | uniq
 # 将所有后缀名为 lst 的文件合并后排序，接着删掉所有重复的行。
 ```
 
-> 管道是一种在进程间通信的典型方法。它将一个进程的输出作为另一个进程的输入。举一个经典的例子，像 `cat` 或者 `echo` 这样的命令，可以通过管道将它们产生的数据流导入到过滤器（filter）中。过滤器是用来处理输入流的命令。
+> 管道是一种在进程间通信的典型方法。它将一个进程的输出作为另一个进程的输入。举一个经典的例子，像 `cat` 或者 `echo` 这样的命令，可以通过管道将它们产生的数据流导入到过滤器（filter）中。过滤器是用来处理输入流的命令。[^7]
 >
 > `cat $filename1 $filename2 | grep $search_word`
 > 
@@ -883,8 +883,450 @@ param2=${param1:-$DEFAULTVAL}
 
 在这个例子中，`cat -` 输出由键盘读入的输入 *stdin* 到 *stdout*。但是在真实应用的 I/O 重定向中是否有使用 '-'？
 
+```bash
+(cd /source/directory && tar cf - . ) | (cd /dest/directory && tar xpvf -)
+# 将整个文件树从一个目录移动到另一个目录。
+# [感谢 Alan Cox <a.cox@swansea.ac.uk> 所作出的部分改动]
+
+# 1) cd /source/directory
+#    工作目录定位到文件所属的源目录
+# 2) &&
+#    "与链"：如果 'cd' 命令操作成功，那么执行下一条命令
+# 3) tar cf - .
+#    'tar c' (create 创建) 创建一份新的档案
+#    'tar f -' (file 指定文件) 在 '-' 后指定一个目标文件作为输出
+#    '.' 代表当前目录
+# 4) |
+#    通过管道进行重定向
+# 5) ( ... )
+#    在建立的子进程中执行命令
+# 6) cd /dest/directory
+#    工作目录定位到目标目录
+# 7) &&
+#    与 2) 相同
+# 8) tar xpvf -
+#    'tar x' 解压档案
+#    'tar p' (preserve 保留) 保留档案内文件的所有权及文件权限
+#    'tar v' (verbose 冗余) 发送全部信息到标准输出
+#    'tar f -' (file 指定文件) 在 '-' 后指定一个目标文件作为输入
+#
+#    注意 'x' 是一个命令，而 'p', 'v', 'f' 是选项。
+
+# 干的漂亮！
 
 
+
+# 更加优雅的写法是:
+#   cd source/directory
+#   tar cf - . | (cd ../dest/directory; tar xpvf -)
+#
+#     同样可以写成:
+# cp -a /source/directory/* /dest/directory
+#     或者:
+# cp -a /source/directory/* /source/directory/.[^.]* /dest/directory
+#     可以在源目录中有隐藏文件时使用
+```
+
+```bash
+bunzip2 -c linux-2.6.16.tar.bz2 | tar xvf -
+#  --未解压的 tar 文件--          | --将解压出的 tar 传递给 "tar"--
+#  如果不使用管道让 "tar" 处理 "bunzip2" 得到的文件，
+#+ 那么就需要使用单独的两步来完成。
+#  目的是为了解压 "bzipped" 档案类型的内核源代码。
+```
+
+下面的例子中，"-" 并不是一个Bash的操作符，它仅仅是 `tar`, `cat` 等一些特定UNIX命令中将结果输出到标准输出的选项。
+	
+	bash$ echo "whatever" | cat -
+	whatever 
+
+当需要文件名的时候，- 可以用来代替某个文件而重定向到标准输出（通常出现在 `tar cf` 中）或从 *stdin* 中接受数据。这是一种在管道中使用面向文件（file-oriented）工具作为过滤器的方法。
+
+	bash$ file
+	Usage: file [-bciknvzL] [-f namefile] [-m magicfiles] file...
+
+单独执行 `file` 命令，将会给出一条错误信息。
+
+在命令后增加一个 "-" 可以得到一个更加有用的结果。它会使得shell暂停等待用户输入。
+
+	bash$ file -
+	abc
+	standard input:              ASCII text
+
+
+
+	bash$ file -
+	#!/bin/bash
+	standard input:              Bourne-Again shell script text executable
+	
+现在命令能够接受标准输入并且处理它了。
+
+"-" 能够通过管道将标准输出重定向到其他命令中。这就可以做到像在某个文件前添加几行这样的事情。
+
+使用 `diff` 比较两个文件的部分内容：
+
+```bash
+grep Linux file1 | diff file2 -
+```
+
+最后介绍一个使用 - 的 `tar` 命令的真实案例。
+
+样例 3-4. 备份最近一天修改过的所有文件
+
+```bash
+#!/bin/bash
+
+#  将当前目录下24小时之内修改过的所有文件备份成一个
+#+ "tarball" (经 tar 与 gzip 处理过的) 文件
+
+BACKUPFILE=backup-$(date +%m-%d-%Y)
+#                 在备份文件中嵌入时间
+#                 感谢 Joshua Tschida 提供的建议
+archive=${1:-$BACKUPFILE}
+#  如果没有在命令行中特别制定备份文件的文件名，
+#+ 那么将会缺省设置为 "backup-MM-DD-YYYY.tar.gz"。
+
+tar cvf - `find . -mtime -1 -type f -print` > $archive.tar
+gzip $archive.tar
+echo "Directory $PWD backed up in archive file \"$archive.tar.gz\"."
+
+
+#  Stephane Chazeles 指出如果目录中有非常多的文件，
+#+ 或者文件名中包含空白符时，上面的代码将会运行失败。
+
+# 他建议使用以下的任意一种方法：
+# -------------------------------------------------------------------
+#   find . -mtime -1 -type f -print0 | xargs -0 tar rvf "$archive.tar"
+#      使用了 GNU 版本的 "find" 命令。
+
+
+#   find . -mtime -1 -type f -exec tar rvf "$archive.tar" '{}' \;
+#         兼容其他的 UNIX 发行版，但是速度会比较慢
+# -------------------------------------------------------------------
+
+
+exit 0
+```
+
+> ![notice](http://tldp.org/LDP/abs/images/caution.gif) 以 "-" 开头的文件在与 "-" 重定向操作符一起使用时可能会导致一些问题。因此合格的脚本必须首先检查这种情况，如果遇到，那么需要给文件名加一个合适的前缀，比如 `./-FILENAME, $PWD/-FILENAME` 或者`$PATHNAME/-FILENAME` 。
+>
+> 如果变量的值以 '-' 开头，也可能会造成类似的问题。
+> 
+```bash
+var='-n'
+echo $var
+# 等同于 "echo -n"，因此将不会输出任何东西。
+```
+
+### -
+
+先前的工作目录。使用 `cd -` 命令可以返回先前的工作目录。它实际上是使用了 `$OLDPWD` 环境变量。
+
+> ![notice](http://tldp.org/LDP/abs/images/caution.gif) 不要将这里的 "-" 与先前的 "-" 重定位操作符混淆。"-" 的具体含义需要根据上下文来解释。
+
+### -
+
+减号。算术运算符中的减法标志。
+
+### =
+
+等号。赋值操作符。
+
+```bash
+a=28
+echo $a   # 28
+```
+
+在另外一些情况下，"=" 是作为字符串比较操作符的。
+
+### +
+
+加号。加法算术运算。
+
+在另外一些情况下，+ 是作为正则表达式中的一个操作符。
+
+### +
+
+选项操作符。作为一个命令或过滤器的选项标记。
+
+特定的一些指令和内建命令使用 + 启用特定的选项，使用 - 禁用特定的选项。在参数代换中，+ 是作为变量扩展的备用值（alternate value）的前缀。
+
+### %
+
+取模。取模操作运算符。
+
+```bash
+let "z = 5 % 3"
+echo $z  # 2
+```
+
+在另外一些情况下，% 是一种模式匹配的操作符。
+
+### ~
+
+主目录[波浪号]。它相当于内部变量 `$HOME`。`~bozo` 是 bozo 的主目录，执行 `ls ~bozo` 将会列出他的主目录中内容。`~/` 是当前用户的主目录，执行 `ls ~/` 将会列出其中所有的内容。
+
+	bash$ echo ~bozo
+	/home/bozo
+
+	bash$ echo ~
+	/home/bozo
+
+	bash$ echo ~/
+	/home/bozo/
+
+	bash$ echo ~:
+	/home/bozo:
+
+	bash$ echo ~nonexistent-user
+	~nonexistent-user
+	
+### ~+
+
+当前工作目录。它等同于内部变量 `$PWD`。
+
+### ~-
+
+先前的工作目录。它等同于内部变量 `$OLDPWD`。
+
+### =~
+
+正则表达式匹配。它将会在 Bash, version 3 章节中介绍。
+
+### ^
+
+行起始符。在正则表达式中，"^" 代表一行文本的开始。
+
+### ^, ^^
+
+参数代换中的大写转换符（在 Bash 的第4个版本中增加）。
+
+### 控制符
+
+改变终端或文件显示的一些行为。一个控制符是由 *CONTRL + key* 组成的（同时按下）。控制符同样可以通过转义以八进制或十六进制的方式显示。
+
+控制符不能在脚本中使用。
+
+#### Ctl-A
+
+在命令行中将光标移动到这一行文本的起始位置。
+
+#### Ctl-B
+
+非破坏性退格（即不删除字符）。
+
+#### Ctl-C
+
+中断。终止一个前台运行的任务。
+
+#### Ctl-D
+
+登出shell（类似 `exit`）
+
+键入 `EOF`（end-of-file，文件终止标记），中断来自 *stdin* 的输入。
+
+当你在终端或 *xterm* 窗口中输入字符时，`Ctl-D` 将会删除光标上的字符。当没有字符时，`Crl-D` 将会登出shell。在 *xterm* 中，将会关闭整个窗口。
+
+#### Ctl-E
+
+在命令行中将光标移动到这一行文本的结束位置。
+
+#### Ctl-F
+
+在命令行中将光标向前移动一个字符。
+
+#### Ctl-G
+
+`BEL`。在一些老式的打字机终端上，将会响铃。而在 *xterm* 中，将会产生一个“哔”声。
+
+#### Ctl-H
+
+抹除（破坏性退格）。退格时删除前面的字符。
+
+```bash
+#!/bin/bash
+# 在字符串中嵌入 Ctl-H
+
+a="^H^H"                  # 两个退格符 Ctl-H
+                          # 在 vi/vim 中使用 ctl-V ctl-H 来键入
+echo "abcdef"             # abcdef
+echo
+echo -n "abcdef$a "       # abcd f
+#                ^              ^ 末尾有空格退格两次的结果
+echo
+echo -n "abcdef$a"        # abcdef
+#                                ^ 末尾没有空格时为什么退格无效了？
+                          # 并不是我们期望的结果。
+echo; echo
+
+# Constantin Hagemeier 建议尝试一下：
+# a=$'\010\010'
+# a=$'\b\b'
+# a=$'\x08\x08'
+# 但是这些并不会改变结果。
+
+########################################
+
+# 现在来试试这个。
+
+rubout="^H^H^H^H^H"       # 5个 Ctl-H
+
+echo -n "12345678"
+sleep 2
+echo -n "$rubout"
+sleep 2
+```
+
+#### Ctl-I
+
+水平制表符。
+
+#### Ctl-J
+
+另起一行（换行）。在脚本中，你也可使用八进制 '\012' 或者十六进制 '\x0a' 来表示。
+
+#### Ctl-K
+
+垂直制表符。
+
+当你在终端或 *xterm* 窗口中输入字符时，`Ctl-K` 将会删除光标上及其后的所有字符。而在脚本中，`Ctl-K` 的作用有些不同。具体查看下方 Lee Lee Maschmeyer 写的样例。
+
+#### Ctl-L
+
+清屏、进纸。在终端中等同于 `clear` 命令。在打印时，`Ctl-L` 将会使纸张移动到底部。
+
+#### Ctl-M
+
+回车（CR）。
+
+```bash
+#!/bin/bash
+# 感谢 Lee Maschmeyer 提供的样例。
+
+read -n 1 -s -p \
+$'Control-M leaves cursor at beginning of this line. Press Enter. \x0d'
+           # '0d' 是 Control-M 的十六进制的值
+echo >&2   # '-s' 参数禁用了回显，所以需要显式的另起一行。
+
+read -n 1 -s -p $'Control-J leaves cursor on next line. \x0a'
+           # '0a' 是 Control-J 换行符的十六进制的值
+echo >&2
+
+###
+
+read -n 1 -s -p $'And Control-K\x0bgoes straight down.'
+echo >&2   # Control-K 是垂直制表符。
+
+# 一个更好的垂直制表符的例子是：
+
+var=$'\x0aThis is the bottom line\x0bThis is the top line\x0a'
+echo "$var"
+#  这将会产生与上面的例子类似的结果。但是
+echo "$var" | col
+#  这却会使得右侧行高于左侧行。
+#  这也解释了为什么我们需要在行首和行尾加上换行符
+#+ 来避免显示的混乱。
+
+# Lee Maschmeyer 的解释：
+# --------------------------
+#  在第一个垂直制表符的例子中，垂直制表符使其
+#+ 在没有回车的情况下向下打印。
+#  这在那些不能回退的设备上，例如 Linux 的终端才可以。
+#  而垂直制表符的真正目的是向上而非向下。
+#  它可以用来在打印机中用来打印上标。
+#  col 可以用来模拟真实的垂直制表符行为。
+
+exit 0
+```
+
+#### Ctl-N
+
+在命令行历史缓存中调用下一条历史命令[^8]。
+
+#### Ctl-O
+
+在命令行中另起一行。
+
+#### Ctl-P
+
+在命令行历史缓存中调用上一条历史命令。
+
+#### Ctl-Q
+
+恢复（XON）。
+
+在终端中恢复读入 *stdin*。
+
+#### Ctl-R
+
+在命令行历史缓存中进行搜索。
+
+#### Ctl-S
+
+挂起（XOFF）。
+
+在终端中冻结 *stdin*。（可以使用 `Ctl-Q` 恢复）
+
+#### Ctl-T
+
+在命令行中，交换光标所在字符与其前一个字符。
+
+#### Ctl-U
+
+删除光标所在字符之前的所有字符。在一些情况下，不管光标在哪个位置，`Ctl-U` 都会删除整行文字。
+
+#### Ctl-V
+
+在输入的时候，使用 `Ctl-V` 允许插入控制符。例如，下面两条语句是等价的：
+
+```bash
+echo -e '\x0a'
+echo <Ctl-V><Ctl-J>
+```
+
+`Ctl-V` 在文本编辑器中特别有用。
+
+#### Ctl-W
+
+当你在终端或 *xterm* 窗口中输入字符时，`Ctl-W` 将会删除光标所在字符之前到其最近的空白符之间的所有字符。在一些情况下，`Ctl-W` 将会删除到之前最近的非字母或数字的字符。
+
+#### Ctl-X
+
+在一些特定的文本处理程序中，它将会剪切高亮文本并复制到剪贴板（clipboard）中。
+
+#### Ctl-Y
+
+粘贴之前使用 `Ctl-U` 或 `Ctl-W` 删除的文字。
+
+#### Ctl-Z
+
+暂停前台运行的任务。
+
+在一些特定的文本处理程序中是替代操作。
+
+在 MSDOS 文件系统中是作为 `EOF`（end-of-file，文件终止标记）。
+
+### 空白符
+
+作为命令或变量之间的分隔符。空白符包含空格、制表符、空白或它们的任意组合。[^9]在一些地方，比如变量赋值的时候，空白符是不应该出现的，这会造成语法错误。
+
+空白行在脚本中不会有任何实际作用，但是它可以划分函数，使其更具有可读性。
+
+特殊变量 `$IFS` 是作为一些特定命令的输入域（field）分隔符，其缺省值为空白符。
+
+> 定义：域是字符串中离散的数据块。使用空白符或者指定的字符（通常由 `$IFS` 决定）来分隔临近域。在一些情况下，域也可以被称作记录（record）。
+
+如果想在字符串或者变量中保留空白符，需要使用引用。
+
+UNIX 过滤器可以使用 POSIX 字符类 `[:space:]` 来寻找和操作空白符。
 
 
 [^1]: 操作符（operator）用来执行表达式（operation）。最常见的例子就是算术运算符+ - * /。在Bash中，操作符和关键字的概念有一些重叠。
+[^2]: 它更被人熟知的名字是三元（ternary）操作符。但是他读起来不清晰，而且容易令人混淆。而 trinary 是一种更加优雅的写法。
+[^3]: 美国信息交换标准代码（American Standard Code for Information Interchange）。这是一套可以由计算机存储和处理的7位（bit）字符（包含字母、数字和一系列有限的符号）编码系统。
+[^4]: 进程标识符（PID），是分配给正在运行进程的唯一数字标识。可以使用 `ps` 命令查看进程的 PID。<br \>定义：进程是正在执行的命令或程序，通常也称作任务。
+[^5]: 由shell来执行大括号扩展操作。命令本身是在扩展的基础上进行操作的。
+[^6]: 例外：作为管道的一部分的大括号中的代码块可能会运行在子进程中。<br \><pre>ls | { read firstline; read secondline; }<br/>#  错误。大括号中的代码块在子进程中运行，<br />#+ 因此 "ls" 命令输出的结果不能传递到代码块中。<br/>echo "First line is $firstline; second line is $secondline"  # 无效。<br/><br/># 感谢 S.C.</pre>
+[^7]: 古时候人们说的催情剂（philtre）是一种有魔力的药剂，而 UNIX 中的过滤器（filter）也是有类似的作用的。<br/>（如果一个程序员做出了一个能够在 Linux 设备上运行的 "love philtre"，那么他将会获得巨大的荣誉。）
+[^8]: Bash将之前在命令行中执行过的命令存储在缓存（buffer）中，或者一块内存区域里。可以使用内建命令 `history` 来查看。
+[^9]: 换行符本身也是一个空白符。因此这就是为什么仅仅包含一个换行符的空行也被认为是空白符。
