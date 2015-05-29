@@ -29,7 +29,7 @@
 	- 7\. Tests[@kuuyee]
 	- 8\. Operations and Related Topics[@samita2030]
 - Part 3. Beyond the Basics
-	- 9\. Another Look at Variables
+	- 9\. Another Look at Variables [@Ninestd]
 	- 10\. Manipulating Variables
 	- 11\. Loops and Branches
 	- 12\. Command Substitution
