@@ -8,6 +8,7 @@
 * [第二部分 shell基础](source/part2/part2.md)
 	* [3. 特殊字符](source/part2/03_special_characters.md)
 	* [4. 变量与参数](source/part2/04_introduction_to_variables_and_parameters.md)
+		* [4.1 变量替换](source/part2/04_1_variable_substitution.md) 
 	* [5. 引用](source/part2/05_quoting.md)
 	* [6. 退出与退出状态](source/part2/06_exit_and_exit_status.md)
 	* 7\. 测试
