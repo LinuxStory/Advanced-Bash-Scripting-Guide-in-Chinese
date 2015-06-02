@@ -167,7 +167,7 @@ done
 # /bin/ipcalc
 # /usr/bin/kcalc
 # /usr/bin/oidcalc
-# /usr/bin/oocalcå
+# /usr/bin/oocalc
 
 
 # 感谢Rory Winston指出以上这些
@@ -1327,6 +1327,6 @@ UNIX 过滤器可以使用 POSIX 字符类 `[:space:]` 来寻找和操作空白�
 [^4]: 进程标识符（PID），是分配给正在运行进程的唯一数字标识。可以使用 `ps` 命令查看进程的 PID。<br \>定义：进程是正在执行的命令或程序，通常也称作任务。
 [^5]: 由shell来执行大括号扩展操作。命令本身是在扩展的基础上进行操作的。
 [^6]: 例外：作为管道的一部分的大括号中的代码块可能会运行在子进程中。<br \><pre>ls | { read firstline; read secondline; }<br/>#  错误。大括号中的代码块在子进程中运行，<br />#+ 因此 "ls" 命令输出的结果不能传递到代码块中。<br/>echo "First line is $firstline; second line is $secondline"  # 无效。<br/><br/># 感谢 S.C.</pre>
-[^7]: 古时候人们说的催情剂（philtre）是一种有魔力的药剂，而 UNIX 中的过滤器（filter）也是有类似的作用的。<br/>（如果一个程序员做出了一个能够在 Linux 设备上运行的 "love philtre"，那么他将会获得巨大的荣誉。）
+[^7]: 正如在古代催情剂（philtre）被认为是一种能引发神奇变化的药剂一样，UNIX 中的过滤器（filter）也是有类似的作用的。<br/>（如果一个程序员做出了一个能够在 Linux 设备上运行的 "love philtre"，那么他将会获得巨大的荣誉。）
 [^8]: Bash将之前在命令行中执行过的命令存储在缓存（buffer）中，或者一块内存区域里。可以使用内建命令 `history` 来查看。
 [^9]: 换行符本身也是一个空白符。因此这就是为什么仅仅包含一个换行符的空行也被认为是空白符。

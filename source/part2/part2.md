@@ -2,10 +2,10 @@
 
 ### 目录
 - [3. 特殊字符](03_special_characters.md)
-- 4\. 变量与参数介绍
+- [4. 变量与参数介绍](04_introduction_to_variables_and_parameters.md)
 	- 4.1 变量替换
 	- 4.2 变量赋值
-	- 4.3 弱类型变量
+	- 4.3 Bash弱类型变量
 	- 4.4 特殊的变量类型
 - [5. 引用](05_quoting.md)
 	- 5.1 引用变量
