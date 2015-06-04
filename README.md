@@ -18,6 +18,19 @@
 翻译的部分都放置在[GitBook](https://www.gitbook.com/book/imcmy/advanced-bash-scripting-guide-in-chinese/details)上，欢迎阅读！
 
 ## 翻译进度
+
+<!-- Progress -->
+<link rel="stylesheet" href="css/progress.css">
+
+<div class="progress">
+  <div class="progress-bar progress-bar-success" style="width: 10%">
+    <span class="sr-only">10% Complete</span>
+  </div>
+  <div class="progress-bar progress-bar-info progress-bar-striped active" style="width: 5%">
+    <span class="sr-only">5% Pending</span>
+  </div>
+</div>
+
 - 第一部分 初见Shell[@imcmy]
 	- 1. 为什么使用shell编程[@imcmy]
 	- 2. Sha-Bang（#!）一起出发[@imcmy]
