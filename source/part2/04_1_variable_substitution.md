@@ -131,7 +131,7 @@ echo
 exit 0
 ```
 
-> ![notice](http://tldp.org/LDP/abs/images/caution.gif) 一个未初始化的变量拥有空值（null value），即没有被复值。空值不是0。
+> ![notice](http://tldp.org/LDP/abs/images/caution.gif) 一个未初始化的变量拥有空值（null value），即没有被赋值。空值不是0。
 >
 ```bash
 if [ -z "$unassigned" ]
