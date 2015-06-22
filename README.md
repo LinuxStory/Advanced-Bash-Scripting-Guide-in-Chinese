@@ -32,13 +32,13 @@
 </div>
 
 - 第一部分 初见Shell[@imcmy]
-	- 1. 为什么使用shell编程[@imcmy]
-	- 2. Sha-Bang（#!）一起出发[@imcmy]
+	- 1\. 为什么使用shell编程[@imcmy]
+	- 2\. Sha-Bang（#!）一起出发[@imcmy]
 - 第二部分 Shell基础[@imcmy]
-	- 3. 特殊字符[@imcmy]
-	- 4. 变量与参数[@imcmy]
-	- 5. 引用[@mr253727942]
-	- 6. 退出与返回状态[@samita2030]
+	- 3\. 特殊字符[@imcmy]
+	- 4\. 变量与参数[@imcmy]
+	- 5\. 引用[@mr253727942]
+	- 6\. 退出与返回状态[@samita2030]
 	- 7\. Tests[@kuuyee]
 	- 8\. Operations and Related Topics[@samita2030]
 - Part 3. Beyond the Basics
