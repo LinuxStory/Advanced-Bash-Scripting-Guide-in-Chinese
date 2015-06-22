@@ -3,10 +3,10 @@
 ### 目录
 - [3. 特殊字符](03_special_characters.md)
 - [4. 变量与参数介绍](04_introduction_to_variables_and_parameters.md)
-	- 4.1 变量替换
-	- 4.2 变量赋值
-	- 4.3 Bash弱类型变量
-	- 4.4 特殊的变量类型
+	- [4.1 变量替换](04_1_variable_substitution.md)
+	- [4.2 变量赋值](04_2_variable_assignment.md)
+	- [4.3 Bash弱类型变量](04_3_bash_variables_are_untyped.md)
+	- [4.4 特殊的变量类型](04_4_special_variable_types.md)
 - [5. 引用](05_quoting.md)
 	- 5.1 引用变量
 	- 5.2 转义
