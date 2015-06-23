@@ -8,7 +8,7 @@
 	- [4.3 Bash弱类型变量](04_3_bash_variables_are_untyped.md)
 	- [4.4 特殊的变量类型](04_4_special_variable_types.md)
 - [5. 引用](05_quoting.md)
-	- 5.1 引用变量
+	- [5.1 引用变量](05_1_quoting_variables.md)
 	- 5.2 转义
 - [6. 退出与返回状态](06_exit_and_exit_status.md)
 - 7\. 测试
