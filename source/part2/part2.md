@@ -10,7 +10,7 @@
 - [5. 引用](05_quoting.md)
 	- [5.1 引用变量](05_1_quoting_variables.md)
 	- [5.2 转义](05_2_escaping.md)
-- [6. 退出与返回状态](06_exit_and_exit_status.md)
+- [6. 退出与退出状态](06_exit_and_exit_status.md)
 - 7\. 测试
 	- 7.1 测试结构
 	- 7.2 文件测试操作
