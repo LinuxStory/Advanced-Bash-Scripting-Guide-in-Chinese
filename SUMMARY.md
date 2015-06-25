@@ -14,7 +14,7 @@
 		* [4.4 特殊的变量类型](source/part2/04_4_special_variable_types.md)
 	* [5. 引用](source/part2/05_quoting.md)
 		* [5.1 引用变量](source/part2/05_1_quoting_variables.md) 
-		* 5.2 转义
+		* [5.2 转义](source/part2/05_2_escaping.md)
 	* [6. 退出与退出状态](source/part2/06_exit_and_exit_status.md)
 	* 7\. 测试
 	* 8\. 运算符和相关话题
