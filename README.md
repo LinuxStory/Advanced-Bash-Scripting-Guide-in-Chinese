@@ -19,18 +19,6 @@
 
 ## 翻译进度
 
-<!-- Progress -->
-<link rel="stylesheet" href="css/progress.css">
-
-<div class="progress">
-  <div class="progress-bar progress-bar-success" style="width: 10%">
-    <span class="sr-only">10% Complete</span>
-  </div>
-  <div class="progress-bar progress-bar-info progress-bar-striped active" style="width: 5%">
-    <span class="sr-only">5% Pending</span>
-  </div>
-</div>
-
 - 第一部分 初见Shell[@imcmy]
 	- 1\. 为什么使用shell编程[@imcmy]
 	- 2\. Sha-Bang（#!）一起出发[@imcmy]
@@ -38,7 +26,7 @@
 	- 3\. 特殊字符[@imcmy]
 	- 4\. 变量与参数[@imcmy]
 	- 5\. 引用[@mr253727942]
-	- 6\. 退出与返回状态[@samita2030]
+	- 6\. 退出与退出状态[@samita2030]
 	- 7\. Tests[@kuuyee]
 	- 8\. Operations and Related Topics[@samita2030]
 - Part 3. Beyond the Basics
