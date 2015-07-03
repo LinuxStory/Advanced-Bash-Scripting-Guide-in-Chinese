@@ -29,9 +29,9 @@
 	- 6\. 退出与退出状态[@samita2030]
 	- 7\. Tests[@kuuyee]
 	- 8\. Operations and Related Topics[@samita2030]
-- Part 3. Beyond the Basics
-	- 9\. Another Look at Variables [@Ninestd]
-	- 10\. Manipulating Variables
+- 第三部分 Shell进阶[@imcmy]
+	- 9\. Another Look at Variables[@Ninestd]
+	- 10\. Manipulating Variables[@imcmy]
 	- 11\. Loops and Branches
 	- 12\. Command Substitution
 	- 13\. Arithmetic Expansion
