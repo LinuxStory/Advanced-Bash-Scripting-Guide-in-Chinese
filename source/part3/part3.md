@@ -5,8 +5,8 @@
 	- 9.1 内部变量
 	- 9.2 指定变量属性：`decalre` 或 `typeset`
 	- 9.3 `$RANDOM`：随机产生整数
-- 10\. 变量操作
-	- 10.1 操作字符串
+- [10. 变量处理](10_manipulating_variables.md)
+	- [10.1 字符串处理](10_1_manipulating_strings.md)
 	- 10.2 参数替换
 - 11\. 循环与分支
 	- 11.1 循环
