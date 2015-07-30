@@ -25,6 +25,8 @@
 		* 9.3 `$RANDOM`：随机产生整数
 	* [10. 变量处理](source/part3/10_manipulating_variables.md)
 		* [10.1 字符串处理](source/part3/10_1_manipulating_strings.md)
+			* [10.1.1 使用 `awk` 处理字符串](source/part3/10_1_1_manipulating_strings_using_awk.md)
+			* [10.1.2 参考资料](source/part3/10_1_2_further_reference.md)
 		* 10.2 参数替换
 	* 11\. 循环与分支
 		* 11.1 循环

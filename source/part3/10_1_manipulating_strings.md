@@ -470,3 +470,64 @@ Parameter: 'test2', value: 'value2'
 test is 'value1'
 test2 is 'value2'
 ```
+
+### 子串替换
+
+`${string/substring/replacement}`
+
+替换匹配到的第一个 `$substring` 为 `$replacement`。[^2]
+
+`${string//substring/replacement}`
+
+替换匹配到的所有 `$substring` 为 `$replacement`。
+
+```bash
+stringZ=abcABC123ABCabc
+
+echo ${stringZ/abc/xyz}       # xyzABC123ABCabc
+                              # 将匹配到的第一个 'abc' 替换为 'xyz'。
+                              
+echo ${stringZ//abc/xyz}      # xyzABC123ABCxyz
+                              # 将匹配到的所有 'abc' 替换为 'xyz'。
+                              
+echo  ---------------
+echo "$stringZ"               # abcABC123ABCabc
+echo  ---------------
+                              # 字符串本身并不会被修改！
+                              
+# 匹配以及替换的字符串可以是参数么？
+match=abc
+repl=000
+echo ${stringZ/$match/$repl}  # 000ABC123ABCabc
+#              ^      ^         ^^^
+echo ${stringZ//$match/$repl} # 000ABC123ABC000
+# Yes!          ^      ^        ^^^         ^^^
+
+echo
+
+# 如果没有给定 $replacement 字符串会怎样？
+echo ${stringZ/abc}           # ABC123ABCabc
+echo ${stringZ//abc}          # ABC123ABC
+# 仅仅是将其删除而已。
+```
+
+`${string/#substring/replacement}`
+
+替换 `$string` 中最前端匹配到的 `$substring` 为 `$replacement`。
+
+`${string/%substring/replacement}`
+
+替换 `$string` 中最末端匹配到的 `$substring` 为 `$replacement`。
+
+```bash
+stringZ=abcABC123ABCabc
+
+echo ${stringZ/#abc/XYZ}          # XYZABC123ABCabc
+                                  # 将前端的 'abc' 替换为 'XYZ'
+                                  
+echo ${stringZ/%abc/XYZ}          # abcABC123ABCXYZ
+                                  # 将末端的 'abc' 替换为 'XYZ'
+```
+
+[^1]: 这种情况同时适用于命令行参数和传入函数的参数。
+[^2]: 注意根据使用时上下文的不同，`$substring` 和 `$replacement` 可以是文本字符串也可以是变量。可以参考第一个样例。
