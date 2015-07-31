@@ -4,13 +4,13 @@ Bash 支持的字符串操作数量达到了一个惊人的数目。但可惜的
 
 ### 字符串长度
 
-`${#string}`
+#### `${#string}`
 
-`expr length $string`
+#### `expr length $string`
 
 上面两个表达式等价于C语言中的 `strlen()` 函数。
 
-`expr "$string" : '.*'`
+#### `expr "$string" : '.*'`
 
 ```bash
 stringZ=abcABC123ABCabc
@@ -59,11 +59,11 @@ exit
 
 ### 起始部分字符串匹配长度
 
-`expr match "$string" '$substring'`
+#### `expr match "$string" '$substring'`
 
 其中，`$substring` 是一个[正则表达式](http://tldp.org/LDP/abs/html/regexp.html#REGEXREF)。
 
-`expr "$string" : '$substring'`
+#### `expr "$string" : '$substring'`
 
 其中，`$substring` 是一个正则表达式。
 
@@ -79,7 +79,7 @@ echo `expr "$stringZ" : 'abc[A-Z]*.2'`       # 8
 
 ### 索引
 
-`expr index $string $substring`
+#### `expr index $string $substring`
 
 返回在 `$string` 中第一个出现的 `$substring` 字符所在的位置。
 
@@ -96,13 +96,13 @@ echo `expr index "$stringZ" 1c`              # 3
 
 ### 截取字符串（字符串分片）
 
-`${string:position}`
+#### `${string:position}`
 
 在 `$string` 中截取自 `$position` 起的字符串。
 
 如果参数 `$string` 是 "*" 或者 "@"，那么将会截取自 `$position` 起的[位置参数](http://tldp.org/LDP/abs/html/internalvariables.html#POSPARAMREF)。[^1]
 
-`${string:position:length}`
+#### `${string:position:length}`
 
 在 `$string` 中截取自 `$position` 起，长度为 `$length` 的字符串。
 
@@ -181,7 +181,7 @@ echo ${@:2}          # 同上。
 echo ${*:2:3}        # 从第二个位置参数起，输出三个位置参数。 
 ```
 
-`expr substr $string $position $length`
+#### `expr substr $string $position $length`
 
 在 `$string` 中截取自 `$position` 起，长度为 `$length` 的字符串。
 
@@ -194,11 +194,11 @@ echo `expr substr $stringZ 1 2`              # ab
 echo `expr substr $stringZ 4 3`              # ABC
 ```
 
-`expr match "$string" '\($substring\)'`
+#### `expr match "$string" '\($substring\)'`
 
 在 `$string` 中截取自 `$position` 起的字符串，其中 `$substring` 是[正则表达式](http://tldp.org/LDP/abs/html/regexp.html#REGEXREF)。
 
-`expr "$string" : '\($substring\)'`
+#### `expr "$string" : '\($substring\)'`
 
 在 `$string` 中截取自 `$position` 起的字符串，其中 `$substring` 是正则表达式。
 
@@ -212,11 +212,11 @@ echo `expr "$stringZ" : '\(.......\)'`                   # abcABC1
 # 上面所有的形式都给出了相同的结果。
 ```
 
-`expr match "$string" '.*\($substring\)'`
+#### `expr match "$string" '.*\($substring\)'`
 
 从 `$string` 结尾部分截取 `$substring` 字符串，其中 `$substring` 是正则表达式。
 
-`expr "$string" : '.*\($substring\)'`
+#### `expr "$string" : '.*\($substring\)'`
 
 从 `$string` 结尾部分截取 `$substring` 字符串，其中 `$substring` 是正则表达式。
 
@@ -230,11 +230,11 @@ echo `expr "$stringZ" : '.*\(......\)'`                       # ABCabc
 
 ### 删除子串
 
-`${string#substring}`
+#### `${string#substring}`
 
 删除从 `$string` 起始部分起，匹配到的最短的 `$substring`。
 
-`${string##substring}`
+#### `${string##substring}`
 
 删除从 `$string` 起始部分起，匹配到的最长的 `$substring`。
 
@@ -260,7 +260,7 @@ echo ${stringZ##$X}     # abc
                         # 同上。
 ```
 
-`${string%substring}`
+#### `${string%substring}`
 
 删除从 `$string` 结尾部分起，匹配到的最短的 `$substring`。
 
@@ -283,7 +283,7 @@ done ### 如果需要，循环可以压缩成一行的形式。
 # 感谢 Rory Winston。
 ```
 
-`${string%%substring}`
+#### `${string%%substring}`
 
 删除从 `$string` 结尾部分起，匹配到的最长的 `$substring`。
 
@@ -473,11 +473,11 @@ test2 is 'value2'
 
 ### 子串替换
 
-`${string/substring/replacement}`
+#### `${string/substring/replacement}`
 
 替换匹配到的第一个 `$substring` 为 `$replacement`。[^2]
 
-`${string//substring/replacement}`
+#### `${string//substring/replacement}`
 
 替换匹配到的所有 `$substring` 为 `$replacement`。
 
@@ -511,11 +511,11 @@ echo ${stringZ//abc}          # ABC123ABC
 # 仅仅是将其删除而已。
 ```
 
-`${string/#substring/replacement}`
+#### `${string/#substring/replacement}`
 
 替换 `$string` 中最前端匹配到的 `$substring` 为 `$replacement`。
 
-`${string/%substring/replacement}`
+#### `${string/%substring/replacement}`
 
 替换 `$string` 中最末端匹配到的 `$substring` 为 `$replacement`。
 
