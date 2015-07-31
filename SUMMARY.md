@@ -27,7 +27,7 @@
 		* [10.1 字符串处理](source/part3/10_1_manipulating_strings.md)
 			* [10.1.1 使用 `awk` 处理字符串](source/part3/10_1_1_manipulating_strings_using_awk.md)
 			* [10.1.2 参考资料](source/part3/10_1_2_further_reference.md)
-		* 10.2 参数替换
+		* [10.2 参数替换](source/part3/10_2_parameter_substitution.md)
 	* 11\. 循环与分支
 		* 11.1 循环
 		* 11.2 嵌套循环
