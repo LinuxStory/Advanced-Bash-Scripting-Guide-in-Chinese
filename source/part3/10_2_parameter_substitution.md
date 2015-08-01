@@ -280,8 +280,302 @@ echo "Number of command-line arguments passed to script = ${#*}"
 exit 0
 ``` 
 
+#### `${var#Pattern}, ${var##Pattern}`
+
+`${var#Pattern}` 删除 `$var` 前缀部分匹配到的最短长度的 `$Pattern`。
+
+`${var##Pattern}` 删除 `$var` 前缀部分匹配到的最长长度的 `$Pattern`。
+
+摘自 [样例 A-7](http://tldp.org/LDP/abs/html/contributed-scripts.html#DAYSBETWEEN) 的例子：
+
+```bash
+# 函数摘自样例 "day-between.sh"。
+# 删除传入的参数中的前缀0。
+
+strip_leading_zero () #  删除传入参数中可能存在的
+{                     #+ 前缀0。
+  return=${1#0}       #  "1" 代表 "$1"，即传入的参数。
+}                     #  从 "$1" 中删除 "0"。
+```
+
+下面是由 Manfred Schwarb 提供的上述函数的改进版本：
+
+```bash
+strip_leading_zero2 () # 删除前缀0，
+{                      # 否则 Bash 会将其解释为8进制数。
+  shopt -s extglob     # 启用扩展通配特性。
+  local val=${1##+(0)} # 使用本地变量，匹配前缀中所有的0。
+  shopt -u extglob     # 禁用扩展通配特性。
+  _strip_leading_zero2=${var:-0}
+                       # 如果输入的为0，那么返回 0 而不是 ""。
+```
+
+另外一个样例：
+
+```bash
+echo `basename $PWD`        # 当前工作目录的目录名。
+echo "${PWD##*/}"           # 当前工作目录的目录名。
+echo
+echo `basename $0`          # 脚本名。
+echo $0                     # 脚本名。
+echo "${0##*/}"             # 脚本名。
+echo
+filename=test.data
+echo "${filename##*.}"      # data
+                            # 文件扩展名。
+```
+
+#### `${var%Pattern}, ${var%%Pattern}`
+
+`${var%Pattern}` 删除 `$var` 后缀部分匹配到的最短长度的 `$Pattern`。
+
+`${var%%Pattern}` 删除 `$var` 后缀部分匹配到的最长长度的 `$Pattern`。
+
+在 Bash 的 [第二个版本](http://tldp.org/LDP/abs/html/bashver2.html#BASH2REF) 中增加了一些额外的选择。
+
+样例 10-10. 参数替换中的模式匹配
+
+```bash
+#!/bin/bash
+# patt-matching.sh
+
+# 使用 # ## % %% 参数替换操作符进行模式匹配
+
+var1=abcd12345abc6789
+pattern1=a*c  # 通配符 * 可以匹配 a 与 c 之间的任意字符
+
+echo
+echo "var1 = $var1"           # abcd12345abc6789
+echo "var1 = ${var1}"         # abcd12345abc6789
+                              # （另一种形式）
+echo "Number of characters in ${var1} = ${#var1}"
+echo
+
+echo "pattern1 = $pattern1"   # a*c  (匹配 'a' 与 'c' 之间的一切)
+echo "--------------"
+echo '${var1#$pattern1}  =' "${var1#$pattern1}"    #         d12345abc6789
+# 匹配到首部最短的3个字符                                   abcd12345abc6789
+#             ^                                           |-|
+echo '${var1##$pattern1} =' "${var1##$pattern1}"   #                  6789
+# 匹配到首部最长的12个字符                                  abcd12345abc6789
+#             ^                                           |----------|
+
+echo; echo; echo
+
+pattern2=b*9            # 匹配 'b' 与 '9' 之间的任意字符
+echo "var1 = $var1"     # 仍旧是 abcd12345abc6789
+echo
+echo "pattern2 = $pattern2"
+echo "--------------"
+echo '${var1%pattern2}  =' "${var1%$pattern2}"     #     abcd12345a
+# 匹配到尾部最短的6个字符                                  abcd12345abc6789
+#             ^                                                    |----|
+echo '${var1%%pattern2} =' "${var1%%$pattern2}"    #     a
+# 匹配到尾部最长的12个字符                                 abcd12345abc6789
+#             ^                                           |-------------|
+
+# 牢记 # 与 ## 是从字符串左侧开始，
+#      % 与 %% 是从右侧开始。
+
+echo
+
+exit 0
+```
+
+样例 10-11. 更改文件扩展名：
+
+```bash
+#!/bin/bash
+# rfe.sh: 更改文件扩展名。
+#
+#         rfe old_extension new_extension
+#
+# 如：
+# 将当前目录下所有 *.gif 文件重命名为 *.jpg，
+#         rfe gif jpg
 
 
+E_BADARGS=65
 
+case $# in
+  0|1)             # 竖线 | 在这里表示逻辑或关系。
+  echo "Usage: `basename $0` old_file_suffix new_file_suffix"
+  exit $E_BADARGS  # 如果只有0个或1个参数，那么退出脚本。
+  ;;
+esac
+
+
+for filename in *.$1
+# 遍历以第一个参数作为后缀名的文件列表。
+do
+  mv $filename ${filename%$1}$2
+  # 删除文件后缀名，增加第二个参数作为后缀名。
+done
+
+exit 0
+```
+
+### 变量扩展 / 替换子串
+
+下面这些结构采用自 ksh。
+
+#### `${var:pos}`
+
+扩展为从偏移量 pos 处截取的变量 var。
+
+#### `${var:pos:len}`
+
+扩展为从偏移量 pos 处截取变量 var 最大长度为 len 的字符串。
+
+#### `${var/Pattern/Replacement}`
+
+替换 var 中第一个匹配到的 Pattern 为 Replacement。
+
+如果 Replacement 被省略，那么匹配到的第一个 Pattern 将被替换为空，即删除。
+
+#### `${var//Pattern/Replacement}`
+
+全局替换。替换 var 中所有匹配到的 Pattern 为 Replacement。
+
+跟上面一样，如果 Replacement 被省略，那么匹配到的所有 Pattern 将被替换为空，即删除。
+
+样例 10-12. 使用模式匹配解析任意字符串
+
+```bash
+#!/bin/bash
+
+var1=abcd-1234-defg
+echo "var1 = $var1"
+
+t=${var1#*-*}
+echo "var1 (with everything, up to and including first - stripped out) = $t"
+#  t=${var1#*-} 效果相同，
+#+ 因为 # 只匹配最短的字符串，
+#+ 并且 * 可以任意匹配，其中也包括空字符串。
+# （感谢 Stephane Chazelas 指出这一点。）
+
+t=${var##*-*}
+echo "If var1 contains a \"-\", returns empty string...   var1 = $t"
+
+
+t=${var1%*-*}
+echo "var1 (with everything from the last - on stripped out) = $t"
+
+echo
+
+# -------------------------------------------
+path_name=/home/bozo/ideas/thoughts/for.today
+# -------------------------------------------
+echo "path_name = $path_name"
+t=${path_name##/*/}
+echo "path_name, stripped of prefixes = $t"
+# 在这里与 t=`basename $path_name` 效果相同。
+#  t=${path_name%/}; t=${t##*/}  是更加通用的方法，
+#+ 但有时仍旧也会出现问题。
+#  如果 $path_name 以换行结束，那么 `basename $path_name` 将会失效，
+#+ 但是上面这种表达式却可以。
+# （感谢 S.C.）
+
+t=${path_name%/*.*}
+# 同 t=`dirname $path_name` 效果相同。
+echo "path_name, stripped of suffixes = $t"
+# 在一些情况下会失效，比如 "../", "/foo////", # "foo/", "/"。
+#  在删除后缀时，尤其是当文件名没有后缀，目录名却有后缀时，
+#+ 事情会变的非常复杂。
+# （感谢 S.C.）
+
+echo
+
+t=${path_name:11}
+echo "$path_name, with first 11 chars stripped off = $t"
+t=${path_name:11:5}
+echo "$path_name, with first 11 chars stripped off, length 5 = $t"
+
+echo
+
+t=${path_name/bozo/clown}
+echo "$path_name with \"bozo\" replaced by \"clown\" = $t"
+t=${path_name/today/}
+echo "$path_name with \"today\" deleted = $t"
+t=${path_name//o/O}
+echo "$path_name with all o's capitalized = $t"
+t=${path_name//o/}
+echo "$path_name with all o's deleted = $t"
+
+exit 0
+```
+
+#### `${var/#Pattern/Replacement}`
+
+替换 var 前缀部分匹配到的 Pattern 为 Replacement。
+
+#### `${var/%Pattern/Replacement}`
+
+替换 var 后缀部分匹配到的 Pattern 为 Replacement。
+
+样例 10-13. 在字符串首部或尾部进行模式匹配
+
+```bash
+#!/bin/bash
+# var-match.sh:
+# 演示在字符串首部或尾部进行模式替换。
+
+v0=abc1234zip1234abc    # 初始值。
+echo "v0 = $v0"         # abc1234zip1234abc
+echo
+
+# 在字符串首部进行匹配
+v1=${v0/#abc/ABCDEF}    # abc1234zip123abc
+                        # |-|
+echo "v1 = $v1"         # ABCDEF1234zip1234abc
+                        # |----|
+                        
+# 在字符串尾部进行匹配
+v2=${v0/%abc/ABCDEF}    # abc1234zip123abc
+                        #              |-|
+echo "v2 = $v2"         # abc1234zip1234ABCDEF
+                        #               |----|
+                        
+echo
+
+#  --------------------------------------------
+#  必须在字符串的最开始或者最末尾的地方进行匹配，
+#+ 否则将不会发生替换。
+#  --------------------------------------------
+v3=${v0/#123/000}       # 虽然匹配到了，但是不在最开始的地方。
+echo "v3 = $v3"         # abc1234zip1234abc
+                        # 没有替换。
+v4=${v0/%123/000}       # 虽然匹配到了，但是不在最末尾的地方。
+echo "v4 = $v4"         # abc1234zip1234abc
+                        # 没有替换。
+
+exit 0
+```
+
+#### `${!varprefix*}, ${!varprefix@}`
+
+匹配先前声明过所有以 varprefix 作为变量名前缀的变量。
+
+```bash
+# 这是带 * 或 @ 的间接引用的一种变换形式。
+# 在 Bash 2.04 版本中加入了这个特性。
+
+xyz23=whatever
+xyz23=
+
+a=${!xyz*}         #  扩展为声明变量中以 "xyz"
+# ^ ^   ^           + 开头变量名。
+echo "a = $a"      #  a = xyz23 xyz24
+a=${!xyz@}         #  同上。
+echo "a = $a"      #  a = xyz23 xyz24
+
+echo "---"
+
+abc23=something_else
+b=${!abc*}
+echo "b = $b"      #  b = abc23
+c=${!b}            #  这是我们熟悉的间接引用的形式。
+echo $c            #  something_else
+```
 
 [^1]: 如果在非交互的脚本中，`$parameter` 为空，那么程序将会终止，并且返回 [错误码 127](http://tldp.org/LDP/abs/html/exitcodes.html#EXITCODESREF)（意为“找不到命令”）。
