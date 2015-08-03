@@ -31,8 +31,8 @@
 	- 8\. Operations and Related Topics[@samita2030]
 - 第三部分 Shell进阶[@imcmy]
 	- 9\. Another Look at Variables[@Ninestd]
-	- 10\. Manipulating Variables[@imcmy]
-	- 11\. Loops and Branches
+	- 10\. 变量处理[@imcmy]
+	- 11\. 循环与分支[@imcmy]
 	- 12\. Command Substitution
 	- 13\. Arithmetic Expansion
 	- 14\. Recess Time
