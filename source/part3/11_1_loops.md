@@ -1,4 +1,4 @@
-### 本节翻译进度 40%
+### 本节翻译进度 60%
 
 ---
 
@@ -306,4 +306,290 @@ exit $?
 # 一个普通用户是如何读取 /etc/passwd 文件的？
 # 提示：检查 /etc/passwd 的文件权限。
 # 这算不算是一个安全漏洞？为什么？
+```
+
+另外一个关于 [list] 的例子也来自于命令代换。
+
+样例 11-10. 检查目录中所有二进制文件的原作者
+
+```bash
+#!/bin/bash
+# findstring.sh
+# 在指定目录的二进制文件中寻找指定的字符串。
+
+directory=/usr/bin
+fstring="Free Software Foundation"  # 查看哪些文件来自于 FSF。
+
+for file in $( find $directory -type f -name '*' | sort )
+do
+  strings -f $file | grep "$fstring" | sed -e "s%$driectory%%"
+  #  在 "sed" 表达式中，你需要替换掉 "/" 分隔符，
+  #+ 因为 "/" 是一个会被过滤的字符。
+  #  如果不做替换，将会产生一个错误。（你可以尝试一下。）
+done
+
+exit $?
+
+# 简单的练习：
+# ----------
+# 修改脚本，使其可以从命令行参数中获取 $directory 和 $fstring。
+```
+
+最后一个关于 [list] 和命令代换的例子，但这个例子中的命令是一个[函数](http://tldp.org/LDP/abs/html/functions.html#FUNCTIONREF)。
+
+```bash
+generate_list ()
+{
+  echo "one two three"
+}
+
+for word in $(generate_list)  # "word" 获得函数执行的结果。
+do
+  echo "$word"
+done
+
+# one
+# two
+# three
+```
+
+`for` 循环的结果可以通过管道导向至一个或多个命令中。
+
+样例 11-11. 列出目录中的所有符号链接。
+
+```bash
+#!/bin/bash
+# symlinks.sh: 列出目录中的所有符号链接。
+
+directory=${1-`pwd`}
+# 如果没有特别指定，缺省目录为当前工作目录。
+# 等价于下面的代码块。
+# ---------------------------------------------------
+# ARGS=1                 # 只有一个命令行参数。
+#
+# if [ $# -ne "$ARGS" ]  # 如果不是只有一个参数的情况下
+# then
+#   directory=`pwd`      # 设为当前工作目录。
+# else
+#   directory=$1
+# fi
+# ---------------------------------------------------
+
+echo "symbolic links in directory \"$directory\""
+
+for file in "$( find $directory -type 1 )"   # -type 1 = 符号链接
+do
+  echo "$file"
+done | sort                                  # 否则文件顺序会是乱序。
+#  严格的来说这里并不需要使用循环，
+#+ 因为 "find" 命令的输出结果已经被扩展成一个单一字符串了。
+#  然而，为了方便大家理解，我们使用了循环的方式。
+
+#  Dominik 'Aeneas' Schnitzer 指出，
+#+ 不引用 $( find $directory -type 1 ) 的话，
+#  脚本将在文件名包含空格时阻塞。
+
+exit 0
+
+
+# --------------------------------------------------------
+# Jean Helou 提供了另外一种方法：
+
+echo "symbolic links in directory \"$directory\""
+# 备份当前的内部字段分隔符。谨慎永远没有坏处。
+OLDIFS=$IFS
+IFS=:
+
+for file in $(find $directory -type 1 -printf "%p$IFS")
+do     #                              ^^^^^^^^^^^^^^^^
+       echo "$file"
+       done|sort
+
+# James "Mike" Conley 建议将 Helou 的代码修改为：
+
+OLDIFS=$IFS
+IFS='' # 空的内部字段分隔符意味着将不会分隔任何字符串
+for file in $( find $directory -type 1 )
+do
+  echo $file
+  done | sort
+  
+#  上面的代码可以在目录名包含冒号（前一个允许包含空格）
+#+ 的情况下仍旧正常工作。
+```
+
+只需要对上一个样例做一些小小的改动，就可以把在标准输出 `stdout` 中的循环 [重定向](http://tldp.org/LDP/abs/html/io-redirection.html#IOREDIRREF) 到文件中。
+
+样例 11-12. 将目录中的所有符号链接保存到文件中。
+
+```bash
+#!/bin/bash
+# symlinks.sh: 列出目录中的所有符号链接。
+
+OUTFILE=symlinks.list
+
+directory=${1-`pwd`}
+# 如果没有特别指定，缺省目录为当前工作目录。
+
+
+echo "symbolic links in directory \"$directory\"" > "$OUTFILE"
+echo "---------------------------" >> "$OUTFILE"
+
+for file in "$( find $directory -type 1 )"    # -type 1 = 符号链接
+do
+  echo "$file"
+done | sort >> "$OUTFILE"                     # 将 stdout 的循环结果
+#           ^^^^^^^^^^^^^                       重定向到文件。
+
+# echo "Output file = $OUTFILE"
+
+exit $?
+```
+
+还有另外一种看起来非常像C语言中循环那样的语法。你需要使用到 [双圆括号](http://tldp.org/LDP/abs/html/dblparens.html#DBLPARENSREF) 语法。
+
+样例 11-13. C语言风格的循环
+
+```bash
+#!/bin/bash
+# 用多种方式数到10。
+
+echo
+
+# 基础版
+for a in 1 2 3 4 5 6 7 8 9 10
+do
+  echo -n "$a "
+done
+
+echo; echo
+
+# +==========================================+
+
+# 使用 "seq"
+for a in `seq 10`
+do
+  echo -n "$a "
+done
+
+echo; echo
+
+# +==========================================+
+
+# 使用大括号扩展语法
+# Bash 3+ 版本有效。
+for a in {1..10}
+do
+  echo -n "$a "
+done
+
+echo; echo
+
+# +==========================================+
+
+# 现在用类似C语言的语法再实现一次。
+
+LIMIT=10
+
+for ((a=1; a <= LIMIT ; a++))  # 双圆括号语法，不带 $ 的 LIMIT
+do
+  echo -n "$a "
+done                           # 从 ksh93 中学习到的特性。
+
+echo; echo
+
+# +==========================================+
+
+# 我们现在使用C语言中的逗号运算符来使得两个变量同时增加。
+
+for ((a=1, b=1; a <= LIMIT ; a++, b++))
+do  # 逗号连接操作。
+  echo -n "$a-$b "
+done
+
+echo; echo
+
+exit 0
+```
+
+还可以查看 [样例 27-16](http://tldp.org/LDP/abs/html/arrays.html#QFUNCTION)，[样例 27-17](http://tldp.org/LDP/abs/html/arrays.html#TWODIM) 和 [样例 A-6](http://tldp.org/LDP/abs/html/contributed-scripts.html#COLLATZ)。
+
+\---
+
+接下来，我们将展示在真实环境中应用的循环。
+
+样例 11-14. 在批处理模式下使用 `efax`
+
+```bash
+#!/bin/bash
+# 传真（必须提前安装了 'efax' 模块）。
+
+EXPECTED_ARGS=2
+E_BADARGS=85
+MODEM_PORT="/dev/ttyS2"   # 你的电脑可能会不一样。
+#                ^^^^^       PCMCIA 调制解调卡缺省端口。
+
+if [ $# -ne $EXPECTED_ARGS ]
+# 检查是不是传入了适当数量的命令行参数。
+then
+   echo "Usage: `basename $0` phone# text-file"
+   exit $E_BADARGS
+fi
+
+
+if [ ! -f "$2" ]
+then
+  echo "File $2 is not a text file."
+  #     File 不是一个正常文件或者文件不存在。
+  exit $E_BADARGS
+fi
+
+
+fax make $2              # 根据文本文件创建传真格式文件。
+
+for file in $(ls $2.0*)  # 连接转换后的文件。
+                         # 在参数列表中使用通配符（文件名通配）。
+do
+  fil="$fil $file"
+done
+
+efax -d "$MODEM_PORT"  -t "T$1" $fil   # 最后使用 efax。
+# 如果上面一行执行失败，尝试添加 -o1。
+
+
+#  S.C. 指出，上面的 for 循环可以被压缩为
+#     efax -d /dev/ttyS2 -o1 -t "T$1" $2.0*
+#+ 但是这并不是一个好主意。
+
+exit $?   # efax 同时也会将诊断信息传递给标准输出。
+```
+
+> ![note](http://tldp.org/LDP/abs/images/note.gif) [关键字](http://tldp.org/LDP/abs/html/internal.html#KEYWORDREF) `do` 和 `done` 圈定了 for 循环代码块的范围。但是在一些特殊的情况下，也可以被 [大括号](http://tldp.org/LDP/abs/html/special-chars.html#CODEBLOCKREF) 取代。
+> 
+```bash
+for((n=1; n<=10; n++))
+# 没有 do！
+{
+  echo -n "* $n *"
+}
+# 没有 done！
+>
+>
+# 输出：
+# * 1 ** 2 ** 3 ** 4 ** 5 ** 6 ** 7 ** 8 ** 9 ** 10 *
+# 并且 echo $? 返回 0，因此 Bash 并不认为这是一个错误。
+>
+>
+echo
+>
+>
+#  但是注意在典型的 for 循环 for n in [list] ... 中，
+#+ 需要在结尾加一个分号。
+>
+for n in 1 2 3
+{  echo -n "$n "; }
+#               ^
+>
+>
+# 感谢 Yongye 指出这一点。
 ```
