@@ -1,7 +1,3 @@
-### 本节翻译进度 60%
-
----
-
 # 11.1 循环
 
 循环是当循环控制条件为真时，一系列命令迭代[^1]执行的代码块。
@@ -593,3 +589,259 @@ for n in 1 2 3
 >
 # 感谢 Yongye 指出这一点。
 ```
+
+### while 循环
+
+`while` 循环结构会在循环顶部检测循环条件，若循环条件为真（ [退出状态](http://tldp.org/LDP/abs/html/exit-status.html#EXITSTATUSREF) 为0）则循环持续进行。与 [`for` 循环](http://tldp.org/LDP/abs/html/loops1.html#FORLOOPREF1) 不同的是，`while` 循环是在不知道循环次数的情况下使用的。
+
+```bash
+while [ condition ]
+do
+  command(s)...
+done
+```
+
+在 `while` 循环结构中，你不仅可以使用像 `if/test` 中那样的 [括号结构](http://tldp.org/LDP/abs/html/testconstructs.html#TESTCONSTRUCTS1)，也可以使用用途更广泛的 [双括号结构](http://tldp.org/LDP/abs/html/testconstructs.html#DBLBRACKETS)（`while [[ condition ]]`）。
+
+就像在 `for` 循环中那样，将 `do` 和循环条件放在同一行时需要加一个分号。
+
+`while [ condition ] ; do`
+
+在 `while` 循环中，括号结构 [并不是必须存在的](http://tldp.org/LDP/abs/html/loops1.html#WHILENOBRACKETS)。比如说 [`getopts` 结构](http://tldp.org/LDP/abs/html/internal.html#GETOPTSX)。
+
+样例 11-15. 简单的 `while` 循环
+
+```bash
+#!/bin/bash
+
+var0=0
+LIMIT=10
+
+while [ "$var0" -lt "$LIMIT" ]
+#      ^                    ^
+# 必须有空格，因为这是测试结构
+do
+  echo -n "$var0 "        # -n 不会另起一行
+  #             ^           空格用来分开输出的数字。
+  
+  var0=`expr $var0 + 1`   # var0=$(($var0+1))  效果相同。
+                          # var0=$((var0 + 1)) 效果相同。
+                          # let "var0 += 1"    效果相同。
+done                      # 还有许多其他的方法也可以达到相同的效果。
+
+echo
+
+exit 0
+```
+
+样例 11-16. 另一个例子
+
+```bash
+#!/bin/bash
+
+echo
+                               # 等价于：
+while [ "$var1" != "end" ]     # while test "$var1" != "end"
+do
+  echo "Input variable #1 (end to exit) "
+  read var1                    # 不是 'read $var1' （为什么？）。
+  echo "variable #1 = $var1"   # 因为存在 "#"，所以需要使用引号。
+  # 如果输入的是 "end"，也将会在这里输出。
+  # 在结束本轮循环之前都不会再测试循环条件了。
+  echo
+done
+
+exit 0
+```
+
+一个 `while` 循环可以有多个测试条件，但只有最后的那一个条件决定了循环是否终止。这是一种你需要注意到的不同于其他循环的语法。
+
+样例 11-17. 多条件 `while` 循环
+
+```bash
+#!/bin/bash
+
+var1=unset
+previous=$var1
+
+while echo "previous-variable = $previous"
+      echo
+      previous=$var1
+      [ "$var1" != end ] # 记录下 $var1 之前的值。
+      # 在 while 循环中有4个条件，但只有最后的那个控制循环。
+      # 最后一个条件的退出状态才会被记录。
+do
+echo "Input variable #1 (end to exit) "
+  read var1
+  echo "variable #1 = $var1"
+done
+
+# 猜猜这是怎样实现的。
+# 这是一个很小的技巧。
+
+exit 0
+```
+
+就像 `for` 循环一样， `while` 循环也可以使用双圆括号结构写得像C语言那样（也可以查看[样例 8-5](http://tldp.org/LDP/abs/html/dblparens.html#CVARS)）。
+
+样例 11-18. C语言风格的 `while` 循环
+
+```bash
+#!/bin/bash
+# wh-loopc.sh: 在 "while" 循环中计数到10。
+
+LIMIT=10                 # 循环10次。
+a=1
+
+while [ "$a" -le $LIMIT ]
+do
+  echo -n "$a "
+  let "a+=1"
+done                     # 没什么好奇怪的吧。
+
+echo; echo
+
+# +==============================================+
+
+# 现在我们用C语言风格再写一次。
+
+((a = 1))      # a=1
+# 双圆括号结构允许像C语言一样在赋值语句中使用空格。
+
+while (( a <= LIMIT ))   #  双圆括号结构，
+do                       #+ 并且没有使用 "$"。
+  echo -n "$a "
+  ((a += 1))             # let "a+=1"
+  # 是的，就是这样。
+  # 双圆括号结构允许像C语言一样自增一个变量。
+done
+
+echo
+
+# 这可以让C和Java程序猿感觉更加舒服。
+
+exit 0
+```
+
+在测试部分，`while` 循环可以调用 [函数](http://tldp.org/LDP/abs/html/functions.html#FUNCTIONREF)。
+
+```bash
+t=0
+
+condition ()
+{
+  ((t++))
+  
+  if [ $t -lt 5 ]
+  then
+    return 0  # true 真
+  else
+    return 1  # false 假
+  fi
+}
+
+while condition
+#     ^^^^^^^^^
+#     调用函数循环四次。
+do
+  echo "Still going: t = $t"
+done
+
+# Still going: t = 1
+# Still going: t = 2
+# Still going: t = 3
+# Still going: t = 4
+```
+
+> 和 [if 测试](http://tldp.org/LDP/abs/html/testconstructs.html#IFGREPREF) 结构一样，`while` 循环也可以省略括号。
+>
+```bash
+while condition
+do
+  command(s) ...
+done
+```
+
+在 `while` 循环中结合 [`read`](http://tldp.org/LDP/abs/html/internal.html#READREF) 命令，我们就得到了一个非常易于使用的 [`while read`](http://tldp.org/LDP/abs/html/internal.html#WHILEREADREF) 结构。它可以用来读取和解析文件。
+
+```bash
+cat $filename |    # 从文件获得输入。
+while read line    # 只要还有可以读入的行，循环就继续。
+do
+  ...
+done
+
+# ==================== 摘自样例脚本 "sd.sh" =================== #
+
+  while read value   # 一次读入一个数据。
+  do
+    rt=$(echo "scale=$SC; $rt + $value" | bc)
+    (( ct++ ))
+  done
+  
+  am=$(echo "scale=$SC; $rt / $ct" | bc)
+  
+  echo $am; return $ct   # 这个功能“返回”了2个值。
+  # 注意：这个技巧在 $ct > 255 的情况下会失效。
+  # 如果要操作更大的数字，注释掉上面的 "return $ct" 就可以了。
+} <"$datafile"   # 传入数据文件。
+```
+
+> ![note](http://tldp.org/LDP/abs/images/note.gif) 在 `while` 循环后面可以通过 < 将标准输入 [重定位到文件](http://tldp.org/LDP/abs/html/redircb.html#REDIRREF) 中。
+> `while` 循环同样可以 [通过管道](http://tldp.org/LDP/abs/html/internal.html#READPIPEREF) 传入标准输入中。
+
+### until
+
+与 `while` 循环相反，`until` 循环测试其顶部的循环条件，直到其中的条件为真时停止。
+
+```bash
+until [ condition-is-true ]
+do
+  commands(s)...
+done
+```
+
+注意到，跟其他的一些编程语言不同，`until` 循环的测试条件在循环顶部。
+
+就像在 `for` 循环中那样，将 `do` 和循环条件放在同一行时需要加一个分号。
+
+`until[ condition-is-true ] ; do`
+
+样例 11-19. `until` 循环
+
+```bash
+#!/bin/bash
+
+END_CONDITION=end
+
+until [ "$var1" = "$END_CONDITION" ]
+# 在循环顶部测试条件。
+do
+  echo "Input variable #1 "
+  echo "($END_CONDITION to exit)"
+  read var1
+  echo "variable #1 = $var1"
+  echo
+done
+
+#                ---                   #
+
+#  就像 "for" 和 "while" 循环一样，
+#+ "until" 循环也可以写的像C语言一样。
+
+LIMIT=10
+var=0
+
+until (( var > LIMIT ))
+do  # ^^ ^     ^     ^^   没有方括号，没有 $ 前缀。
+  echo -n "$var "
+  (( var++ ))
+done    # 0 1 2 3 4 5 6 7 8 9 10
+
+
+exit 0
+```
+
+如何在 `for`，`while` 和 `until` 之间做出选择？我们知道在C语言中，在已知循环次数的情况下更加倾向于使用 `for` 循环。但是在Bash中情况可能更加复杂一些。Bash中的 `for` 循环相比起其他语言来说，结构更加松散，使用更加灵活。因此使用你认为最简单的就好。
+
+[^1]: 迭代：重复执行一个或一组命令。通常情况下，会使用`while`或者`until`进行控制。
