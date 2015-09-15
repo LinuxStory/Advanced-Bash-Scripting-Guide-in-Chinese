@@ -12,7 +12,7 @@
 	- [10.2 参数替换](10_2_parameter_substitution.md)
 - [11. 循环与分支](11_loops_and_branches.md)
 	- [11.1 循环](11_1_loops.md)
-	- 11.2 嵌套循环
+	- [11.2 嵌套循环](11_2_nested_loops.md)
 	- 11.3 循环控制
 	- 11.4 测试与分支
 - 12\. 命令替换
