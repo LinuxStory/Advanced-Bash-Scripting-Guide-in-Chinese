@@ -31,7 +31,7 @@
 	* [11. 循环与分支](source/part3/11_loops_and_branches.md)
 		* [11.1 循环](source/part3/11_1_loops.md)
 		* [11.2 嵌套循环](source/part3/11_2_nested_loops.md)
-		* 11.3 循环控制
+		* [11.3 循环控制](source/part3/11_3_loop_control.md)
 		* 11.4 测试与分支
 	* 12\. 命令替换
 	* 13\. 算术扩展
