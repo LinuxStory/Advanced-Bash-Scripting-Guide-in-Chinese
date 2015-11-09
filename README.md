@@ -36,9 +36,9 @@
 	- 9\. Another Look at Variables[@Ninestd]
 	- 10\. 变量处理[@imcmy]
 	- 11\. 循环与分支[@imcmy]
-	- 12\. Command Substitution
-	- 13\. Arithmetic Expansion
-	- 14\. Recess Time
+	- 12\. 命令替换[@imcmy]
+	- 13\. 算术扩展[@imcmy]
+	- 14\. 休息时间[@imcmy]
 - Part 4. Commands
 	- 15\. Internal Commands and Builtins
 	- 16\. External Filters, Programs and Commands
