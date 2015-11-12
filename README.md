@@ -39,10 +39,10 @@
 	- 12\. 命令替换[@imcmy]
 	- 13\. 算术扩展[@imcmy]
 	- 14\. 休息时间[@imcmy]
-- Part 4. Commands
-	- 15\. Internal Commands and Builtins
-	- 16\. External Filters, Programs and Commands
-	- 17\. System and Administrative Commands
+- Part 4. 命令[@zhaozq]
+	- 15\. 内建命令[@zhaozq]
+	- 16\. 外部过滤器，程序与命令[@zhaozq]
+	- 17\. 系统与高级命令[@zhaozq]
 - Part 5. Advanced Topics
 	- 18\. Regular Expressions
 	- 19\. Here Documents
