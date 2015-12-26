@@ -16,5 +16,5 @@
 	- [11.3 循环控制](11_3_loop_control.md)
 	- [11.4 测试与分支](11_4_testing_and_branching.md)
 - [12. 命令替换](12_command_substitution.md)
-- 13\. 算术扩展
+- [13. 算术扩展](13_arithmetic_expansion.md)
 - 14\. 休息时间
