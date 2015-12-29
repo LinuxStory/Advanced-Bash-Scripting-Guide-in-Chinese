@@ -244,7 +244,7 @@ exit 0
 > Hello, world.
 > ```
 
-#
+
 
 > ![note](http://tldp.org/LDP/abs/images/note.gif) 在命令替换中，你可以使用 `$(...)` 来替代反引号。
 > 
