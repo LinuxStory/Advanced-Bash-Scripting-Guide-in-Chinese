@@ -16,7 +16,12 @@
 		* [5.1 引用变量](source/part2/05_1_quoting_variables.md) 
 		* [5.2 转义](source/part2/05_2_escaping.md)
 	* [6. 退出与退出状态](source/part2/06_exit_and_exit_status.md)
-	* 7\. 测试
+	* [7. 测试](source/part2/07_tests.md)
+		* 7.1 测试结构
+		* 7.2 文件测试操作
+		* 7.3 其他比较操作
+		* 7.4 嵌套 `if/then` 条件测试
+		* 7.5 牛刀小试
 	* 8\. 运算符和相关话题
 * [第三部分 shell进阶](source/part3/part3.md)
 	* 9\. 换个角度看变量
