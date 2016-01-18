@@ -16,6 +16,7 @@
 - 译者：杨春敏 黄毅
 - 译著版本：Revision 3.7, 23 Oct 2005
 - 最新 Revision 10 由 Linux Story 社区的 imcmy 同学发起并组织翻译。
+- Linux Story 通告地址 
 
 ## 翻译作品
 翻译的部分都放置在[GitBook](https://www.gitbook.com/book/imcmy/advanced-bash-scripting-guide-in-chinese/details)上，欢迎阅读！
@@ -39,12 +40,12 @@
 	- 12\. 命令替换[@imcmy]
 	- 13\. 算术扩展[@imcmy]
 	- 14\. 休息时间[@imcmy]
-- Part 4. 命令[@zhaozq]
+- 第四部分. 命令[@zhaozq]
 	- 15\. 内建命令[@zhaozq]
 	- 16\. 外部过滤器，程序与命令[@zhaozq]
 	- 17\. 系统与高级命令[@zhaozq]
-- Part 5. Advanced Topics
-	- 18\. Regular Expressions
+- 第五章. Advanced Topics
+	- 18\. 正则表达式(@bootingman)
 	- 19\. Here Documents
 	- 20\. I/O Redirection
 	- 21\. Subshells
