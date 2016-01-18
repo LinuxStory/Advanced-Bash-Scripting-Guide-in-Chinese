@@ -16,7 +16,7 @@
 - 译者：杨春敏 黄毅
 - 译著版本：Revision 3.7, 23 Oct 2005
 - 最新 Revision 10 由 Linux Story 社区的 imcmy 同学发起并组织翻译。
-- Linux Story 通告地址 
+- Linux Story 通告地址 ：http://www.linuxstory.org/asdvanced-bash-scripting-guide-in-chinese/ 
 
 ## 翻译作品
 翻译的部分都放置在[GitBook](https://www.gitbook.com/book/imcmy/advanced-bash-scripting-guide-in-chinese/details)上，欢迎阅读！
