@@ -46,7 +46,7 @@
 	- 17\. 系统与高级命令[@zhaozq]
 - 第五章. Advanced Topics
 	- 18\. 正则表达式(@bootingman)
-	- 19\. Here Documents
+	- 19\. Here Documents(@mingmings)
 	- 20\. I/O Redirection
 	- 21\. Subshells
 	- 22\. Restricted Shells
