@@ -47,7 +47,7 @@
 - 第五章. Advanced Topics
 	- 18\. 正则表达式(@bootingman)
 	- 19\. Here Documents(@mingmings)
-	- 20\. I/O Redirection
+	- 20\. I/O Redirection(@mingmings)
 	- 21\. Subshells
 	- 22\. Restricted Shells
 	- 23\. Process Substitution
