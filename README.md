@@ -51,10 +51,10 @@
 	- 21\. Subshells
 	- 22\. Restricted Shells
 	- 23\. Process Substitution
-	- 24\. Functions
+	- 24\. Functions(@zy416548283)
 	- 25\. Aliases
 	- 26\. List Constructs
-	- 27\. Arrays
+	- 27\. Arrays(@zy416548283)
 	- 28\. Indirect References
 	- 29\. /dev and /proc
 	- 30\. Network Programming
