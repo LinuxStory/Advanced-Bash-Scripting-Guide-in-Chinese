@@ -42,5 +42,4 @@
 	* [13. 算术扩展](source/part3/13_arithmetic_expansion.md)
 	* [14. 休息时间](source/part3/14_recess_time.md)
 * [第五部分 进阶话题](source/part5/part5.md)
-	* [18. 正则表达式]()
-	* [19. 嵌入文档](19_here_documents.md)
+	* [19. 嵌入文档](source/part5/19_here_documents.md)
