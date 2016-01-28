@@ -59,7 +59,7 @@
 	- 29\. /dev and /proc
 	- 30\. Network Programming
 	- 31\. Of Zeros and Nulls
-	- 32\. Debugging
+	- 32\. Debugging(@wuqichao)
 	- 33\. Options
 	- 34\. Gotchas
 	- 35\. Scripting With Style[@chuchingkai]
