@@ -2,6 +2,9 @@
 
 《高级Bash脚本编程指南》Revision 10中文版
 
+## 翻译周期的说明
+因译者自身原因，更新频率不固定，尽量保证每周1-2节。
+
 ## 原著及早期翻译作品
 ### 原著
 - 原著链接：http://tldp.org/LDP/abs/html/
@@ -9,46 +12,49 @@
 - 原著版本：Revision 10, 10 Mar 2014
 
 ### 译著
-- 译著连接：http://www.linuxsir.org/bbs/thread256887.html
+- 早期译著连接：http://www.linuxsir.org/bbs/thread256887.html
 - 译者：杨春敏 黄毅
 - 译著版本：Revision 3.7, 23 Oct 2005
+- 最新 Revision 10 由 Linux Story 社区的 imcmy 同学发起并组织翻译。
+- Linux Story 通告地址 ：http://www.linuxstory.org/asdvanced-bash-scripting-guide-in-chinese/ 
 
 ## 翻译作品
 翻译的部分都放置在[GitBook](https://www.gitbook.com/book/imcmy/advanced-bash-scripting-guide-in-chinese/details)上，欢迎阅读！
 
 ## 翻译进度
-- Part 1. Introduction[@imcmy]
-	- 1\. Shell Programming![@imcmy]
-	- 2\. Starting Off With a Sha-Bang[@imcmy]
-- Part 2. Basics[@imcmy]
-	- 3\. Special Characters
-	- 4\. Introduction to Variables and Parameters
-	- 5\. Quoting[@mr253727942]
-	- 6\. Exit and Exit Status[@samita2030]
-	- 7\. Tests
-	- 8\. Operations and Related Topics
-- Part 3. Beyond the Basics
-	- 9\. Another Look at Variables
-	- 10\. Manipulating Variables
-	- 11\. Loops and Branches
-	- 12\. Command Substitution
-	- 13\. Arithmetic Expansion
-	- 14\. Recess Time
-- Part 4. Commands
-	- 15\. Internal Commands and Builtins
-	- 16\. External Filters, Programs and Commands
-	- 17\. System and Administrative Commands
-- Part 5. Advanced Topics
-	- 18\. Regular Expressions
-	- 19\. Here Documents
-	- 20\. I/O Redirection
+
+- 第一部分 初见Shell[@imcmy]
+	- 1\. 为什么使用shell编程[@imcmy]
+	- 2\. Sha-Bang（#!）一起出发[@imcmy]
+- 第二部分 Shell基础[@imcmy]
+	- 3\. 特殊字符[@imcmy]
+	- 4\. 变量与参数[@imcmy]
+	- 5\. 引用[@mr253727942]
+	- 6\. 退出与退出状态[@samita2030]
+	- 7\. 测试[@imcmy]
+	- 8\. Operations and Related Topics[@samita2030]
+- 第三部分 Shell进阶[@imcmy]
+	- 9\. Another Look at Variables[@Ninestd]
+	- 10\. 变量处理[@imcmy]
+	- 11\. 循环与分支[@imcmy]
+	- 12\. 命令替换[@imcmy]
+	- 13\. 算术扩展[@imcmy]
+	- 14\. 休息时间[@imcmy]
+- 第四部分. 命令[@zhaozq]
+	- 15\. 内建命令[@zhaozq]
+	- 16\. 外部过滤器，程序与命令[@zhaozq]
+	- 17\. 系统与高级命令[@zhaozq]
+- 第五章. Advanced Topics
+	- 18\. 正则表达式(@bootingman)
+	- 19\. Here Documents(@mingmings)
+	- 20\. I/O Redirection(@mingmings)
 	- 21\. Subshells
 	- 22\. Restricted Shells
 	- 23\. Process Substitution
-	- 24\. Functions
+	- 24\. Functions(@zy416548283)
 	- 25\. Aliases
 	- 26\. List Constructs
-	- 27\. Arrays
+	- 27\. Arrays(@zy416548283)
 	- 28\. Indirect References
 	- 29\. /dev and /proc
 	- 30\. Network Programming
@@ -121,6 +127,9 @@
 5. 在你fork的项目的首页可以看到一个 `pull request` 按钮，点击它，填写说明信息，然后提交即可
 	> 为了不重复工作，请等待我们确认了你的pull request(即你的名字出现在项目中时)，再进行翻译校审工作
 6. 进行翻译校审，重复3-5步提交翻译校审的作品
+
+
+> 新手可以参阅针对github小白的[《翻译流程详解》](https://github.com/LinuxStory/Advanced-Bash-Scripting-Guide-in-Chinese/wiki/%E7%BF%BB%E8%AF%91%E6%B5%81%E7%A8%8B%E8%AF%A6%E8%A7%A3),妹子写的呦～
 
 ## 翻译校审建议
 1. 使用markdown进行翻译校审，文件名必须使用英文

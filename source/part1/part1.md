@@ -7,7 +7,7 @@
 Shell是一种命令解释器，它不仅分离了用户与操作系统内核，更是一种强大的编程语言。我们称由shell编写的程序为脚本（script）。脚本是一种易于使用的工具，它能够将系统调用、工具软件、实用程序（utility）以及已编译的二进制文件联系在一起用来构建程序。实际上，shell脚本可以调用所有的UNIX命令、实用程序以及工具软件。如果你觉得还不够，像`test`命令以及循环结构这样的shell内建命令能够让脚本更加灵活和强大。Shell脚本特别适合用来完成系统管理任务和那些不需要复杂的结构性语言实现的重复工作。
 
 ### 内容目录
-- [1\. 为什么使用shell编程](01_shell_programming.md)
-- 2\. 和Sha-Bang（#!）一起出发
-	- 2.1 调用一个脚本
-	- 2.2 小试牛刀
+- [1. 为什么使用shell编程](01_shell_programming.md)
+- [2. 和Sha-Bang（#!）一起出发](02_starting_off_with_a_sha_bang.md)
+	- [2.1 调用一个脚本](02_1_invoking_the_script.md)
+	- [2.2 小试牛刀](02_2_preliminary_exercises.md)
