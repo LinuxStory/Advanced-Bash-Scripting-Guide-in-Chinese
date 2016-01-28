@@ -51,8 +51,8 @@
 	- 21\. Subshells
 	- 22\. Restricted Shells
 	- 23\. Process Substitution
-	- 24\. Functions
-	- 25\. Aliases
+	- 24\. Functions(@mingmings)
+	- 25\. Aliases(@mingmings)
 	- 26\. List Constructs
 	- 27\. Arrays
 	- 28\. Indirect References
