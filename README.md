@@ -76,9 +76,9 @@
 - Appendix
 	- A\. Contributed Scripts
 	- B\. Reference Cards
-	- C\. A Sed and Awk Micro-Primer
-		- C.1 Sed
-		- C.2 Awk
+	- C\. A Sed and Awk Micro-Primer(@wuqichao)
+		- C.1 Sed(@wuqichao)
+		- C.2 Awk(@wuqichao)
 	- D\. Parsing and Managing Pathnames
 	- E\. Exit Codes With Special Meanings
 	- F\. A Detailed Introduction to I/O and I/O Redirection
