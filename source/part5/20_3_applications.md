@@ -5,7 +5,7 @@
 ```
 #!/bin/bash
 # logevents.sh
-# Author: Stephane Chazelas.
+# 作者: Stephane Chazelas.
 # 用于 ABS 许可指南.
 
 # 事件记录到文件.

@@ -30,7 +30,7 @@ exec 0<&6 6<&-
 # <&6 6<&-    also works.
 
 echo -n "Enter data  "
-read b1  # Now "read" functions as expected, reading from normal stdin.
+read b1  # 现在按预期的，从正常的标准输入 "read".
 echo "Input read from stdin."
 echo "----------------------"
 echo "b1 = $b1"
@@ -89,18 +89,18 @@ exit 0
 ```
 #!/bin/bash
 # upperconv.sh
-# Converts a specified input file to uppercase.
+# 转化指定的输入文件成大写.
 
 E_FILE_ACCESS=70
 E_WRONG_ARGS=71
 
-if [ ! -r "$1" ]     # Is specified input file readable?
+if [ ! -r "$1" ]     # 指定的输入文件是否可读?
 then
   echo "Can't read from input file!"
   echo "Usage: $0 input-file output-file"
   exit $E_FILE_ACCESS
-fi                   #  Will exit with same error
-                     #+ even if input file ($1) not specified (why?).
+fi                   #  同样的错误退出
+                     #+ 等同如果输入文件 ($1) 未指定 (为什么?).
 
 if [ -z "$2" ]
 then
@@ -111,24 +111,24 @@ fi
 
 
 exec 4<&0
-exec < $1            # Will read from input file.
+exec < $1            # 将从输入文件读取.
 
 exec 7>&1
-exec > $2            # Will write to output file.
-                     # Assumes output file writable (add check?).
+exec > $2            # 将写入输出文件.
+                     # 假定输出文件可写 (增加检测?).
 
 # -----------------------------------------------
-    cat - | tr a-z A-Z   # Uppercase conversion.
-#   ^^^^^                # Reads from stdin.
-#           ^^^^^^^^^^   # Writes to stdout.
-# However, both stdin and stdout were redirected.
-# Note that the 'cat' can be omitted.
+    cat - | tr a-z A-Z   # 转化大写.
+#   ^^^^^                # 读取标准输入.
+#           ^^^^^^^^^^   # 写到标准输出.
+# 然而标准输入和标准输出都会被重定向.
+# 注意 'cat' 可能会被遗漏.
 # -----------------------------------------------
 
-exec 1>&7 7>&-       # Restore stout.
-exec 0<&4 4<&-       # Restore stdin.
+exec 1>&7 7>&-       # 恢复标准输出.
+exec 0<&4 4<&-       # 恢复标准输入.
 
-# After restoration, the following line prints to stdout as expected.
+# 恢复后, 下面这行会预期从标准输出打印.
 echo "File \"$1\" written to \"$2\" as uppercase conversion."
 
 exit 0
