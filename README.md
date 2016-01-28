@@ -52,7 +52,7 @@
 	- 22\. Restricted Shells
 	- 23\. Process Substitution
 	- 24\. Functions(@zy416548283)
-	- 25\. Aliases
+	- 25\. Aliases(@mingmings)
 	- 26\. List Constructs
 	- 27\. Arrays(@zy416548283)
 	- 28\. Indirect References
