@@ -49,16 +49,16 @@
 	- 19\. Here Documents(@mingmings)
 	- 20\. I/O Redirection(@mingmings)
 	- 21\. Subshells(@mingmings)
-	- 22\. Restricted Shells
-	- 23\. Process Substitution
+	- 22\. Restricted Shells[@panblack]
+	- 23\. Process Substitution[@panblack]
 	- 24\. Functions(@zy416548283)
 	- 25\. Aliases(@mingmings)
-	- 26\. List Constructs
+	- 26\. List Constructs[@panblack]
 	- 27\. Arrays(@zy416548283)
-	- 28\. Indirect References
-	- 29\. /dev and /proc
-	- 30\. Network Programming
-	- 31\. Of Zeros and Nulls
+	- 28\. Indirect References[@panblack]
+	- 29\. /dev and /proc[@panblack]
+	- 30\. Network Programming[@panblack]
+	- 31\. Of Zeros and Nulls[@panblack]
 	- 32\. Debugging(@wuqichao)
 	- 33\. Options
 	- 34\. Gotchas
