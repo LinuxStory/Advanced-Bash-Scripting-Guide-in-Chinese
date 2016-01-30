@@ -47,3 +47,4 @@
 		* [20.1 使用 exec](source/part5/20_1_use_exec.md)
 		* [20.2 重定向代码块](source/part5/20_2_redirecting_code_blocks.md)
 		* [20.3 应用程序](source/part5/20_3_applications.md)
+	* [25. 别名](source/part5/25_aliases.md)
