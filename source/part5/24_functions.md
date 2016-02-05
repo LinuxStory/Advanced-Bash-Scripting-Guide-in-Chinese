@@ -6,24 +6,24 @@
 - [24.3 不使用局部变量的递归](24_3_recursion_without_local_variables.md)
 
 和其它“真正”的编程语言一样，Bash也有函数，尽管它在实现方面有一些限制。一个函数就是一个子程序，实现一系列操作的“代码块”，执行一个特定任务的“黑盒子”。有重复代码的地方，当一个过程只需要轻微修改任务就会重复执行的时候，那么你就需要考虑使用函数了。
-
-function function_name { 
+```
+function function_name {
 command...
 }
-
+```
 或者
-
+```
 function_name () { 
 command...
 }
-
+```
 第二种形式可能会更受C程序员的喜爱（并且它更具有可移植性）。
 在C语言里面，函数的圆括号可以出现在第二行。
-
+```
 function_name () {
 command...
 }
-
+```
 ![extra](http://tldp.org/LDP/abs/images/note.gif) 一个函数可能被“压缩”到一个单独行里。
 ```
 ￼fun () { echo "This is a function"; echo; } 
