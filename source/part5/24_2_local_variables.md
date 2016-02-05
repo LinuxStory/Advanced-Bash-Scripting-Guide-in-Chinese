@@ -63,7 +63,7 @@ echo "global_var = $global_var"  # global_var = 37
 echo "==OUTSIDE Function (global)=="
 t=$(exit 1)
 echo $?     # 1
-            # As expected.
+            # 如预期一样.
 
 echo
 function0 ()
@@ -72,16 +72,16 @@ function0 ()
     echo "Global"
     t0=$(exit 1)
     echo $?      # 1
-                 # As expected.
+                 # 如预期一样.
 
     echo
     echo "Local declared & assigned in same command."
     local t1=$(exit 1)
     echo $?      # 0
-                 # Unexpected!
-#  Apparently, the variable assignment takes place before
-#+ the local declaration.
-#+ The return value is for the latter.
+                 # 意料之外!
+#  显然，变量赋值发生在Apparently, 
+#+ 局部声明之前。
+#+ 返回值是为了latter.
 
     echo
     echo "Local declared, then assigned (separate commands)."
