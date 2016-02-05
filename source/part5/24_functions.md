@@ -4,7 +4,9 @@
 - [24.1 复杂函数和函数复杂性](24_1_complex_functions_and_function_complexities.md)
 - [24.2 局部变量](24_2_local_variables.md)
 - [24.3 不使用局部变量的递归](24_3_recursion_without_local_variables.md)
+
 和其它“真正”的编程语言一样，Bash也有函数，尽管它在实现方面有一些限制。一个函数就是一个子程序，实现一系列操作的“代码块”，执行一个特定任务的“黑盒子”。有重复代码的地方，当一个过程只需要轻微修改任务就会重复执行的时候，那么你就需要考虑使用函数了。
+
 ** function ** function_name { 
 command...
 }
