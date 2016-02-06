@@ -13,3 +13,4 @@
     - [24.3 不适用局部变量的递归](24_3_recursion_without_local_variables.md)
 - [25. 别名](25_aliases.md)
 - [27. 数组](27_arrays.md)
+- [33. 选项](33_options.md)
