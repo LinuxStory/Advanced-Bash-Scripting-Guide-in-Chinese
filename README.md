@@ -51,21 +51,21 @@
 	- 21\. Subshells(@mingmings)
 	- 22\. Restricted Shells[@panblack]
 	- 23\. Process Substitution[@panblack]
-	- 24\. Functions(@zy416548283)
+	- 24\. Functions[@zy416548283]
 	- 25\. Aliases(@mingmings)
 	- 26\. List Constructs[@panblack]
-	- 27\. Arrays(@zy416548283)
+	- 27\. Arrays[@zy416548283]
 	- 28\. Indirect References[@panblack]
 	- 29\. /dev and /proc[@panblack]
 	- 30\. Network Programming[@panblack]
 	- 31\. Of Zeros and Nulls[@panblack]
 	- 32\. Debugging(@wuqichao)
-	- 33\. Options
+	- 33\. Options[@zy416548283]
 	- 34\. Gotchas
 	- 35\. Scripting With Style[@chuchingkai]
 	- 36\. Miscellany
 	- 37\. Bash, versions 2, 3, and 4
-	- 38\. Endnotes
+	- 38\. Endnotes[@zy416548283]
 		- 38.1 Author's Note
 		- 38.2 About the Author
 		- 38.3 Where to Go For Help
