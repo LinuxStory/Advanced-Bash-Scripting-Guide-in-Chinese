@@ -1,5 +1,5 @@
 # 27 数组
-新版本的Bash支持一维数组。 数组元素可以使用符号** variable[xx] ** 来初始化。另外，脚本可以使用**  declare -a variable **语句来制定一个数组。 如果想引用一个数组元素（也就是取值），可以使用大括号，访问形式为 ${element[xx]} 。
+新版本的Bash支持一维数组。 数组元素可以使用符号**variable[xx]** 来初始化。另外，脚本可以使用**declare -a variable**语句来制定一个数组。 如果想引用一个数组元素（也就是取值），可以使用大括号，访问形式为 ${element[xx]} 。
 
 例子 27-1. 简单的数组使用 
 ```
@@ -417,7 +417,7 @@ echo; echo -n "Colors gone."
 echo ${colors[@]}		# 再次列出数组内容，内容为空。
 exit 0
 ```
-正如我们在前面的例子中所看到的，${array_name[@]}  或者  ${array_name[*]}  都与数组中的所有元素相关。同样的，为了计算数组的元素个数，可以使用 ${array_name[@]}  或者  ${array_name[*]}  。 ${#array_name}  是数组第一个元素的长度，也就是  ${array_name[0]}  的长度（字符个数）。
+正如我们在前面的例子中所看到的，**${array_name[@]}**  或者  **${array_name[\*]}**  都与数组中的所有元素相关。同样的，为了计算数组的元素个数，可以使用 **${array_name[@]}**  或者  **${array_name[\*]}**  。 **${#array_name}**  是数组第一个元素的长度，也就是  **${array_name[0]}**  的长度（字符个数）。
 
 例子 27-7. 空数组与包含空元素的数组 
 ```
@@ -574,7 +574,8 @@ echo "Elements in array10:  ${array10[@]}"
 
 exit
 ```
-${array_name[@]} 和${array_name[*]} 的关系非常类似于 [$@ 和$*]()。这种数组用法非常广泛。
+
+**${array_name[@]}** 和 **${array_name[\*]}** 的关系非常类似于 [$@ 和$*]()。这种数组用法非常广泛。
 
 ```
 # 复制一个数组
@@ -600,7 +601,7 @@ array[${#array[*]}]="new element"
 # 感谢, S.C.
 ```
 
-![info](http://tldp.org/LDP/abs/images/tip.gif) array=( element1 element2 ... elementN ) 初始化操作，如果有[命令替换]()的帮助，就可以将一个文本文件的内容加载到数组。
+![info](http://tldp.org/LDP/abs/images/tip.gif) **array=( element1 element2 ... elementN )** 初始化操作，如果有[命令替换]()的帮助，就可以将一个文本文件的内容加载到数组。
 ```
 #!/bin/bash
 filename=sample_file
@@ -713,7 +714,7 @@ times
 
 exit 0
 ```
-![extra](http://tldp.org/LDP/abs/images/note.gif) 在数组声明的时候添加一个额外的declare -a语句，能够加速后续的数组操作速度。
+![extra](http://tldp.org/LDP/abs/images/note.gif) 在数组声明的时候添加一个额外的**declare -a**语句，能够加速后续的数组操作速度。
 
 例子 27-9. 拷贝和连接数组
 ```
