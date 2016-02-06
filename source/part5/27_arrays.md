@@ -103,7 +103,7 @@ echo ${#string[@]}  # 1
 
 # 感谢你, Michael Zick, 指出这一点.
 ```
-类似的示范可以参考 [Bash变量是无类型的]() 。
+类似的示范可以参考 [Bash变量是无类型的](../part2/04_3_bash_variables_are_untyped.md) 。
 
 例子 27-2. 格式化一首诗
 ```
@@ -197,7 +197,7 @@ echo ${#array2[*]}      # 3     (数组中元素的个数)
 
 exit
 ```
-大部分标准[字符串操作]() 都可以用于数组中。
+大部分标准[字符串操作](../part3/10_1_manipulating_strings.md) 都可以用于数组中。
 
 例子27-4. 用于数组的字符串操作
 
@@ -319,7 +319,7 @@ exit 0
 #  Bash比你想象的更加强力.
 
 ```
-[命令替换]() 可以额构造数组的独立元素。
+[命令替换](../part3/12_command_substitution.md) 可以构造数组的独立元素。
 
 例子 27-5. 将脚本中的内容赋值给数组
 ```
@@ -350,7 +350,7 @@ exit 0
 #+ 让这个脚本能够按照它原本的格式输出，
 #+ 连同空格，换行，等等。
 ```
-在数组环境中，某些Bash [内建命令]() 的含义可能会有些轻微的改变。比如，[unset]() 命令可以删除数组元素，甚至能够删除整个数组。
+在数组环境中，某些Bash [内建命令](../part4/15_internal_commands_and_builtins.md) 的含义可能会有些轻微的改变。比如，[unset](http://tldp.org/LDP/abs/html/internal.html#UNSETREF) 命令可以删除数组元素，甚至能够删除整个数组。
 
 例子 27-6. 一些数组的专有特性
 ```
@@ -575,7 +575,7 @@ echo "Elements in array10:  ${array10[@]}"
 exit
 ```
 
-**${array_name[@]}** 和 **${array_name[\*]}** 的关系非常类似于 [$@ 和$*]()。这种数组用法非常广泛。
+**${array_name[@]}** 和 **${array_name[\*]}** 的关系非常类似于 [$@ 和$*](http://tldp.org/LDP/abs/html/internalvariables.html#APPREF)。这种数组用法非常广泛。
 
 ```
 # 复制一个数组
@@ -601,7 +601,7 @@ array[${#array[*]}]="new element"
 # 感谢, S.C.
 ```
 
-![info](http://tldp.org/LDP/abs/images/tip.gif) **array=( element1 element2 ... elementN )** 初始化操作，如果有[命令替换]()的帮助，就可以将一个文本文件的内容加载到数组。
+![info](http://tldp.org/LDP/abs/images/tip.gif) **array=( element1 element2 ... elementN )** 初始化操作，如果有[命令替换](../part3/12_command_substitution.md)的帮助，就可以将一个文本文件的内容加载到数组。
 ```
 #!/bin/bash
 filename=sample_file
@@ -895,7 +895,7 @@ exit 0
 ```
 
 ------
-有了数组, 我们就可以在脚本中实现一些比较熟悉的算法. 这么做, 到底是不是一个好主意, 我们在这 里不做讨论, 还是留给读者决定吧.
+有了数组, 我们就可以在脚本中实现一些比较熟悉的算法. 这么做, 到底是不是一个好主意, 我们在这里不做讨论, 还是留给读者决定吧.
 
 例子 27-11. 冒泡排序
 ```
@@ -1028,7 +1028,7 @@ exit 0
 ```
 
 ---
-如果将“嵌套数组”与[间接引用]() 组合起来使用的话，将会产生一些非常有趣的用法。
+如果将“嵌套数组”与[间接引用](http://tldp.org/LDP/abs/html/bashver2.html#VARREFNEW) 组合起来使用的话，将会产生一些非常有趣的用法。
 
 例子 27-12. 嵌套数组与间接引用
 ```
@@ -1268,7 +1268,7 @@ echo; echo
 
 exit $?
 ```
-上边的这个例子是基于数组的素数产生器, 还有不使用数组的素数产生器[例子A-15]() 和[例子 16-46]()，让我们来比较一番.
+上边的这个例子是基于数组的素数产生器, 还有不使用数组的素数产生器[例子A-15](http://tldp.org/LDP/abs/html/contributed-scripts.html#PRIMES) 和[例子 16-46](http://tldp.org/LDP/abs/html/mathc.html#PRIMES2)，让我们来比较一番.
 
 -----
 数组可以进行一定程度上的扩展, 这样就可以模拟一些Bash原本不支持的数据结构.
@@ -1597,13 +1597,13 @@ exit 0
 
 二维数组本质上其实就是一个一维数组, 只不过是添加了行和列的寻址方式, 来引用和操作数组的元素而已.
 
-这里有一个精心制作的模拟二维数组的例子, 请参考[例子 A-10]().
+这里有一个精心制作的模拟二维数组的例子, 请参考[例子 A-10](http://tldp.org/LDP/abs/html/contributed-scripts.html#LIFESLOW).
 
 -----
 还有更多使用数组的有趣的脚本，请参考：
-* [例子 12-3]()
-* [例子 16-46]()
-* [例子 A-22]()
-* [例子 A-44]()
-* [例子 A-41]()
-* [例子 A-42]()
+* [例子 12-3](http://tldp.org/LDP/abs/html/commandsub.html#AGRAM2)
+* [例子 16-46](http://tldp.org/LDP/abs/html/mathc.html#PRIMES2)
+* [例子 A-22](http://tldp.org/LDP/abs/html/contributed-scripts.html#HASHEX2)
+* [例子 A-44](http://tldp.org/LDP/abs/html/contributed-scripts.html#HOMEWORK)
+* [例子 A-41](http://tldp.org/LDP/abs/html/contributed-scripts.html#QKY)
+* [例子 A-42](http://tldp.org/LDP/abs/html/contributed-scripts.html#NIM)
