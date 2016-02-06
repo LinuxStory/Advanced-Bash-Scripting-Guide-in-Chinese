@@ -9,4 +9,5 @@
 > 请注意，作者不会回答任何来自Sun/Solaris/Oracle 或者 Apple系统上的脚本问题。这些团队正在和开源社区过不去。Solaris或者Apple的用户可以直接从客户服务那里去友善的获得关心。
 
 注意事项：
+
 [[1]](http://tldp.org/LDP/abs/html/wherehelp.html#AEN21329) 好吧，如果你执意坚持，你可以试试修改[[例子 A-44]](http://tldp.org/LDP/abs/html/contributed-scripts.html#HOMEWORK) 来达到你的目的。

@@ -10,7 +10,8 @@
 
 作者和他的妻子, 还有他们的狗生活在一个偏远的社区里, 他认为人性是脆弱的.[[3]](http://tldp.org/LDP/abs/html/aboutauthor.html#FTN.AEN21318)
 
-注意事项
+注意事项:
+
 [[1]](http://tldp.org/LDP/abs/html/aboutauthor.html#AEN21292) 事实上，他没有任何背景或者特殊资格。他是一个学校丢弃的，没有正式的资格或者专业的经验。None.Zero.Nada. 除了ABS Guide这本书，他主要的名气是1958年六月的一次在Colfax Elementary School Field Day的套袋赛跑中获得第一名。
 
 [[2]](http://tldp.org/LDP/abs/html/aboutauthor.html#AEN21295) 这种事谁都可以做. 但是有些人不能...想要拿到MCSE证书.
