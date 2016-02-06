@@ -2,7 +2,7 @@
 怎样使一个变量变成“局部”变量？
 
 局部变量
-    如果变量用local来声明，那么它就只能够在该变量被声明的[代码块](http://tldp.org/LDP/abs/html/special-chars.html#CODEBLOCKREF)中可见。 这个代码块就是局部[范围](http://tldp.org/LDP/abs/html/subshells.html#SCOPEREF)。 在一个函数中，一个局部变量只有在函数代码中才有意义。[1](http://tldp.org/LDP/abs/html/localvar.html#FTN.AEN18568)
+    如果变量用local来声明，那么它就只能够在该变量被声明的[代码块](http://tldp.org/LDP/abs/html/special-chars.html#CODEBLOCKREF)中可见。 这个代码块就是局部[范围](http://tldp.org/LDP/abs/html/subshells.html#SCOPEREF)。 在一个函数中，一个局部变量只有在函数代码中才有意义.[[1]](http://tldp.org/LDP/abs/html/localvar.html#FTN.AEN18568)
 
 例子 24-12. 局部变量的可见范围
 ```
@@ -155,7 +155,7 @@ echo
 
 exit $?
 ```
-局部变量是一个写递归代码有效的工具，但是这种方法一般会包含大量的计算负载，显然在shell脚本中并不推荐递归。[6](http://tldp.org/LDP/abs/html/localvar.html#FTN.AEN18632)
+局部变量是一个写递归代码有效的工具，但是这种方法一般会包含大量的计算负载，显然在shell脚本中并不推荐递归.[[6]](http://tldp.org/LDP/abs/html/localvar.html#FTN.AEN18632)
 
 例子24-15. 使用局部变量进行递归
 ```
@@ -245,9 +245,13 @@ exit 0
 The ABS Guide的作者认为这个行为一个bug.
 
 [[2]](http://tldp.org/LDP/abs/html/localvar.html#AEN18607) 被熟知为冗余。
+
 [[3]](http://tldp.org/LDP/abs/html/localvar.html#AEN18610) 被熟知为同义反复。
+
 [[4]](http://tldp.org/LDP/abs/html/localvar.html#AEN18614) 被熟知为暗喻。
+
 [[5]](http://tldp.org/LDP/abs/html/localvar.html#AEN18617) 被熟知为递归函数。
+
 [[6]](http://tldp.org/LDP/abs/html/localvar.html#AEN18632) 太多的递归层次可能会引发一个脚本的段错误。
 ```
 #!/bin/bash
