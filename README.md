@@ -61,7 +61,7 @@
 	- 31\. Of Zeros and Nulls[@panblack]
 	- 32\. Debugging(@wuqichao)
 	- 33\. Options[@zy416548283]
-	- 34\. Gotchas
+	- 34\. Gotchas[@liuburn]
 	- 35\. Scripting With Style[@chuchingkai]
 	- 36\. Miscellany
 	- 37\. Bash, versions 2, 3, and 4

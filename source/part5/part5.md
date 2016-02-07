@@ -14,6 +14,7 @@
 - [25. 别名](25_aliases.md)
 - [27. 数组](27_arrays.md)
 - [33. 选项](33_options.md)
+- [34. 陷阱](34_Gotchsa.md)
 - [38. 后记](38_endnotes.md)
     - [38.1 作者后记](38_1_author's_note.md)
     - [38.2 关于作者](38_2_about_the_author.md)
