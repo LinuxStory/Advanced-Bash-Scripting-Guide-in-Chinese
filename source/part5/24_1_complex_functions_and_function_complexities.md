@@ -1,10 +1,10 @@
 # 24.1 复杂函数和函数复杂性
-函数可以处理传递给它的参数，并且能返回它的[退出状态码]()给脚本，以便后续处理。
+函数可以处理传递给它的参数，并且能返回它的[退出状态码](http://tldp.org/LDP/abs/html/exit-status.html#EXITSTATUSREF)给脚本，以便后续处理。
 ```
 function_name $arg1 $arg2
 ```
 
-函数通过位置来引用传递过来的参数（就好像它们是位置参数），例如，$1, $2，等等。
+函数通过位置来引用传递过来的参数（就好像它们是[位置参数](http://tldp.org/LDP/abs/html/internalvariables.html#POSPARAMREF)），例如，$1, $2，等等。
 
 例子 24-2. 带参数的函数
 ```
@@ -66,7 +66,7 @@ echo                  # 第二个是ASCII码的字符串参数。
 
 exit 0
 ```
-![notice](http://tldp.org/LDP/abs/images/caution.gif) 也可以使用[shift]()命令来处理传递给函数的参数（请参考[例子 33-15]().
+![notice](http://tldp.org/LDP/abs/images/caution.gif) 也可以使用[shift](http://tldp.org/LDP/abs/html/othertypesv.html#SHIFTREF)命令来处理传递给函数的参数（请参考[例子 33-18](http://tldp.org/LDP/abs/html/assortedtips.html#MULTIPLICATION).
 但是，传递给脚本的命令行参数怎么办？在函数内部，可以看见这些命令行参数么？好，现在让我们弄清楚这个困惑。
 
 例子 34-3. 函数以及传递给脚本的命令行参数。
@@ -98,7 +98,7 @@ exit 0
 ```
 和其它的编程语言相比，shell脚本一般只会传值给函数。如果把变量名（事实上就是指针）作为参数传递给函数的话，那将被解释为字面含义，也就是被看做字符串。 函数只会以字面含义来解释函数参数。
 
-[变量的间接引用]()（请参考[例子 37-2]()）提供了一种笨拙的机制，来将变量指针传递给函数。
+[变量的间接引用](http://tldp.org/LDP/abs/html/ivr.html#IVRREF)（请参考[例子 37-2](http://tldp.org/LDP/abs/html/bashver2.html#EX78)）提供了一种笨拙的机制，来将变量指针传递给函数。
 
 例子 24-4. 将一个间接引用传递给函数
 ```
@@ -194,15 +194,15 @@ done
 exit 0
 ```
 
-退出与返回码
+## 退出与返回码
 
-退出状态码
+### 退出状态码
 
-函数返回一个值，被称为退出状态码。这和一条命令返回的[退出状态码]()类似。退出状态码可以由** return ** 命令明确指定，也可以由函数中最后一条命令的退出状态码来指定（如果成功，则返回0，否则返回非0值）。可以在脚本中使用[$?]()来引用[退出状态码]()。 因为有了这种机制，所以脚本函数也可以像C函数一样有“返回值”。
+函数返回一个值，被称为退出状态码。这和一条命令返回的[退出状态码](http://tldp.org/LDP/abs/html/exit-status.html#EXITSTATUSREF)类似。退出状态码可以由**return** 命令明确指定，也可以由函数中最后一条命令的退出状态码来指定（如果成功，则返回0，否则返回非0值）。可以在脚本中使用[$?](http://tldp.org/LDP/abs/html/internalvariables.html#XSTATVARREF)来引用[退出状态码](http://tldp.org/LDP/abs/html/exit-status.html#EXITSTATUSREF)。 因为有了这种机制，所以脚本函数也可以像C函数一样有“返回值”。
 
-return
+### return
 
-终止一个函数。一个return命令[109] 可选的允许带一个整形参数，这个整形参数将作为函数的“退出状态码”返回给调用这个函数的脚本，并且这个证书也被赋值给变量[$?]().
+终止一个函数。一个return命令[1](http://tldp.org/LDP/abs/html/complexfunct.html#FTN.AEN18474) 可选的允许带一个整形参数，这个整形参数将作为函数的“退出状态码”返回给调用这个函数的脚本，并且这个证书也被赋值给变量[$?](http://tldp.org/LDP/abs/html/internalvariables.html#XSTATVARREF).
 
 例子 24-7. 取两个数中的最大值
 ```
@@ -347,9 +347,9 @@ echo
 
 exit 
 ```
-也可以参见[例子 11-29]()
+也可以参见[例子 11-29](http://tldp.org/LDP/abs/html/testbranch.html#ISALPHA)
 
-![notice](http://tldp.org/LDP/abs/images/caution.gif) 函数所能返回最大的正整数是255. return命令和[退出状态码]()的概念紧密联系在一起，并且退出状态码的值受此限制。 幸运的是，如果想让函数返回大整数的话，有好多种不同的[变通方法]() 能够应对这个情况。
+![notice](http://tldp.org/LDP/abs/images/caution.gif) 函数所能返回最大的正整数是255. return命令和[退出状态码](http://tldp.org/LDP/abs/html/exit-status.html#EXITSTATUSREF)的概念紧密联系在一起，并且退出状态码的值受此限制。 幸运的是，如果想让函数返回大整数的话，有好多种不同的[变通方法](http://tldp.org/LDP/abs/html/assortedtips.html#RVT) 能够应对这个情况。
 
 例子24-9. 测试函数最大的返回值
 ```
@@ -412,7 +412,7 @@ alt_return_test 25701
 echo "return value = $Return_Val"           #25701
 ```
 
-一种更优雅的做法是在函数中使用echo命令将"返回值输出到stdout“，然后用[命令替换]()来捕捉此值。请参考[Section 36.7]() 中关于这种用法的讨论。
+一种更优雅的做法是在函数中使用echo命令将"返回值输出到stdout“，然后用[命令替换](http://tldp.org/LDP/abs/html/commandsub.html#COMMANDSUBREF)来捕捉此值。请参考[36.7小节](http://tldp.org/LDP/abs/html/assortedtips.html) 中[关于这种用法的讨论](http://tldp.org/LDP/abs/html/assortedtips.html#RVT)。
 
 例子 24-10. 比较两个大整数
 
@@ -483,7 +483,7 @@ exit 0
 #  3) 重写这个脚本，使其能够从命令行参数中获得输入。
 ```
 
-这是另一个能够捕捉函数”返回值“的例子。要想搞明白这个例子，需要一些[awk]()的知识。
+这是另一个能够捕捉函数”返回值“的例子。要想搞明白这个例子，需要一些[awk](http://tldp.org/LDP/abs/html/awk.html#AWKREF)的知识。
 
 ```
 month_length ()  # 把月份作为参数。
@@ -510,13 +510,13 @@ days_in=$(month_length $month)
 echo $days_in  # 30
 # ----------------------------------------------
 ```
-也请参考[例子 A-7]() 和[例子A-37]().
+也请参考[例子 A-7](http://tldp.org/LDP/abs/html/contributed-scripts.html#DAYSBETWEEN) 和[例子A-37](http://tldp.org/LDP/abs/html/contributed-scripts.html#STDDEV).
 
 练习:使用目前我们已经学到的知识，来扩展之前的例子 [将阿拉伯数字转化为罗马数字]()，让它能够接受任意大的输入。
 
 重定向
 重定向函数的stdin
-函数本质上其实就是一个[代码块](),这就意味着它的stdin可以被重定向（比如[例子3-1]())。
+函数本质上其实就是一个[代码块](http://tldp.org/LDP/abs/html/special-chars.html#CODEBLOCKREF),这就意味着它的stdin可以被重定向（比如[例子3-1](http://tldp.org/LDP/abs/html/special-chars.html#EX8))。
 
 例子 24-11. 从username中取得用户的真名
 ```
@@ -589,7 +589,7 @@ Function ()  # 不行.
 } | tr a b   # 这儿的内嵌代码块是被强制的。
 # 感谢, S.C.
 ```
-![extra](http://tldp.org/LDP/abs/images/note.gif) Emmanuel Rouat的 [sample]() [bash]() 文件包含了一些很有指导性意义的函数例子。
+![extra](http://tldp.org/LDP/abs/images/note.gif) Emmanuel Rouat的 [sample bash](http://tldp.org/LDP/abs/html/sample-bashrc.html) 文件包含了一些很有指导性意义的函数例子。
 
 
 
