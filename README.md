@@ -45,21 +45,21 @@
 	- 16\. 外部过滤器，程序与命令[@zhaozq]
 	- 17\. 系统与高级命令[@zhaozq]
 - 第五章. Advanced Topics
-	- 18\. 正则表达式(@bootingman)
-	- 19\. Here Documents(@mingmings)
-	- 20\. I/O Redirection(@mingmings)
-	- 21\. Subshells(@mingmings)
+	- 18\. 正则表达式[@bootingman]
+	- 19\. 嵌入文档[@mingmings]
+	- 20\. I/O 重定向[@mingmings]
+	- 21\. Subshells[@mingmings]
 	- 22\. Restricted Shells[@panblack]
 	- 23\. Process Substitution[@panblack]
 	- 24\. Functions[@zy416548283]
-	- 25\. Aliases(@mingmings)
+	- 25\. 别名[@mingmings]
 	- 26\. List Constructs[@panblack]
 	- 27\. Arrays[@zy416548283]
 	- 28\. Indirect References[@panblack]
 	- 29\. /dev and /proc[@panblack]
 	- 30\. Network Programming[@panblack]
 	- 31\. Of Zeros and Nulls[@panblack]
-	- 32\. Debugging(@wuqichao)
+	- 32\. Debugging[@wuqichao]
 	- 33\. Options[@zy416548283]
 	- 34\. Gotchas[@liuburn]
 	- 35\. Scripting With Style[@chuchingkai]
@@ -76,9 +76,9 @@
 - Appendix
 	- A\. Contributed Scripts
 	- B\. Reference Cards
-	- C\. A Sed and Awk Micro-Primer(@wuqichao)
-		- C.1 Sed(@wuqichao)
-		- C.2 Awk(@wuqichao)
+	- C\. A Sed and Awk Micro-Primer[@wuqichao]
+		- C.1 Sed[@wuqichao]
+		- C.2 Awk[@wuqichao]
 	- D\. Parsing and Managing Pathnames
 	- E\. Exit Codes With Special Meanings
 	- F\. A Detailed Introduction to I/O and I/O Redirection
