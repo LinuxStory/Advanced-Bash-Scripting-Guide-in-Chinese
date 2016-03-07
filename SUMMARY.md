@@ -49,4 +49,5 @@
 		* [20.3 应用程序](source/part5/20_3_applications.md)
 		* [22. 限制模式的Shell](source/part5/22_Restricted_Shells.md)
 		* [23. 进程替换](source/part5/23_Process_Substitution.md)
+		* [26. 列表结构](source/part5/26_List_Constructs.md)
 	* [25. 别名](source/part5/25_aliases.md)

@@ -111,7 +111,7 @@ exec 3>&-
 
 在子shell中 [echo 命令用管道输送给 while-read 循环](http://tldp.org/LDP/abs/html/gotchas.html#BADREAD0)时会出现问题，下面是避免的方法：
 
-**例23-1 不用 fork 的代码块重定向。**？？？
+**例23-1 不用 fork 的代码块重定向。**
 ```
 #!/bin/bash
 
@@ -128,8 +128,8 @@ do
   # ... 因为在子 shell 中运行。
 done
 
-echo "\$global (from outside the subprocess) = $global"
-# $global（从子 shell 外）=
+echo "\$global (从子进程之外) = $global"
+# $global (从子进程之外) =
 
 echo; echo "--"; echo
 
@@ -141,9 +141,9 @@ do
 done < <( echo "random input" )
 #    ^ ^
 
-echo "\$global (using process substitution) = $global"
+echo "\$global (使用进程替换) = $global"
 #  随机输入
-#  $global （使用进程替换）= 3D: Available outside the loop.
+#  $global (使用进程替换)= 3D: Available outside the loop.
 
 
 echo; echo "##########"; echo
@@ -214,7 +214,7 @@ bash psub.bash
 while read  des what mask iface; do
 # 一些命令 ...
 done < <(route -n)  
-#    ^ ^  地一个 < 是重定向，第二个是进程替换。First < is redirection, second is process substitution.
+#    ^ ^  第一个 < 是重定向，第二个是进程替换。
 
 #  为了测试，我们让它来做点儿事情。
 while read  des what mask iface; do
@@ -230,7 +230,7 @@ done < <(route -n)
 #  正如 Stéphane Chazelas 指出的,
 #+ 一个更容易理解的等价代码如下：
 route -n |
-  while read des what mask iface; do   # Variables set from output of pipe.
+  while read des what mask iface; do   # 通过管道输出设置的变量
     echo $des $what $mask $iface
   done  #  这段代码的结果更上面的相同。
         #  但是，Ulrich Gayer 指出 . . .
@@ -239,8 +239,6 @@ route -n |
 
 # --------------------------------------------------------------#
 
-#  However, Filip Moritz comments that there is a subtle difference
-#+ between the above two examples, as the following shows.
 #  然而，Filip Moritz 说上面的两个例子有一个微妙的区别，
 #+ 见下面的代码
 
