@@ -57,7 +57,7 @@
 	- 27\. Arrays[@zy416548283]
 	- 28\. Indirect References[@panblack]
 	- 29\. /dev and /proc[@panblack]
-	- 30\. Network Programming[@panblack]
+	- 30\. Network Programming[@Zjie]
 	- 31\. Of Zeros and Nulls[@panblack]
 	- 32\. Debugging[@wuqichao]
 	- 33\. Options[@zy416548283]
