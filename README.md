@@ -45,7 +45,7 @@
 	- 16\. 外部过滤器，程序与命令[@zhaozq]
 	- 17\. 系统与高级命令[@zhaozq]
 - 第五章. Advanced Topics
-	- 18\. 正则表达式[@bootingman]
+	- 18\. 正则表达式[@Zjie]
 	- 19\. 嵌入文档[@mingmings]
 	- 20\. I/O 重定向[@mingmings]
 	- 21\. Subshells[@mingmings]
