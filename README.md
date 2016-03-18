@@ -46,6 +46,8 @@
 	- 17\. 系统与高级命令[@zhaozq]
 - 第五章. Advanced Topics
 	- 18\. 正则表达式[@Zjie]
+		- 18.1 正则表达式简介[@Zjie]
+		- 18.2 文件名替换[@Zjie]
 	- 19\. 嵌入文档[@mingmings]
 	- 20\. I/O 重定向[@mingmings]
 	- 21\. Subshells[@mingmings]

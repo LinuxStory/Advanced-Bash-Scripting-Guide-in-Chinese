@@ -2,6 +2,8 @@
 
 ### 目录
 - [18.正则表达式](18_regular_expressions.md)
+    - [18.1正则表达式简介](18_1_a_brief_introduction_to_regular_expressions.md)
+    - [18.2文件名替换](18_2_globbing.md)
 - [19. 嵌入文档](19_here_documents.md)
 - [20. I/O 重定向](20_io_redirection.md)
 	- [20.1 使用 exec](20_1_use_exec.md)
