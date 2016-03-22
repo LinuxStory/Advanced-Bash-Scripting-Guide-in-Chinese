@@ -2,8 +2,10 @@
 
 《高级Bash脚本编程指南》Revision 10中文版
 
-## 翻译周期的说明
-因译者自身原因，更新频率不固定，尽量保证每周1-2节。
+## 联系/加入我们
+- 邮箱：absguide#linuxstory.org(将#替换为@)
+- 邮件列表：http://abs.2355403.n4.nabble.com/
+- QQ群：535442421
 
 ## 原著及早期翻译作品
 ### 原著
@@ -15,11 +17,11 @@
 - 早期译著连接：http://www.linuxsir.org/bbs/thread256887.html
 - 译者：杨春敏 黄毅
 - 译著版本：Revision 3.7, 23 Oct 2005
-- 最新 Revision 10 由 Linux Story 社区的 imcmy 同学发起并组织翻译。
+- 最新 Revision 10 由 Linux Story 社区的 imcmy 同学发起并组织翻译
 - Linux Story 通告地址 ：http://www.linuxstory.org/asdvanced-bash-scripting-guide-in-chinese/ 
 
 ## 翻译作品
-翻译的部分都放置在[GitBook](https://www.gitbook.com/book/imcmy/advanced-bash-scripting-guide-in-chinese/details)上，欢迎阅读！
+翻译作品放在[GitBook](https://www.gitbook.com/book/imcmy/advanced-bash-scripting-guide-in-chinese/details)上，欢迎阅读！
 
 ## 翻译进度
 
