@@ -4,7 +4,7 @@ wrapper是一个包含系统命令和工具的脚本，脚本会把一些参数�
 
 sed或awk脚本通常在命令行下调用时是sed -e '命令'或者awk '命令'。在Bash脚本中嵌入这些命令会让它们在调用时很简单，并且能够被重用。使用这种方法可以将sed和awk的优势统一起来，比如将sed命令处理的结果通过管道传递给awk继续处理。将这些保存成为一个可执行文件，你可以重复调用它的原始版本或者修改版本，而不用在命令行里反复敲冗长的命令。
 
-Example 36-1. shell wrapper
+## Example 36-1. shell wrapper
 
 ```
 #!/bin/bash
@@ -26,120 +26,112 @@ sed -e /^$/d "$1"
 #    sed -e '/^$/d' filename
 # 通过命令行调用
 
-#  The '-e' means an "editing" command follows (optional here).
-#  '^' indicates the beginning of line, '$' the end.
-#  This matches lines with nothing between the beginning and the end --
-#+ blank lines.
-#  The 'd' is the delete command.
+# '-e'意思是后面为编辑命令（这个选项可省略）。
+# '^'代表行首，'$'代表行尾。
+# 这个正则表达式表示要匹配出所有行首位没有内容的行，就是空白行。
+# 是删除命令（译注：就是把刚才选出来的空白行删掉）
 
-#  Quoting the command-line arg permits
-#+ whitespace and special characters in the filename.
+# 将文件名中的特殊字符和空白进行转译
 
-#  Note that this script doesn't actually change the target file.
-#  If you need to do that, redirect its output.
+# 这个脚本并不会真正的修改目标文件，如果想对目标文件真正的修改，请将输出重定向
 
 exit
 ```
 
-Example 36-2. A slightly more complex shell wrapper
+## Example 36-2. 稍微复杂一点的 shell wrapper
 
 ```
 #!/bin/bash
 
-#  subst.sh: a script that substitutes one pattern for
-#+ another in a file,
-#+ i.e., "sh subst.sh Smith Jones letter.txt".
-#                     Jones replaces Smith.
+#  subst.sh: 在文件中进行替换字符串的脚本
+#  例如 "sh subst.sh Smith Jones letter.txt"
+#  letter.txt 中的所有 Jones 都被替换为 Smith。
 
-ARGS=3         # Script requires 3 arguments.
-E_BADARGS=85   # Wrong number of arguments passed to script.
+ARGS=3         # 这个脚本需要三个参数
+E_BADARGS=85   # 传给脚本的参数数量不正确
 
 if [ $# -ne "$ARGS" ]
-    then
-      echo "Usage: `basename $0` old-pattern new-pattern filename"
-        exit $E_BADARGS
-        fi
+then
+    echo "Usage: `basename $0` old-pattern new-pattern filename"
+    exit $E_BADARGS
+fi
 
-        old_pattern=$1
-        new_pattern=$2
+old_pattern=$1
+new_pattern=$2
 
-        if [ -f "$3" ]
-            then
-                file_name=$3
-                else
-                        echo "File \"$3\" does not exist."
-                            exit $E_BADARGS
-                            fi
-
+if [ -f "$3" ]
+then
+    file_name=$3
+else
+    echo "File \"$3\" does not exist."
+    exit $E_BADARGS
+fi
 
 # -----------------------------------------------
-#  Here is where the heavy work gets done.
+# 这里是最核心的部分
 sed -e "s/$old_pattern/$new_pattern/g" $file_name
 # -----------------------------------------------
 
-#  's' is, of course, the substitute command in sed,
-#+ and /pattern/ invokes address matching.
-#  The 'g,' or global flag causes substitution for EVERY
-#+ occurence of $old_pattern on each line, not just the first.
-#  Read the 'sed' docs for an in-depth explanation.
+# 's' 是sed中的替换命令
+# /pattern/调用地址匹配
+# 'g' 表示要对文件中的所有匹配项目都进行替换操作，而不是仅对第一个这样干。
+# 如果需要深入了解，请阅读sed命令的相关文档。
 
-exit $?  # Redirect the output of this script to write to a file.
+exit $?  # 将这个脚本的输出重定向到一个文件即可记录真正的结果
 ```
 
-Example 36-3. A generic shell wrapper that writes to a logfile
+## Example 36-3. 一个通用的写日志文件的 shell wrapper
 
 ```
 #!/bin/bash
 #  logging-wrapper.sh
-#  Generic shell wrapper that performs an operation
-#+ and logs it.
+#  一个通用的shell wrapper，在进行操作的同时对操作进行日志记录
 
 DEFAULT_LOGFILE=logfile.txt
 
-# Set the following two variables.
+# 设置下面两个变量的值
 OPERATION=
-#         Can be a complex chain of commands,
-#+        for example an awk script or a pipe . . .
+# 可以是任意操作，比如一个awk脚本或者用管道连接的复杂命令
 
 LOGFILE=
 if [ -z "$LOGFILE" ]
-    then     # If not set, default to ...
+    then     # 如果没有设置日志文件，则使用默认文件名
       LOGFILE="$DEFAULT_LOGFILE"
       fi
 
-#         Command-line arguments, if any, for the operation.
+# 对于操作命令的参数（可选）
 OPTIONS="$@"
 
 
-# Log it.
+# 日志记录
 echo "`date` + `whoami` + $OPERATION "$@"" >> $LOGFILE
-# Now, do it.
+# 进行操作动作
 exec $OPERATION "$@"
 
-# It's necessary to do the logging before the operation.
-# Why?
+# 要在真正执行操作之前写日志
+# 思考下为什么要先写日志，后操作。
 ```
 
-Example 36-4. A shell wrapper around an awk script
+## Example 36-4. 关于awk脚本的 shell wrapper
 
 ```
 #!/bin/bash
-# pr-ascii.sh: Prints a table of ASCII characters.
+# pr-ascii.sh: 打印ASCII码表格
 
-START=33   # Range of printable ASCII characters (decimal).
-END=127    # Will not work for unprintable characters (> 127).
+START=33   # 可打印的ASCII码范围（十进制）
+END=127    # 不会输出不可打印的ASCII码
 
-echo " Decimal   Hex     Character"   # Header.
+echo " Decimal   Hex     Character"   # 表头
 echo " -------   ---     ---------"
 
 for ((i=START; i<=END; i++))
-    do
-          echo $i | awk '{printf("  %3d       %2x         %c\n", $1, $1, $1)}'
-# The Bash printf builtin will not work in this context:
+do
+    echo $i | awk '{printf("  %3d       %2x         %c\n", $1, $1, $1)}'
+# Bash内置的printf命令无法完成下面的操作: （译注：所以这使用awk脚本来实现输出）
 #     printf "%c" "$i"
-          done
+done
 
-          exit 0
+exit 0
 
 
 #  Decimal   Hex     Character
@@ -157,39 +149,38 @@ for ((i=START; i<=END; i++))
 #   125       7d         }
 
 
-#  Redirect the output of this script to a file
-#+ or pipe it to "more":  sh pr-asc.sh | more
+# 将输出重定向到文件
+# 或者用管道传递给"more":  sh pr-asc.sh | more
 ```
 
-Example 36-5. A shell wrapper around another awk script
+## Example 36-5. 另一个关于awk的 shell wrapper
 
 ```
 #!/bin/bash
 
-# Adds up a specified column (of numbers) in the target file.
-# Floating-point (decimal) numbers okay, because awk can handle them.
+# 在目标文件中添加一个数字的特殊列
+# 十进制浮点数也可以，因为awk可以处理这样的输出。
 
 ARGS=2
 E_WRONGARGS=85
 
 if [ $# -ne "$ARGS" ] # Check for proper number of command-line args.
-    then
-       echo "Usage: `basename $0` filename column-number"
-          exit $E_WRONGARGS
-          fi
+then
+    echo "Usage: `basename $0` filename column-number"
+    exit $E_WRONGARGS
+fi
 
-          filename=$1
-          column_number=$2
+filename=$1
+column_number=$2
 
-#  Passing shell variables to the awk part of the script is a bit tricky.
-#  One method is to strong-quote the Bash-script variable
-#+ within the awk script.
+# 将shell脚本的变量传递给awk有一点难办。
+# 第一种方法是用引号将Bash脚本变量在awk脚本中包起来
 #     $'$BASH_SCRIPT_VAR'
 #      ^                ^
-#  This is done in the embedded awk script below.
-#  See the awk documentation for more details.
+# 下面的awk脚本就是这么干的。
+# 详细用法可以查阅awk文档。
 
-# A multi-line awk script is here invoked by
+# 多行的awk脚本可以写成这样
 #   awk '
 #   ...
 #   ...
@@ -197,25 +188,25 @@ if [ $# -ne "$ARGS" ] # Check for proper number of command-line args.
 #   '
 
 
-# Begin awk script.
+# 开始awk脚本
 # -----------------------------
 awk '
 
-{ total += $'"${column_number}"'
+{ total += $'"${column_number}"' # 译注：这就是那个bash脚本变量
 }
 END {
-         print total
+print total
 }     
 
 ' "$filename"
 # -----------------------------
-# End awk script.
+# 结束awk脚本
 
 
-#   It may not be safe to pass shell variables to an embedded awk script,
-#+  so Stephane Chazelas proposes the following alternative:
+#   将shell变量传递给awk脚本也许是不安全的
+#   所以Stephane Chazelas提出了下面的替代方案：
 #   ---------------------------------------
-#   awk -v column_number="$column_number" '
+#   awk -v column_number="$column_number" ' # 译注：将shell的值赋给一个awk变量
 #   { total += $column_number
 #   }
 #   END {
@@ -227,20 +218,19 @@ END {
 exit 0
 ```
 
-For those scripts needing a single do-it-all tool, a Swiss army knife, there is Perl. Perl combines the capabilities of sed and awk, and throws in a large subset of C, to boot. It is modular and contains support for everything ranging from object-oriented programming up to and including the kitchen sink. Short Perl scripts lend themselves to embedding within shell scripts, and there may be some substance to the claim that Perl can totally replace shell scripting (though the author of the ABS
-Guide remains skeptical).
+能满足那些需要瑞士军刀般全能工具的脚本语言，就只有Perl了。Perl集合了sed和awk的能力，并且比C更加精简。它是模块化的并且能支持包括厨房洗碗槽在内的所有面向对象编程所能涉及的事物。短小的Perl脚本可以嵌入shell脚本中，甚至Perl可以完全替代shell脚本。（本书作者对此仍然抱有怀疑）
 
-Example 36-6. Perl embedded in a Bash script
+## Example 36-6. Perl嵌入Bash脚本
 
 ```
 #!/bin/bash
 
-# Shell commands may precede the Perl script.
+# shell命令先于Perl脚本执行
 echo "This precedes the embedded Perl script within \"$0\"."
 echo "==============================================================="
 
 perl -e 'print "This line prints from an embedded Perl script.\n";'
-# Like sed, Perl also uses the "-e" option.
+# 像sed命令一样，Perl使用'-e'选项
 
 echo "==============================================================="
 echo "However, the script may also contain shell and system commands."
@@ -248,90 +238,93 @@ echo "However, the script may also contain shell and system commands."
 exit 0
 ```
 
-It is even possible to combine a Bash script and Perl script within the same file. Depending on how the script is invoked, either the Bash part or the Perl part will execute.
+即使能将Bash脚本和Perl脚本合二为一，先执行Bash部分还是Perl部分仍然要取决于调用脚本的方式。
 
-Example 36-7. Bash and Perl scripts combined
+## Example 36-7. Bash和Perl脚本合并
 
 ```
 #!/bin/bash
 # bashandperl.sh
 
 echo "Greetings from the Bash part of the script, $0."
-# More Bash commands may follow here.
+# 这里可以写更多的Bash命令
 
 exit
-# End of Bash part of the script.
+# Bash脚本部分结束
 
 # =======================================================
 
 #!/usr/bin/perl
-# This part of the script must be invoked with
+# 这部分脚本要像下面这样调用
 #    perl -x bashandperl.sh
 
 print "Greetings from the Perl part of the script, $0.\n";
-#      Perl doesn't seem to like "echo" ...
-# More Perl commands may follow here.
+# Perl 看起来并不像 “echo” ...
+# 这里可以写更多的Perl命令
 
-# End of Perl part of the script.
+# Perl命令部分结束
+```
 
+```
 bash$ bash bashandperl.sh
 Greetings from the Bash part of the script.
 
-
 bash$ perl -x bashandperl.sh
 Greetings from the Perl part of the script.
+```
           
+当然还可以用shell wrapper嵌入更多的“外来户”，比如Python或者其他的...
 
-          It is, of course, possible to embed even more exotic scripting languages within shell wrappers. Python, for example ...
+## Example 36-8. Python嵌入Bash脚本
 
-          Example 36-8. Python embedded in a Bash script
-
+```
 #!/bin/bash
 # ex56py.sh
 
-# Shell commands may precede the Python script.
+# shell脚本先于Python脚本执行
 echo "This precedes the embedded Python script within \"$0.\""
 echo "==============================================================="
 
 python -c 'print "This line prints from an embedded Python script.\n";'
-# Unlike sed and perl, Python uses the "-c" option.
+# 并不像sed和Perl，Python使用'-c'选项
 python -c 'k = raw_input( "Hit a key to exit to outer script. " )'
 
 echo "==============================================================="
 echo "However, the script may also contain shell and system commands."
 
 exit 0
+```
 
-Wrapping a script around mplayer and the Google's translation server, you can create something that talks back to you.
+使用脚本封装mplayer或者Google翻译服务器的一些功能，你能做出给你反馈一些信息的小东西。
 
-Example 36-9. A script that speaks
+## Example 36-9. 会讲话的脚本
 
+```
 #!/bin/bash
-#   Courtesy of:
+#   参见:
 #   http://elinux.org/RPi_Text_to_Speech_(Speech_Synthesis)
 
-#  You must be on-line for this script to work,
-#+ so you can access the Google translation server.
-#  Of course, mplayer must be present on your computer.
+# 为了连接Google翻译服务器，这个脚本必须连接到互联网才能工作，
+# 而且你的计算机上必须装有mplayer。
 
 speak()
   {
-        local IFS=+
-          # Invoke mplayer, then connect to Google translation server.
-            /usr/bin/mplayer -ao alsa -really-quiet -noconsolecontrols \
-             "http://translate.google.com/translate_tts?tl=en&q="$*""
-               # Google translates, but can also speak.
-                 }
+  local IFS=+
+  # 先调用mplayer，再连接Google翻译服务器。
+  /usr/bin/mplayer -ao alsa -really-quiet -noconsolecontrols \
+  "http://translate.google.com/translate_tts?tl=en&q="$*""
+  # 可以说话的Google翻译
+  }
 
-                 LINES=4
+LINES=4
 
-                 spk=$(tail -$LINES $0) # Tail end of same script!
-                 speak "$spk"
-                 exit
-# Browns. Nice talking to you.
+spk=$(tail -$LINES $0) # 同样的结尾
+speak "$spk"
+exit
+# BRowns 很高兴与你谈话。
+```
 
-                 One interesting example of a complex shell wrapper is Martin Matusiak's undvd script, which provides an easy-to-use command-line interface to the complex mencoder utility. Another example is Itzchak Rehberg's Ext3Undel, a set of scripts to recover deleted file on an ext3 filesystem.
-                 Notes
-                 [1]    
+有个有趣的shell wrapper例子是Martin Matusiak的undvd，为复杂的mencoder工具提供了一个简单易用的命令行接口。另一个例子是Itzchak Rehberg的Ext3Undel，它为在ext3文件系统上恢复删除的文件提供了一整套工具。
 
-                 Quite a number of Linux utilities are, in fact, shell wrappers. Some examples are /usr/bin/pdf2ps, /usr/bin/batch, and /usr/bin/xmkmf.
+Notes
+[1] Linux工具事实上很多是shell wrapper，比如/usr/bin/pdf2ps，/usr/bin/batch和/usr/bin/xmkmf。
