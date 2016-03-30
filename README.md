@@ -67,7 +67,7 @@
 	- 33\. Options[@zy416548283]
 	- 34\. Gotchas[@liuburn]
 	- 35\. Scripting With Style[@chuchingkai]
-	- 36\. Miscellany
+	- 36\. Miscellany[@richard-ma]
 	- 37\. Bash, versions 2, 3, and 4
 	- 38\. Endnotes[@zy416548283]
 		- 38.1 Author's Note
