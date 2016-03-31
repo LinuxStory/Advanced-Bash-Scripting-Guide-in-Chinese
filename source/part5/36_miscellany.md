@@ -5,7 +5,7 @@
 目录
 - [36.1 交互和非交互shell以及脚本](36_1_interactive_and_non-interactive_shells_and_scripts.md)
 - [36.2 shell wrappers](36_2_shell_wrappers.md)
-- [36.3 测试和对比：Alternatives](36_3_tests_and_comparisons_alternatives.md)
+- [36.3 测试和比较的其他方法](36_3_tests_and_comparisons_alternatives.md)
 - [36.4 递归：调用自己的脚本](36_4_recursion_a_script_calling_itself.md)
 - [36.5 “彩色”的脚本](36_5_colorizing_scripts.md)
 - [36.6 优化](36_6_optimizations.md)
