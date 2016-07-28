@@ -47,7 +47,9 @@
 	- 16\. 外部过滤器，程序与命令[@zhaozq]
 	- 17\. 系统与高级命令[@zhaozq]
 - 第五章. Advanced Topics
-	- 18\. 正则表达式[@bootingman]
+	- 18\. 正则表达式[@Zjie]
+		- 18.1 正则表达式简介[@Zjie]
+		- 18.2 文件名替换[@Zjie]
 	- 19\. 嵌入文档[@mingmings]
 	- 20\. I/O 重定向[@mingmings]
 	- 21\. Subshells[@mingmings]
@@ -59,13 +61,13 @@
 	- 27\. Arrays[@zy416548283]
 	- 28\. Indirect References[@panblack]
 	- 29\. /dev and /proc[@panblack]
-	- 30\. Network Programming[@panblack]
+	- 30\. Network Programming[@Zjie]
 	- 31\. Of Zeros and Nulls[@panblack]
 	- 32\. Debugging[@wuqichao]
 	- 33\. Options[@zy416548283]
 	- 34\. Gotchas[@liuburn]
 	- 35\. Scripting With Style[@chuchingkai]
-	- 36\. Miscellany
+	- 36\. Miscellany[@richard-ma]
 	- 37\. Bash, versions 2, 3, and 4
 	- 38\. Endnotes[@zy416548283]
 		- 38.1 Author's Note

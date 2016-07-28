@@ -1,6 +1,9 @@
 # 第五部分 高级话题
 
 ### 目录
+- [18.正则表达式](18_regular_expressions.md)
+    - [18.1正则表达式简介](18_1_a_brief_introduction_to_regular_expressions.md)
+    - [18.2文件名替换](18_2_globbing.md)
 - [19. 嵌入文档](19_here_documents.md)
 - [20. I/O 重定向](20_io_redirection.md)
 	- [20.1 使用 exec](20_1_use_exec.md)
@@ -13,6 +16,7 @@
     - [24.3 不适用局部变量的递归](24_3_recursion_without_local_variables.md)
 - [25. 别名](25_aliases.md)
 - [27. 数组](27_arrays.md)
+- [30. 网络编程](30_network_programming.md)
 - [33. 选项](33_options.md)
 - [34. 陷阱](34_Gotchsa.md)
 - [38. 后记](38_endnotes.md)
