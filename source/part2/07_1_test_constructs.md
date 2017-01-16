@@ -8,77 +8,77 @@
 
 - 结构 [`(( ... ))`](http://tldp.org/LDP/abs/html/dblparens.html) 和 [`let ...`](http://tldp.org/LDP/abs/html/internal.html#LETREF) 根据其执行的算术表达式的结果是否扩展到非0值返回退出状态。因此这样的 [算术扩展](http://tldp.org/LDP/abs/html/arithexp.html#ARITHEXPREF) 结构可以用来进行 [数值比较](http://tldp.org/LDP/abs/html/comparison-ops.html#ICOMPARISON1)。
 
-    ```bash
-    (( 0 && 1 ))                 # 逻辑与
-    echo $?     # 1     ***
-    # 然后 ...
-    let "num = (( 0 && 1 ))"
-    echo $num   # 0
-    # 然而 ...
-    let "num = (( 0 && 1 ))"
-    echo $?     # 1     ***
-    
-    
-    (( 200 || 11 ))              # 逻辑或
-    echo $?     # 0     ***
-    # ...
-    let "num = (( 200 || 11 ))"
-    echo $num   # 1
-    let "num = (( 200 || 11 ))"
-    echo $?     # 0     ***
-    
-    
-    (( 200 | 11 ))               # 按位或
-    echo $?                      # 0     ***
-    # ...
-    let "num = (( 200 | 11 ))"
-    echo $num                    # 203
-    let "num = (( 200 | 11 ))"
-    echo $?                      # 0     ***
-    
-    # "let" 结构的退出状态与双括号算术扩展的退出状态相同。
-    ```
-    
-    ![caution](http://tldp.org/LDP/abs/images/caution.gif) 再次提醒算术扩展表达式的退出状态并不代表正误。
+```bash
+(( 0 && 1 ))                 # 逻辑与
+echo $?     # 1     ***
+# 然后 ...
+let "num = (( 0 && 1 ))"
+echo $num   # 0
+# 然而 ...
+let "num = (( 0 && 1 ))"
+echo $?     # 1     ***
 
-    ```bash
-    var=-2 && (( var+=2 ))
-    echo $?                   # 1
+
+(( 200 || 11 ))              # 逻辑或
+echo $?     # 0     ***
+# ...
+let "num = (( 200 || 11 ))"
+echo $num   # 1
+let "num = (( 200 || 11 ))"
+echo $?     # 0     ***
+
+
+(( 200 | 11 ))               # 按位或
+echo $?                      # 0     ***
+# ...
+let "num = (( 200 | 11 ))"
+echo $num                    # 203
+let "num = (( 200 | 11 ))"
+echo $?                      # 0     ***
+
+# "let" 结构的退出状态与双括号算术扩展的退出状态相同。
+```
     
-    var=-2 && (( var+=2 )) && echo $var
-                              # 并不会输出 $var
-    ```
+![caution](http://tldp.org/LDP/abs/images/caution.gif) 再次提醒算术扩展表达式的退出状态并不代表正误。
+
+```bash
+var=-2 && (( var+=2 ))
+echo $?                   # 1
+
+var=-2 && (( var+=2 )) && echo $var
+                          # 并不会输出 $var
+```
 
 - `if` 不仅可以用来测试在括号内的条件表达式，还可以用来测试其他任何命令。
 
-    ```bash
-    if cmp a b &> /dev/null  # 消去输出结果
-    then echo "Files a and b are identical."
-    else echo "Files a and b differ."
-    fi
+```bash
+if cmp a b &> /dev/null  # 消去输出结果
+then echo "Files a and b are identical."
+else echo "Files a and b differ."
+fi
+
+# 下面介绍一个非常实用的 “if-grep" 结构：
+# -----------------------------------
+if grep -q Bash file
+  then echo "File contains at least one occurrence of Bash."
+fi
     
-    # 下面介绍一个非常实用的 “if-grep" 结构：
-    # -----------------------------------
-    if grep -q Bash file
-      then echo "File contains at least one occurrence of Bash."
-    fi
-    
-    word=Linux
-    letter_sequence=inu
-    if echo "$word" | grep -q "$letter_sequence"
-    # 使用 -q 选项消去 grep 的输出结果
-    then
-      echo "$letter_sequence found in "$word"
-    else
-      echo "$letter_sequence not found in $word"
-    fi
-    
-    
-    if COMMAND_WHOSE_EXIT_STATUS_IS_0_UNLESS_ERROR_OCCURRED
-      then echo "Command succeed."
-      else echo "Command failed."
-    fi
-    ```
+word=Linux
+letter_sequence=inu
+if echo "$word" | grep -q "$letter_sequence"
+# 使用 -q 选项消去 grep 的输出结果
+then
+  echo "$letter_sequence found in "$word"
+else
+  echo "$letter_sequence not found in $word"
+fi
+
+
+if COMMAND_WHOSE_EXIT_STATUS_IS_0_UNLESS_ERROR_OCCURRED
+  then echo "Command succeed."
+  else echo "Command failed."
+fi
+```
 - 感谢 Stéphane Chazelas 提供了后两个例子。
 
 样例 7-1. 什么才是真的？
