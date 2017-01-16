@@ -246,7 +246,7 @@ else
 fi
 ```
 
-`if test condition-true` 完全等价于 `if [ condition-true ]`。当语句开始执行时，左括号 `[` 是作为调用 `test` 命令的标记[^1]，而右括号 `]` 则不是严格要求的，但是在新版本的 Bash 里是必须的。
+`if test condition-true` 完全等价于 `if [ condition-true ]`。当语句开始执行时，左括号 `[` 是作为调用 `test` 命令的标记[^1]，而右括号则不是严格要求的，但是在新版本的 Bash 里是必须的。
 
 ![note](http://tldp.org/LDP/abs/images/note.gif) `test` 命令是 Bash 的 [内建命令](http://tldp.org/LDP/abs/html/internal.html#BUILTINREF)，用来检测文件类型和比较字符串。因此在 Bash 脚本里，`test` 不会调用 `sh-utils` 包下的文件 `/usr/bin/test`。同样的，`[` 也不会调用链接到 `/usr/bin/test` 的 `/usr/bin/[` 文件。
 

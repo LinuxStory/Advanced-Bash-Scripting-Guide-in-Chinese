@@ -18,7 +18,7 @@
 	* [6. 退出与退出状态](source/part2/06_exit_and_exit_status.md)
 	* [7. 测试](source/part2/07_tests.md)
 		* [7.1 测试结构](source/part2/07_1_test_constructs.md)
-		* 7.2 文件测试操作
+		* [7.2 文件测试操作](source/part2/07_2_file_test_operators.md)
 		* 7.3 其他比较操作
 		* 7.4 嵌套 `if/then` 条件测试
 		* 7.5 牛刀小试
