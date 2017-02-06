@@ -728,7 +728,7 @@ exit 0
 	-RW-RW-R--    1 BOZO  BOZO       109 APR 14 16:48 2.TXT
 	-RW-R--R--    1 BOZO  BOZO       725 APR 20 20:56 DATA-FILE
 
-> ![extra](http://tldp.org/LDP/abs/images/note.gif) 在管道中每一个进程的输入必须作为下一个进程的输入被读入，如果不是这样，那么数据流将会被阻塞（block），管道也将不会按照预期的那样工作。
+> ![extra](http://tldp.org/LDP/abs/images/note.gif) 在管道中每一个进程的输出必须作为下一个进程的输入被读入，如果不是这样，那么数据流将会被阻塞（block），管道也将不会按照预期的那样工作。
 > 
 ```bash
 cat file1 file2 | ls -l | sort
@@ -1330,3 +1330,4 @@ UNIX 过滤器可以使用 POSIX 字符类 `[:space:]` 来寻找和操作空白�
 [^7]: 正如在古代催情剂（philtre）被认为是一种能引发神奇变化的药剂一样，UNIX 中的过滤器（filter）也是有类似的作用的。<br/>（如果一个程序员做出了一个能够在 Linux 设备上运行的 "love philtre"，那么他将会获得巨大的荣誉。）
 [^8]: Bash将之前在命令行中执行过的命令存储在缓存（buffer）中，或者一块内存区域里。可以使用内建命令 `history` 来查看。
 [^9]: 换行符本身也是一个空白符。因此这就是为什么仅仅包含一个换行符的空行也被认为是空白符。
+
