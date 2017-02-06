@@ -4,7 +4,6 @@
 
 ## 联系/加入我们
 - 邮箱：absguide#linuxstory.org(将#替换为@)
-- 邮件列表：http://abs.2355403.n4.nabble.com/
 - QQ群：535442421
 
 ## 原著及早期翻译作品
@@ -21,7 +20,7 @@
 - Linux Story 通告地址 ：http://www.linuxstory.org/asdvanced-bash-scripting-guide-in-chinese/ 
 
 ## 翻译作品
-翻译作品放在[GitBook](https://www.gitbook.com/book/imcmy/advanced-bash-scripting-guide-in-chinese/details)上，欢迎阅读！
+翻译作品放在[GitBook](https://www.gitbook.com/book/linuxstory/advanced-bash-scripting-guide-in-chinese/details)上，欢迎阅读！
 
 ## 翻译进度
 
@@ -144,3 +143,5 @@
 
 ## 关于版权
 根据原著作者的要求，翻译成果属于公有领域(CC0)，翻译参与人员及原著作者Mendel Cooper享有署名权
+
+

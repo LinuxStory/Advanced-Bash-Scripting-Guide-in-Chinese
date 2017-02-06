@@ -218,7 +218,7 @@ exit $?
 [样例 31-1](http://tldp.org/LDP/abs/html/zeros.html#COOKIES)，[样例 11-8](http://tldp.org/LDP/abs/html/loops1.html#BINGREP)，[样例 11-3](http://tldp.org/LDP/abs/html/loops1.html#FILEINFO)，[样例 31-3](http://tldp.org/LDP/abs/html/zeros.html#RAMDISK)和[样例 A-1](http://tldp.org/LDP/abs/html/contributed-scripts.html#MAILFORMAT) 也包含了测试操作符的使用。
 
 [^1]: 摘自1913年版本的韦氏词典<br><pre>Deprecate<br>...<br><br>To pray against, as an evil;<br>to seek to avert by prayer;<br>to desire the removal of;<br>to seek deliverance from;<br>to express deep regret for;<br>to disapprove of strongly.</pre>
-[^2]: 注意使用 suid 的可执行文件可能会带来安全问题。suid 标记对 shell 脚本中没有任何作用。
-[^3]: 在 Linux 系统中，粘滞位已经不再对文件使用了，仅仅对目录使用。
+[^2]: 注意使用 suid 的可执行文件可能会带来安全问题。suid 标记对 shell 脚本没有影响。
+[^3]: 在 Linux 系统中，文件中已经不使用粘滞位了, 粘滞位只使用在目录中。
 
 
