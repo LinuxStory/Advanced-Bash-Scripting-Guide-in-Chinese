@@ -115,7 +115,7 @@ fi  # 在清理日志之前，重复确认是否在正确的工作目录下。
 # 更高效的方法是：
 #
 # cd /var/log || {
-#   echo "Cannot change to necessary directory." > &2
+#   echo "Cannot change to necessary directory." >&2
 #   exit $E_XCD;
 # }
 
