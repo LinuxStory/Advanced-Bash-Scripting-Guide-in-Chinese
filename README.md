@@ -24,8 +24,8 @@
 
 ## 翻译进度
 
-- 第一部分 初见Shell[@imcmy]
-	- 1\. 为什么使用shell编程[@imcmy]
+- 第一部分 初见Shell[@imcmy][@zihengcat]
+	- 1\. 为什么使用shell编程[@imcmy][zihengcat]
 	- 2\. Sha-Bang（#!）一起出发[@imcmy]
 - 第二部分 Shell基础[@imcmy]
 	- 3\. 特殊字符[@imcmy]
@@ -143,5 +143,4 @@
 
 ## 关于版权
 根据原著作者的要求，翻译成果属于公有领域(CC0)，翻译参与人员及原著作者Mendel Cooper享有署名权
-
 
