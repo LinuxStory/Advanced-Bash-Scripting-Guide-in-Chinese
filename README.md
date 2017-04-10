@@ -25,8 +25,8 @@
 ## 翻译进度
 
 - 第一部分 初见Shell[@imcmy][@zihengcat]
-	- 1\. 为什么使用shell编程[@imcmy][zihengcat]
-	- 2\. Sha-Bang（#!）一起出发[@imcmy]
+	- 1\. 为什么使用shell编程[@imcmy][@zihengcat]
+	- 2\. Sha-Bang（#!）一起出发[@imcmy][@zihengcat]
 - 第二部分 Shell基础[@imcmy]
 	- 3\. 特殊字符[@imcmy]
 	- 4\. 变量与参数[@imcmy]
