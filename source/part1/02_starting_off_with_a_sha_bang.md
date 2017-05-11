@@ -120,7 +120,7 @@ fi  # 在清理日志前，二次确认是否在正确的工作目录下。
 # }
 
 
-tail -n $lines messages > msg.temp # 保存messages日志文件最后一部分
+tail -n $lines messages > mesg.temp # 保存messages日志文件最后一部分
 mv mesg.temp messages              # 替换系统日志文件以达到清理目的
 
 #  cat /dev/null > messages
