@@ -29,7 +29,7 @@
 	- 2\. Sha-Bang（#!）一起出发[@imcmy][@zihengcat]
 - 第二部分 Shell基础[@imcmy][@zihengcat]
 	- 3\. 特殊字符[@imcmy][@zihengcat]
-	- 4\. 变量与参数[@imcmy]
+	- 4\. 变量与参数[@imcmy][@zihengcat]
 	- 5\. 引用[@mr253727942]
 	- 6\. 退出与退出状态[@samita2030]
 	- 7\. 测试[@imcmy]
