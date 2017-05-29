@@ -30,7 +30,7 @@
 - 第二部分 Shell基础[@imcmy][@zihengcat]
 	- 3\. 特殊字符[@imcmy][@zihengcat]
 	- 4\. 变量与参数[@imcmy][@zihengcat]
-	- 5\. 引用[@mr253727942]
+	- 5\. 引用[@mr253727942][@zihengcat]
 	- 6\. 退出与退出状态[@samita2030]
 	- 7\. 测试[@imcmy]
 	- 8\. Operations and Related Topics[@samita2030]
