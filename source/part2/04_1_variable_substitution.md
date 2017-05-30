@@ -133,7 +133,7 @@ exit 0
 ```
 
 > ![notice](http://tldp.org/LDP/abs/images/caution.gif) 一个未被赋值或未初始化的变量拥有空值（null value）。*注意：null值不等同于0*。
->
+> 
 ```bash
 if [ -z "$unassigned" ]
 then
@@ -141,15 +141,15 @@ then
 fi     # $unassigned is NULL.
 ```
 > 在赋值前使用变量可能会导致错误。但在算术运算中使用未赋值变量是可行的。
->
+>   
 ```bash
-echo "$uninitialized"                                # 空行
-let "uninitialized += 5"                             # 加5
-echo "$uninitialized"                                # 5
-
+echo "$uninitialized"            # 空行
+let "uninitialized += 5"         # 加5
+echo "$uninitialized"            # 5
 # 结论：
 # 一个未初始化的变量不含值(null)，但在算术运算中会被作为0处理。
 ```
+>  
 > 也可参考样例 15-23。
 
 [^1]: 实际上，变量名是被称作左值（lvalue），意思是出现在赋值表达式的左侧的值，比如 `VARIABLE=23`。变量值被称作右值（rvalue），意思是出现在赋值表达式右侧的值，比如 `VAR2=$VARIABLE`。<br />事实上，变量名只是一个引用，一枚指针，指向实际存储数据内存地址的指针。
