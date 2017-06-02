@@ -1,20 +1,20 @@
 # 7.2 文件测试操作
 
-下列每一个操作符在满足其下条件时，返回的结果为真。
+下列每一个`test`选项在满足条件时，返回0（真）。
 
 ### -e
 
-文件存在
+检测文件是否存在
 
 ### -a
 
-文件存在
+检测文件是否存在
 
-等价于 `-e`。但不推荐使用，并已被弃用[^1]。
+等价于 `-e`。不推荐使用，已被弃用[^1]。
 
 ### -f
 
-文件是常规文件，而非一个目录或是 [设备文件](http://tldp.org/LDP/abs/html/devref1.html#DEVFILEREF)
+文件是常规文件(regular file)，而非目录或 [设备文件](http://tldp.org/LDP/abs/html/devref1.html#DEVFILEREF)
 
 ### -s
 
@@ -26,7 +26,7 @@
 
 ### -b
 
-文件是一个 [阻止设备](http://tldp.org/LDP/abs/html/devref1.html#BLOCKDEVREF)
+文件是一个 [块设备](http://tldp.org/LDP/abs/html/devref1.html#BLOCKDEVREF)
 
 ### -c
 
@@ -39,7 +39,7 @@ then
   echo "$device0 is a block device."
 fi
 
-# /dev/sda2 是一个阻止设备。
+# /dev/sda2 是一个块设备。
 
 
 
@@ -54,7 +54,7 @@ fi
 
 ### -p
 
-文件是一个 [管道](http://tldp.org/LDP/abs/html/special-chars.html#PIPEREF)
+文件是一个 [管道设备](http://tldp.org/LDP/abs/html/special-chars.html#PIPEREF)
 
 ```bash
 function show_input_type()
@@ -84,7 +84,7 @@ echo "Input" | show_input_type                    # PIPE
 
 文件（[文件描述符](http://tldp.org/LDP/abs/html/io-redirection.html#FDREF)）与终端设备关联
 
-该选项通常被用于 [测试](http://tldp.org/LDP/abs/html/intandnonint.html#II2TEST) 脚本中的 `stdin [ -t 0 ]` 或 `stdout [ -t 1 ]` 是终端设备。
+该选项通常被用于 [测试](http://tldp.org/LDP/abs/html/intandnonint.html#II2TEST) 脚本中的 `stdin [ -t 0 ]` 或 `stdout [ -t 1 ]` 是否为终端设备。
 
 ### -r
 
@@ -102,7 +102,7 @@ echo "Input" | show_input_type                    # PIPE
 
 文件或目录设置了 set-group-id `sgid` 标志
 
-如果一个目录设置了 `sgid` 标志，那么在该目录中新建的所有文件的权限组都归属于目录的权限组，而非文件创建者的权限组。该标志对工作组的共享文件夹很有用。
+如果一个目录设置了 `sgid` 标志，那么在该目录中所有的新建文件的权限组都归属于该目录的权限组，而非文件创建者的权限组。该标志对共享文件夹很有用。
 
 ### -u
 
@@ -120,13 +120,13 @@ echo "Input" | show_input_type                    # PIPE
 
 设置了粘滞位(sticky bit)。
 
-`save-text-mode` 标志即粘滞位是一种特殊的文件权限。如果文件设置了该标记，那么该文件将会被存储在高速缓存中以便进行高速存取[^3]。如果目录设置了该标记，那么它将会对目录的写权限进行限制，只有目录中该文件的拥有者可以修改或删除该文件。设置标记后你可以在权限中看到 `t`。
+标志粘滞位是一种特殊的文件权限。如果文件设置了粘滞位，那么该文件将会被存储在高速缓存中以便快速访问[^3]。如果目录设置了该标记，那么它将会对目录的写权限进行限制，目录中只有文件的拥有者可以修改或删除文件。设置标记后你可以在权限中看到 `t`。
 
 ```
 drwxrwxrwt    7 root         1024 May 19 21:26 tmp/
 ```
 
-如果一个用户不是设置了粘滞位的目录的拥有者，但对该目录有写权限，那么他仅仅可以删除目录中他所拥有的文件。这可以防止用户不经意间删除或修改其他人的文件，例如 `/tmp` 文件夹。（当然目录的拥有者可以删除或重命名所有文件）
+如果一个用户不是设置了粘滞位目录的拥有者，但对该目录有写权限，那么他仅仅可以删除目录中他所拥有的文件。这可以防止用户不经意间删除或修改其他人的文件，例如 `/tmp` 文件夹。（当然目录的所有者可以删除或修改该目录下的所有文件）
 
 ### -O
 
@@ -138,15 +138,15 @@ drwxrwxrwt    7 root         1024 May 19 21:26 tmp/
 
 ### -N
 
-文件在最后一次被访问后被修改过
+文件在在上次访问后被修改过了
 
 ### f1 -nt f2
 
-文件 f1 比文件 f2 更新
+文件 f1 比文件 f2 新
 
 ### f1 -ot f2
 
-文件 f1 比文件 f2 更旧
+文件 f1 比文件 f2 旧
 
 ### f1 -ef f2
 
@@ -154,7 +154,7 @@ drwxrwxrwt    7 root         1024 May 19 21:26 tmp/
 
 ### !
 
-非——对以上结果取反(如果条件缺失则取反后返回真)。
+取反——对测试结果取反(如果条件缺失则返回真)。
 
 样例 7-4. 检测链接是否损坏
 
@@ -215,10 +215,9 @@ done
 exit $?
 ```
 
-[样例 31-1](http://tldp.org/LDP/abs/html/zeros.html#COOKIES)，[样例 11-8](http://tldp.org/LDP/abs/html/loops1.html#BINGREP)，[样例 11-3](http://tldp.org/LDP/abs/html/loops1.html#FILEINFO)，[样例 31-3](http://tldp.org/LDP/abs/html/zeros.html#RAMDISK)和[样例 A-1](http://tldp.org/LDP/abs/html/contributed-scripts.html#MAILFORMAT) 也包含了测试操作符的使用。
+[样例 31-1](http://tldp.org/LDP/abs/html/zeros.html#COOKIES)，[样例 11-8](http://tldp.org/LDP/abs/html/loops1.html#BINGREP)，[样例 11-3](http://tldp.org/LDP/abs/html/loops1.html#FILEINFO)，[样例 31-3](http://tldp.org/LDP/abs/html/zeros.html#RAMDISK)和[样例 A-1](http://tldp.org/LDP/abs/html/contributed-scripts.html#MAILFORMAT) 也包含了文件测试操作符的使用。
 
 [^1]: 摘自1913年版本的韦氏词典<br><pre>Deprecate<br>...<br><br>To pray against, as an evil;<br>to seek to avert by prayer;<br>to desire the removal of;<br>to seek deliverance from;<br>to express deep regret for;<br>to disapprove of strongly.</pre>
 [^2]: 注意使用 suid 的可执行文件可能会带来安全问题。suid 标记对 shell 脚本没有影响。
-[^3]: 在 Linux 系统中，文件中已经不使用粘滞位了, 粘滞位只使用在目录中。
-
+[^3]: 在 Linux 系统中，文件已经不使用粘滞位了, 粘滞位只作用于目录。
 

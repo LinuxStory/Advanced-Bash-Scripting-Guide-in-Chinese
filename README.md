@@ -32,7 +32,7 @@
 	- 4\. 变量与参数[@imcmy][@zihengcat]
 	- 5\. 引用[@mr253727942][@zihengcat]
 	- 6\. 退出与退出状态[@samita2030][@zihengcat]
-	- 7\. 测试[@imcmy]
+	- 7\. 测试[@imcmy][@zihengcat]
 	- 8\. Operations and Related Topics[@samita2030]
 - 第三部分 Shell进阶[@imcmy]
 	- 9\. Another Look at Variables[@Ninestd]

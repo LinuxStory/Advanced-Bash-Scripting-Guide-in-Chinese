@@ -1,8 +1,9 @@
 # 7.3 其他比较操作
 
-二元比较操作比较变量或者数量。注意整数和字符串比较使用的是两套操作符。
+二元比较操作可以比较变量或者数量。
+需要注意的是，整数和字符串比较使用的是两套不同的操作符。
 
-### 整数比较
+## 整数比较
 
 ### -eq
 
@@ -64,7 +65,7 @@
 
 `(("$a" >= "$b"))`
 
-### 字符串比较
+## 字符串比较
 
 ### =
 
@@ -72,9 +73,9 @@
 
 `if [ "$a" = "$b" ]`
 
-![caution](http://tldp.org/LDP/abs/images/caution.gif) 注意在 `=`周围的 [空格](http://tldp.org/LDP/abs/images/caution.gif)
+![caution](http://tldp.org/LDP/abs/images/caution.gif) 注意在`=`前后要加上[空格](http://tldp.org/LDP/abs/images/caution.gif)
 
-`if [ "$a"="$b" ]` 和上面的不等价。
+`if [ "$a"="$b" ]` 和上面不等价。
 
 ### ==
 
@@ -84,7 +85,7 @@
 
 和 `=` 同义
 
-![note](http://tldp.org/LDP/abs/images/note.gif) `==` 操作符在 [双方括号](http://tldp.org/LDP/abs/html/testconstructs.html#DBLBRACKETS) 和单方括号里表现不同。
+![note](http://tldp.org/LDP/abs/images/note.gif) `==` 操作符在 [双方括号](http://tldp.org/LDP/abs/html/testconstructs.html#DBLBRACKETS) 和单方括号里的功能是不同的。
 
 ```bash
 [[ $a == z* ]]   # $a 以 "z" 开头时为真（模式匹配）
@@ -225,7 +226,7 @@ else
   echo "String \"string1\" is null."
 fi                    # 结果正确。
 # 独立的 [ ... ] 测试操作符可以用来检测字符串是否为空。
-# 但是最好将字符串进行引用（if [ "$string1" ]）。
+# 最好将字符串进行引用（if [ "$string1" ]）。
 #
 # Stephane Chazelas 指出：
 #    if [ $string1 ]    只有一个参数 "]"
@@ -304,7 +305,7 @@ exit $?   # 脚本的退出状态由管道 pipe 的退出状态决定。
 #+ 因为无论如何脚本都会返回最后执行命令的退出状态。
 ```
 
-### 复合比较
+## 复合比较
 
 ### -a
 
