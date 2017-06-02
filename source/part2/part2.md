@@ -2,7 +2,7 @@
 
 ### 目录
 - [3. 特殊字符](03_special_characters.md)
-- [4. 变量与参数介绍](04_introduction_to_variables_and_parameters.md)
+- [4. 变量与参数](04_introduction_to_variables_and_parameters.md)
 	- [4.1 变量替换](04_1_variable_substitution.md)
 	- [4.2 变量赋值](04_2_variable_assignment.md)
 	- [4.3 Bash弱类型变量](04_3_bash_variables_are_untyped.md)

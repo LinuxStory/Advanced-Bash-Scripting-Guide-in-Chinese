@@ -10,4 +10,5 @@ Shell是一种命令解释器，它不仅分离了用户层与操作系统内核
 - [1. 为什么使用shell编程](01_shell_programming.md)
 - [2. 和Sha-Bang（#!）一起出发](02_starting_off_with_a_sha_bang.md)
 	- [2.1 调用一个脚本](02_1_invoking_the_script.md)
-	- [2.2 小试牛刀](02_2_preliminary_exercises.md)
+	- [2.2 牛刀小试](02_2_preliminary_exercises.md)
+
