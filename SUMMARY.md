@@ -24,6 +24,7 @@
 		* [7.5 牛刀小试](source/part2/07_5_testing_your_knowledge_of_tests.md)
 	* [8. 运算符相关话题](source/part2/08_operations_and_related_topics.md)
         * [8.1 运算符](source/part2/08_1_operators.md)
+        * [8.2 数字常量](source/part2/08_2_numerical_constants.md)
 * [第三部分 shell进阶](source/part3/part3.md)
 	* 9\. 换个角度看变量
 		* 9.1 内部变量
