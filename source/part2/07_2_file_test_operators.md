@@ -1,6 +1,6 @@
 # 7.2 文件测试操作
 
-下列每一个`test`选项在满足条件时，返回0（真）。
+下列每一个运算符在满足其下条件时，返回的结果为真。
 
 ### -e
 
@@ -215,7 +215,7 @@ done
 exit $?
 ```
 
-[样例 31-1](http://tldp.org/LDP/abs/html/zeros.html#COOKIES)，[样例 11-8](http://tldp.org/LDP/abs/html/loops1.html#BINGREP)，[样例 11-3](http://tldp.org/LDP/abs/html/loops1.html#FILEINFO)，[样例 31-3](http://tldp.org/LDP/abs/html/zeros.html#RAMDISK)和[样例 A-1](http://tldp.org/LDP/abs/html/contributed-scripts.html#MAILFORMAT) 也包含了文件测试操作符的使用。
+[样例 31-1](http://tldp.org/LDP/abs/html/zeros.html#COOKIES)，[样例 11-8](http://tldp.org/LDP/abs/html/loops1.html#BINGREP)，[样例 11-3](http://tldp.org/LDP/abs/html/loops1.html#FILEINFO)，[样例 31-3](http://tldp.org/LDP/abs/html/zeros.html#RAMDISK)和[样例 A-1](http://tldp.org/LDP/abs/html/contributed-scripts.html#MAILFORMAT) 也包含了测试运算符的使用。
 
 [^1]: 摘自1913年版本的韦氏词典<br><pre>Deprecate<br>...<br><br>To pray against, as an evil;<br>to seek to avert by prayer;<br>to desire the removal of;<br>to seek deliverance from;<br>to express deep regret for;<br>to disapprove of strongly.</pre>
 [^2]: 注意使用 suid 的可执行文件可能会带来安全问题。suid 标记对 shell 脚本没有影响。
