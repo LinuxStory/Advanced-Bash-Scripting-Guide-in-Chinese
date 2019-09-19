@@ -1,10 +1,8 @@
 # 《Advanced Bash-Scripting Guide》 in Chinese
 
-《高级Bash脚本编程指南》Revision 10中文版
+[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/Advanced-Bash-Scripting-Guide-in-Chinese/)
 
-## 联系/加入我们
-- 邮箱：absguide#linuxstory.org(将#替换为@)
-- QQ群：535442421
+《高级Bash脚本编程指南》Revision 10中文版
 
 ## 原著及早期翻译作品
 ### 原著
@@ -35,7 +33,7 @@
 	- 7\. 测试[@imcmy][@zihengcat]
 	- 8\. 运算符相关话题[@samita2030][@zihengcat]
 - 第三部分 Shell进阶[@imcmy]
-	- 9\. Another Look at Variables[@Ninestd]
+	- 9\. Another Look at Variables[@imcmy]
 	- 10\. 变量处理[@imcmy]
 	- 11\. 循环与分支[@imcmy]
 	- 12\. 命令替换[@imcmy]

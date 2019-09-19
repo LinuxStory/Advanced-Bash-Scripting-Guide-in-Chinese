@@ -28,7 +28,7 @@
         * [8.3 双圆括号结构](source/part2/08_3_the_double_parentheses_construct.md)
         * [8.4 运算符优先级](source/part2/08_4_operator_precedence.md)
 * [第三部分 shell进阶](source/part3/part3.md)
-	* 9\. 换个角度看变量
+	* [9. 换个角度看变量](source/part3/09_another_look_at_variables.md)
 		* 9.1 内部变量
 		* 9.2 指定变量属性：`decalre` 或 `typeset`
 		* 9.3 `$RANDOM`：随机产生整数
