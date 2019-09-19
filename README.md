@@ -33,7 +33,7 @@
 	- 5\. 引用[@mr253727942]
 	- 6\. 退出与退出状态[@samita2030]
 	- 7\. 测试[@imcmy]
-	- 8\. Operations and Related Topics[@samita2030]
+	- 8\. 运算符和相关话题[@imcmy]
 - 第三部分 Shell进阶[@imcmy]
 	- 9\. Another Look at Variables[@Ninestd]
 	- 10\. 变量处理[@imcmy]

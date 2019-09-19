@@ -1,6 +1,6 @@
 # 7.4 嵌套 if/then 条件测试
 
-可以嵌套 `if/then` 条件测试结构。嵌套的结果等价于使用 [`&&`](http://tldp.org/LDP/abs/html/ops.html#LOGOPS1) 复合比较操作符。
+可以嵌套 `if/then` 条件测试结构。嵌套的结果等价于使用 [`&&`](http://tldp.org/LDP/abs/html/ops.html#LOGOPS1) 复合比较运算符。
 
 ```bash
 a=3

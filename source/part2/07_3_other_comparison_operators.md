@@ -1,6 +1,6 @@
 # 7.3 其他比较操作
 
-二元比较操作比较变量或者数量。注意整数和字符串比较使用的是两套操作符。
+二元比较操作比较变量或者数量。注意整数和字符串比较使用的是两套运算符。
 
 ### 整数比较
 
@@ -84,7 +84,7 @@
 
 和 `=` 同义
 
-![note](http://tldp.org/LDP/abs/images/note.gif) `==` 操作符在 [双方括号](http://tldp.org/LDP/abs/html/testconstructs.html#DBLBRACKETS) 和单方括号里表现不同。
+![note](http://tldp.org/LDP/abs/images/note.gif) `==` 运算符在 [双方括号](http://tldp.org/LDP/abs/html/testconstructs.html#DBLBRACKETS) 和单方括号里表现不同。
 
 ```bash
 [[ $a == z* ]]   # $a 以 "z" 开头时为真（模式匹配）
@@ -124,7 +124,7 @@
 
 注意在 `[]` 结构里 `>` 需要被转义。
 
-[样例 27-11](http://tldp.org/LDP/abs/html/arrays.html#BUBBLE) 包含了比较操作符。
+[样例 27-11](http://tldp.org/LDP/abs/html/arrays.html#BUBBLE) 包含了比较运算符。
 
 ### -z
 
@@ -224,7 +224,7 @@ then
 else
   echo "String \"string1\" is null."
 fi                    # 结果正确。
-# 独立的 [ ... ] 测试操作符可以用来检测字符串是否为空。
+# 独立的 [ ... ] 测试运算符可以用来检测字符串是否为空。
 # 但是最好将字符串进行引用（if [ "$string1" ]）。
 #
 # Stephane Chazelas 指出：
@@ -318,7 +318,7 @@ exit $?   # 脚本的退出状态由管道 pipe 的退出状态决定。
 
 如果 `exp1` 或 `exp2` 为真，则 `exp1 -o exp2` 返回真。
 
-以上两个操作和 [双方括号](http://tldp.org/LDP/abs/html/testconstructs.html#DBLBRACKETS) 结构中的 Bash 比较操作符号 `&&` 和 `||` 类似。
+以上两个操作和 [双方括号](http://tldp.org/LDP/abs/html/testconstructs.html#DBLBRACKETS) 结构中的 Bash 比较运算符号 `&&` 和 `||` 类似。
 
 ```bash
 [[ condition1 && condition2 ]]
