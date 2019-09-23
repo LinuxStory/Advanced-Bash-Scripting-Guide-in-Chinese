@@ -136,7 +136,7 @@
 1. 使用markdown进行翻译校审，文件名必须使用英文
 2. 翻译校审后的文档请放到source文件夹下的对应章节中，然后pull request即可
 3. 有任何问题随时欢迎发issue
-4. 术语尽量保证和已翻译的一致，也可以查询[微软术语搜索](http://www.microsoft.com/Language/zh-cn/Search.aspx)或[Linux中国术语词典](https://github.com/LCTT/TranslateProject/blob/master/Dict.md)
+4. 术语尽量保证和已翻译的一致，也可以查询[微软术语搜索](https://www.microsoft.com/zh-cn/language/search)或[Linux中国术语词典](https://github.com/LCTT/TranslateProject/blob/master/Dict.md)
 5. 你可以将你认为是术语的词汇加入术语表`TERM.md`中
 
 ## 关于版权
