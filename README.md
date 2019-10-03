@@ -33,7 +33,7 @@
 	- 7\. 测试[@imcmy][@zihengcat]
 	- 8\. 运算符相关话题[@samita2030][@zihengcat]
 - 第三部分 Shell进阶[@imcmy]
-	- 9\. Another Look at Variables[@imcmy]
+	- 9\. 换个角度看变量[@imcmy]
 	- 10\. 变量处理[@imcmy]
 	- 11\. 循环与分支[@imcmy]
 	- 12\. 命令替换[@imcmy]
@@ -136,7 +136,7 @@
 1. 使用markdown进行翻译校审，文件名必须使用英文
 2. 翻译校审后的文档请放到source文件夹下的对应章节中，然后pull request即可
 3. 有任何问题随时欢迎发issue
-4. 术语尽量保证和已翻译的一致，也可以查询[微软术语搜索](http://www.microsoft.com/Language/zh-cn/Search.aspx)或[Linux中国术语词典](https://github.com/LCTT/TranslateProject/blob/master/Dict.md)
+4. 术语尽量保证和已翻译的一致，也可以查询[微软术语搜索](https://www.microsoft.com/zh-cn/language/search)或[Linux中国术语词典](https://github.com/LCTT/TranslateProject/blob/master/Dict.md)
 5. 你可以将你认为是术语的词汇加入术语表`TERM.md`中
 
 ## 关于版权
