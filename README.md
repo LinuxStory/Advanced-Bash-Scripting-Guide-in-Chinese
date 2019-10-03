@@ -5,12 +5,15 @@
 《高级Bash脚本编程指南》Revision 10中文版
 
 ## 原著及早期翻译作品
+
 ### 原著
+
 - 原著链接：http://tldp.org/LDP/abs/html/
 - 原作：Mendel Cooper
 - 原著版本：Revision 10, 10 Mar 2014
 
 ### 译著
+
 - 早期译著连接：http://www.linuxsir.org/bbs/thread256887.html
 - 译者：杨春敏 黄毅
 - 译著版本：Revision 3.7, 23 Oct 2005
@@ -18,6 +21,7 @@
 - Linux Story 通告地址 ：http://www.linuxstory.org/asdvanced-bash-scripting-guide-in-chinese/ 
 
 ## 翻译作品
+
 翻译作品放在[GitBook](https://www.gitbook.com/book/linuxstory/advanced-bash-scripting-guide-in-chinese/details)上，欢迎阅读！
 
 ## 翻译进度
@@ -43,38 +47,30 @@
 	- 15\. 内建命令[@zhaozq]
 	- 16\. 外部过滤器，程序与命令[@zhaozq]
 	- 17\. 系统与高级命令[@zhaozq]
-- 第五章. Advanced Topics
+- 第五章. 高级话题
 	- 18\. 正则表达式[@Zjie]
-		- 18.1 正则表达式简介[@Zjie]
-		- 18.2 文件名替换[@Zjie]
 	- 19\. 嵌入文档[@mingmings]
 	- 20\. I/O 重定向[@mingmings]
 	- 21\. Subshells[@mingmings]
-	- 22\. Restricted Shells[@panblack]
-	- 23\. Process Substitution[@panblack]
-	- 24\. Functions[@zy416548283]
+	- 22\. 限制模式的Shell[@panblack]
+	- 23\. 进程替换[@panblack]
+	- 24\. 函数[@zy416548283]
 	- 25\. 别名[@mingmings]
-	- 26\. List Constructs[@panblack]
-	- 27\. Arrays[@zy416548283]
+	- 26\. 列表结构[@panblack]
+	- 27\. 数组[@zy416548283]
 	- 28\. Indirect References[@panblack]
 	- 29\. /dev and /proc[@panblack]
-	- 30\. Network Programming[@Zjie]
+	- 30\. 网络编程[@Zjie]
 	- 31\. Of Zeros and Nulls[@panblack]
 	- 32\. Debugging[@wuqichao]
-	- 33\. Options[@zy416548283]
-	- 34\. Gotchas[@liuburn]
+	- 33\. 选项[@zy416548283]
+	- 34\. 陷阱[@liuburn]
 	- 35\. Scripting With Style[@chuchingkai]
 	- 36\. Miscellany[@richard-ma]
 	- 37\. Bash, versions 2, 3, and 4
-	- 38\. Endnotes[@zy416548283]
-		- 38.1 Author's Note
-		- 38.2 About the Author
-		- 38.3 Where to Go For Help
-		- 38.4 Tools Used to Produce This Book
-		- 38.5 Credits
-		- 38.6 Disclaimer
+	- 38\. 后记[@zy416548283]
 - Bibliography
-- Appendix
+- 附录
 	- A\. Contributed Scripts
 	- B\. Reference Cards
 	- C\. A Sed and Awk Micro-Primer[@wuqichao]
@@ -106,7 +102,9 @@
 - List of Examples
 
 ## 翻译校审流程
+
 ### 初始化
+
 1. 首先fork项目
 2. 把fork过去的项目clone到本地
 3. 命令行下运行 `git checkout -b dev` 创建一个新分支
@@ -120,6 +118,7 @@
 如果修改过程中项目有更新，请重复5、6、7步。
 
 ### 翻译校审流程
+
 1. 保证在dev分支中
 2. 打开README.md，在翻译进度后加上你自己的github名
 	> 1\. Shell Programming! [@翻译人][@校审人]
@@ -133,6 +132,7 @@
 > 新手可以参阅针对github小白的[《翻译流程详解》](https://github.com/LinuxStory/Advanced-Bash-Scripting-Guide-in-Chinese/wiki/%E7%BF%BB%E8%AF%91%E6%B5%81%E7%A8%8B%E8%AF%A6%E8%A7%A3),妹子写的呦～
 
 ## 翻译校审建议
+
 1. 使用markdown进行翻译校审，文件名必须使用英文
 2. 翻译校审后的文档请放到source文件夹下的对应章节中，然后pull request即可
 3. 有任何问题随时欢迎发issue
@@ -140,5 +140,21 @@
 5. 你可以将你认为是术语的词汇加入术语表`TERM.md`中
 
 ## 关于版权
+
 根据原著作者的要求，翻译成果属于公有领域(CC0)，翻译参与人员及原著作者Mendel Cooper享有署名权
 
+翻译参与人员（按名称排序）：
+
+- @chuchingkai
+- @imcmy
+- @liuburn
+- @mingmings
+- @mr253727942
+- @panblack
+- @richard-ma
+- @samita2030
+- @wuqichao
+- @zhaozq
+- @zihengcat
+- @Zjie
+- @zy416548283
