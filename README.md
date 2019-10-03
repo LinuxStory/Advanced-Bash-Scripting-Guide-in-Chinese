@@ -33,7 +33,7 @@
 	- 7\. 测试[@imcmy][@zihengcat]
 	- 8\. 运算符相关话题[@samita2030][@zihengcat]
 - 第三部分 Shell进阶[@imcmy]
-	- 9\. Another Look at Variables[@imcmy]
+	- 9\. 换个角度看变量[@imcmy]
 	- 10\. 变量处理[@imcmy]
 	- 11\. 循环与分支[@imcmy]
 	- 12\. 命令替换[@imcmy]

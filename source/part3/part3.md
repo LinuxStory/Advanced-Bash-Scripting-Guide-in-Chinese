@@ -2,7 +2,7 @@
 
 ### 目录
 - [9. 换个角度看变量](09_another_look_at_variables.md)
-	- 9.1 内部变量
+	- [9.1 内部变量](09_1_internal_variables.md)
 	- 9.2 指定变量属性：`decalre` 或 `typeset`
 	- 9.3 `$RANDOM`：随机产生整数
 - [10. 变量处理](10_manipulating_variables.md)
