@@ -77,17 +77,17 @@
 		- C.1 Sed[@wuqichao]
 		- C.2 Awk[@wuqichao]
 	- D\. Parsing and Managing Pathnames
-	- E\. Exit Codes With Special Meanings
-	- F\. A Detailed Introduction to I/O and I/O Redirection
+	- E\. Exit Codes With Special Meanings[@ShadowRZ]
+	- F\. A Detailed Introduction to I/O and I/O Redirection[@ShadowRZ]
 	- G\. Command-Line Options
 		- G.1 Standard Command-Line Options
 		- G.2 Bash Command-Line Options
-	- H\. Important Files
+	- H\. Important Files[@ShadowRZ]
 	- I\. Important System Directories
 	- J\. An Introduction to Programmable Completion
 	- K\. Localization
 	- L\. History Commands
-	- M\. Sample .bashrc and .bash_profile Files
+	- M\. Sample .bashrc and .bash_profile Files[@ShadowRZ]
 	- N\. Converting DOS Batch Files to Shell Scripts
 	- O\. Exercises
 		- O.1 Analyzing Scripts
@@ -96,7 +96,7 @@
 	- Q\. Download and Mirror Sites
 	- R\. To Do List
 	- S\. Copyright
-	- T\. ASCII Table
+	- T\. ASCII Table[@ShadowRZ]
 - Index
 - List of Tables
 - List of Examples
