@@ -3,7 +3,8 @@
 ### 目录
 - [9. 换个角度看变量](09_another_look_at_variables.md)
 	- [9.1 内部变量](09_1_internal_variables.md)
-	- 9.2 指定变量属性：`decalre` 或 `typeset`
+	- [9.2 变量类型标注：`declare` 与 `typeset`](09_2_typing_variables_declare_or_typeset.md)
+    	- [9.2.1 `declare` 的另类用法](09_2_1_another_use_for_declare.md)
 	- 9.3 `$RANDOM`：随机产生整数
 - [10. 变量处理](10_manipulating_variables.md)
 	- [10.1 字符串处理](10_1_manipulating_strings.md)
