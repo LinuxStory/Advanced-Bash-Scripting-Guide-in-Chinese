@@ -158,10 +158,7 @@ bar  # 什么都不会输出。
 
 ## 注记
 
-[^1]:
-
 {% hint style="info" %}
-
 在本书中，变量类型标注（typing）是指指定变量类型并限制其属性。例如一个变量被 `declared` 或是 `typed` 命令声明为整型，则该变量不再适用于各种 [字符串操作]()。
 
 ```bash
@@ -172,5 +169,6 @@ echo "$intvar"   # 23
 intvar=stringval
 echo "$intvar"   # 0
 ```
-
 {% endhint %}
+
+[^1]:
