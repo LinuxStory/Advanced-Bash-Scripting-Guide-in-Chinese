@@ -128,7 +128,11 @@ bash$ echo $PWD
 
 有效用户ID（EUID）是指当前用户正在使用的用户ID，可以通过 `su` 命令修改。
 
-> `$EUID` 与 `$UID` 并不总是相同的。
+{% hint style="warning" %}
+
+`$EUID` 与 `$UID` 并不总是相同的。
+
+{% endhint %}
 
 #### $FUNCNAME
 
@@ -222,7 +226,9 @@ w:x:y:z
 IFS="$(printf '\n\t')"   # 按 David Wheeler 所述。
 ```
 
-> 相比于其他字符，变量 `$IFS` 在处理空白符时有所不同。
+{% hint style="warning" %}
+
+相比于其他字符，变量 `$IFS` 在处理空白符时有所不同。
 
 **样例 9-1. $IFS 与空白符**
 
@@ -317,6 +323,8 @@ echo
 exit
 ```
 
+{% endhint %}
+
 （非常感谢 Stéphane Chazelas 提供了上面的样例并做出的详细说明。）
 
 也可以参考 [样例 16-41]()，[样例 11-8]() 和 [样例19-14]()，获取更多使用 `$IFS` 的技巧。
@@ -329,7 +337,12 @@ exit
 
 经常会在文件 [`.bashrc`]() 或是文件 `/etc/profile` 中被设置。该变量控制文件名扩展和模式匹配中的排序顺序。如果设置不得当，`LC_COLLATE` 将会导致 [文件名匹配]() 中出现非预期结果。
 
-> 在 Bash 2.05 版本之后，文件名匹配在不再区分中括号中字母的大小写。例如 `ls [A-M]*` 将会同时匹配 `File1.txt` 和 `file1.txt` 两个文件。如果想要恢复成之前的模式，则需要在文件 `/etc/profile` 或文件 `~/.bashrc` 中通过语句 `export LC_COLLATE=C` 设置 `LC_COLLATE` 的值为 `C`。
+
+{% hint style="info" %}
+
+在 Bash 2.05 版本之后，文件名匹配在不再区分中括号中字母的大小写。例如 `ls [A-M]*` 将会同时匹配 `File1.txt` 和 `file1.txt` 两个文件。如果想要恢复成之前的模式，则需要在文件 `/etc/profile` 或文件 `~/.bashrc` 中通过语句 `export LC_COLLATE=C` 设置 `LC_COLLATE` 的值为 `C`。
+
+{% endhint %}
 
 #### $LC_CTYPE
 
@@ -385,7 +398,11 @@ bash$ echo $PATH
 
 `PATH=${PATH}:/opt/bin` 表示添加目录 `/opt/bin` 到当前的搜索路径中。在脚本中可以通过这种方式临时添加目录到搜索路径。而当脚本结束时，`$PATH` 就会恢复到原始值（类似于脚本这样的子进程所作出的修改，不会影响到例如 shell 这样的父进程的环境）。
 
-> 基于安全考虑，通常在 `$PATH` 中会省略当前工作目录 `./`。
+{% hint style="info" %}
+
+基于安全考虑，通常在 `$PATH` 中会省略当前工作目录 `./`。
+
+{% endhint %}
 
 #### $PIPESTATUS
 
@@ -408,57 +425,67 @@ bash$ echo $?
 
 `$PIPESTATUS` 数组中的每一个元素都代表了该管道中相对应命令的退出状态。`$PIPESTATUS[0]` 表示管道中第一个命令的退出状态，`$PIPESTATUS[1]` 表示第二个命令的退出状态，以此类推。
 
-> 在Bash 3.0 以下版本的登录shell中，变量 `$PIPESTATUS` 可能会包含一个不正确的 0 值。
-> 
-> ```bash
-> tcsh% bash
-> 
-> bash$ who | grep nobody | sort
-> bash$ echo ${PIPESTATUS[*]}
-> 0
-> ```
-> 
-> 如果脚本包含了上述代码，应该得到期望的输出是 0 1 0。
-> 
-> 感谢 Wayne Pollock 指出了这个问题并提供了上述的样例。
+{% hint style="warning" %}
 
-<!-- -->
+在Bash 3.0 以下版本的登录shell中，变量 `$PIPESTATUS` 可能会包含一个不正确的 0 值。
+ 
+```bash
+tcsh% bash
 
-> 在某些场景下，`$PIPESTATUS` 变量将会产生非预期结果。
-> 
-> ```bash
-> bash$ echo $BASH_VERSION
-> 3.00.14(1)-release
-> 
-> bash$ ls | bogus_command | wc
-> bash: bogus_command: command not found
->  0       0       0
-> 
-> bash$ echo ${PIPESTATUS[@]}
-> 141 127 0
-> ```
-> 
-> Chet Ramey 把上述非预期结果的原因归咎于 [`ls`]() 命令的行为。如果 `ls` 将结果输出到没有被读取的管道上，产生的 SIGPIPE 信号将会终止 `ls` 命令，同时其 [退出状态]() 从期望的 0 变为 141。而同样的情况也会发生在命令 `tr` 中。
+bash$ who | grep nobody | sort
+bash$ echo ${PIPESTATUS[*]}
+0
+```
 
-<!-- -->
+如果脚本包含了上述代码，应该得到期望的输出是 0 1 0。
 
-> `$PIPESTATUS` 是一个易失的变量。该变量需要在目标管道执行完成后，且其他任何命令执行之前去捕获。
-> 
-> ```bash
-> bash$ ls | bogus_command | wc
-> bash: bogus_command: command not found
->  0       0                0
-> 
-> bash$ echo ${PIPESTATUS[@]}
-> 0 127 0
-> 
-> bash$ echo ${PIPESTATUS[@]}
-> 0
-> ```
+感谢 Wayne Pollock 指出了这个问题并提供了上述的样例。
 
-<!-- -->
+{% endhint %}
 
-> 在 `$PIPESTATUS` 不能给出所期望的信息的情况下，使用 [pipeline 选项]() 可能会有帮助。
+{% hint style="info" %}
+
+在某些场景下，`$PIPESTATUS` 变量将会产生非预期结果。
+
+```bash
+bash$ echo $BASH_VERSION
+3.00.14(1)-release
+
+bash$ ls | bogus_command | wc
+bash: bogus_command: command not found
+ 0       0       0
+
+bash$ echo ${PIPESTATUS[@]}
+141 127 0
+```
+
+Chet Ramey 把上述非预期结果的原因归咎于 [`ls`]() 命令的行为。如果 `ls` 将结果输出到没有被读取的管道上，产生的 SIGPIPE 信号将会终止 `ls` 命令，同时其 [退出状态]() 从期望的 0 变为 141。而同样的情况也会发生在命令 `tr` 中。
+
+{% endhint %}
+
+{% hint style="info" %}
+
+`$PIPESTATUS` 是一个易失的变量。该变量需要在目标管道执行完成后，且其他任何命令执行之前去捕获。
+
+```bash
+bash$ ls | bogus_command | wc
+bash: bogus_command: command not found
+ 0       0                0
+
+bash$ echo ${PIPESTATUS[@]}
+0 127 0
+
+bash$ echo ${PIPESTATUS[@]}
+0
+```
+
+{% endhint %}
+
+{% hint style="info" %}
+
+在 `$PIPESTATUS` 不能给出所期望的信息的情况下，使用 [pipeline 选项]() 可能会有帮助。
+
+{% endhint %}
 
 #### $PPID
 
@@ -623,7 +650,11 @@ braceexpand:hashall:histexpand:monitor:history:interactive-comments:emacs
 
 当前 shell 的层级，即嵌套了多少层 Bash [^3]。如果命令行的层级 `$SHLVL` 为 1，那么在其中执行的脚本层级则增加到 2。
 
-> 该变量 [不受 subshell 影响]()。当你需要指出嵌套了多少层 subshell 时，需要使用变量 [`$BASH_SUBSHELL`](#$BASH_SUBSHELL)。
+{% hint style="info" %}
+
+该变量 [不受 subshell 影响]()。当你需要指出嵌套了多少层 subshell 时，需要使用变量 [`$BASH_SUBSHELL`](#$BASH_SUBSHELL)。
+
+{% endhint %}
 
 #### $TMOUT
 
@@ -834,23 +865,27 @@ fi
 
 还可以参考 [样例2-3]()。
 
-> 变量 `$ENV`，`$LOGNAME`，`$MAIL`，`$TERM`，`$USER` 以及 `$USERNAME` 并不是 Bash 的 [内建变量]()，而是在 [`Bash`]() 或系统的某个启动文件中，被设置而成的 [环境变量]()。代表当前用户登录 shell 名称的变量 `$SHELL` 是在文件 `/etc/password` 或是某个初始化脚本中被设定的，它也不是一个 Bash 的内建变量。
->
-> ```bash
-> tcsh% echo $LOGNAME
-> bozo
-> tcsh% echo $SHELL
-> /bin/tcsh
-> tcsh% echo $TERM
-> rxvt
-> 
-> bash$ echo $LOGNAME
-> bozo
-> bash$ echo $SHELL
-> /bin/tcsh
-> bash$ echo $TERM
-> rxvt
-> ```
+{% hint style="info" %}
+
+变量 `$ENV`，`$LOGNAME`，`$MAIL`，`$TERM`，`$USER` 以及 `$USERNAME` 并不是 Bash 的 [内建变量]()，而是在 [`Bash`]() 或系统的某个启动文件中，被设置而成的 [环境变量]()。代表当前用户登录 shell 名称的变量 `$SHELL` 是在文件 `/etc/password` 或是某个初始化脚本中被设定的，它也不是一个 Bash 的内建变量。
+
+```bash
+tcsh% echo $LOGNAME
+bozo
+tcsh% echo $SHELL
+/bin/tcsh
+tcsh% echo $TERM
+rxvt
+
+bash$ echo $LOGNAME
+bozo
+bash$ echo $SHELL
+/bin/tcsh
+bash$ echo $TERM
+rxvt
+```
+
+{% endhint %}
 
 ### 位置参数
 
@@ -866,13 +901,21 @@ fi
 
 将所有的位置参数整合，视作一个单词。
 
-> 该参数必须是被引用的状态，`"$*"`。
+{% hint style="info" %}
+
+该参数必须是被引用的状态，`"$*"`。
+
+{% endhint %}
 
 #### $@
 
 该参数等同于 `$*`，但其中每个参数都是独立的被引用的字符串。也就是说，所有的参数都是被原封不动的进行传递，并没有被解析或是扩展。这意味着，参数列表中的每一个参数都被独立视为一个单词。
 
-> 同样，该参数必须是被引用的状态，`"$@"`。
+{% hint style="info" %}
+
+同样，该参数必须是被引用的状态，`"$@"`。
+
+{% endhint %}
 
 **样例 9-6. 参数列表：利用 \$* 和 \$@ 列出参数**
 
@@ -947,7 +990,11 @@ echo "$@"    # 3 4 5
 
 参数 `$@` 也可被用作过滤 shell 脚本输入的工具。结构 `cat "$@"` 可以接受来自标准输入 `stdin` 的输入，也可以接受传递给脚本的参数中的文件中的输入。参考 [样例 16-24]() 和 [样例 16-25]()。
 
-> 根据分隔符 [`$IFS`]() 设置的不同，`$*` 和 `$@` 有时会出现不一致或非预期行为。
+{% hint style="warning" %}
+
+根据分隔符 [`$IFS`]() 设置的不同，`$*` 和 `$@` 有时会出现不一致或非预期行为。
+
+{% endhint %}
 
 **样例 9-7. \$* 和 \$@ 的不一致行为**
 
@@ -1091,7 +1138,11 @@ exit 0
 #+ 由本书作者轻微改动。
 ```
 
-> `$@` 和 `$*` 仅在被双引号引用时才会表现出不同。
+{% hint style="info" %}
+
+`$@` 和 `$*` 仅在被双引号引用时才会表现出不同。
+
+{% endhint %}
 
 **样例 9-8. 当 $IFS 为空时 \$* 和 \$@ 的表现**
 
@@ -1133,7 +1184,11 @@ exit
 
 使用 [`set`]() 命令设置的脚本标记。参考 [样例 15-16]()。
 
-> 这个参数最开始是从 ksh 引入到 Bash中的。但很遗憾的是，该参数在 Bash 脚本中并不能可靠地运行。该参数可能的一个用法是用于 [自检脚本是否可交互]()。
+{% hint style="warning" %}
+
+这个参数最开始是从 ksh 引入到 Bash中的。但很遗憾的是，该参数在 Bash 脚本中并不能可靠地运行。该参数可能的一个用法是用于 [自检脚本是否可交互]()。
+
+{% endhint %}
 
 #### $!
 
