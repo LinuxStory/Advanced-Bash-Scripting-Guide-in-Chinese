@@ -1,6 +1,0 @@
-{
-    "gitbook": ">=3.0.0",
-    "structure": {
-        "readme": "README.md"
-    }
-}
