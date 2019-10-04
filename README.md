@@ -77,17 +77,17 @@
 		- C.1 Sed[@wuqichao]
 		- C.2 Awk[@wuqichao]
 	- D\. Parsing and Managing Pathnames
-	- E\. Exit Codes With Special Meanings
-	- F\. A Detailed Introduction to I/O and I/O Redirection
+	- E\. 带有特殊意义的退出代码[@ShadowRZ]
+	- F\. I/O 与 I/O 重定向详细介绍[@ShadowRZ]
 	- G\. Command-Line Options
 		- G.1 Standard Command-Line Options
 		- G.2 Bash Command-Line Options
-	- H\. Important Files
+	- H\. 重要文件[@ShadowRZ]
 	- I\. Important System Directories
 	- J\. An Introduction to Programmable Completion
 	- K\. Localization
 	- L\. History Commands
-	- M\. Sample .bashrc and .bash_profile Files
+	- M\. 示例 ~/.bashrc 与 ~/.bash_profile[@ShadowRZ]
 	- N\. Converting DOS Batch Files to Shell Scripts
 	- O\. Exercises
 		- O.1 Analyzing Scripts
@@ -96,7 +96,7 @@
 	- Q\. Download and Mirror Sites
 	- R\. To Do List
 	- S\. Copyright
-	- T\. ASCII Table
+	- T\. ASCII 表[@ShadowRZ]
 - Index
 - List of Tables
 - List of Examples
