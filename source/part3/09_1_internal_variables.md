@@ -1302,36 +1302,31 @@ echo $_              #  :
 
 ## 注记
 
-[^1]:
-
 {% hint style="info" %}
 栈寄存器是一段连续的内存空间，在该空间中，存入（压栈）的值是以倒序的方式取出（出栈）的。最后一个存入的值被最先取出。其通常又被称为后进先出(LIFO)或是下堆栈。
 {% endhint %}
-
-[^2]:
 
 {% hint style="info" %}
 当前运行脚本的进程 ID 就是 `$$`。
 {% endhint %}
 
-[^3]:
-
 {% hint style="info" %}
 类似于 [递归]()。在本文中，嵌套是指代一种模式被嵌入在一种更大的模式中。在 1913 年出版的韦伯斯特大辞典中用一种更加优雅的方式解释了什么是嵌套：“一组按体积大小排列的盒子、箱子或是类似的东西，它们中的每一个都被放入到另一个更大的箱子中。(A collection of boxes, cases, or the like, of graduated size, each put within the one next larger.)”。
 {% endhint %}
-
-[^4]:
 
 {% hint style="info" %}
 术语“变量(argument)”和“参数(parameter)”通常情况下是可以互相交换使用的。在本书中，它们具有相同的含义：传入脚本或函数的变量。
 {% endhint %}
 
-[^5]:
-
 {% hint style="info" %}
 在 subshell 中运行的脚本，`$$` [返回脚本的进程 ID]() 而非 subshell 的。
 {% endhint %}
 
+[^1]:
+[^2]:
+[^3]:
+[^4]:
+[^5]:
 
 
 
