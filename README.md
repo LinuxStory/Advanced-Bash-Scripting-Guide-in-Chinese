@@ -43,32 +43,32 @@
 	- 12\. 命令替换[@imcmy]
 	- 13\. 算术扩展[@imcmy]
 	- 14\. 休息时间[@imcmy]
-- 第四部分. 命令[@zhaozq]
-	- 15\. 内建命令[@zhaozq]
-	- 16\. 外部过滤器，程序与命令[@zhaozq]
-	- 17\. 系统与高级命令[@zhaozq]
+- 第四部分. 命令
+	- 15\. 内建命令
+	- 16\. 外部过滤器，程序与命令
+	- 17\. 系统与高级命令
 - 第五章. 高级话题
 	- 18\. 正则表达式[@Zjie]
 	- 19\. 嵌入文档[@mingmings]
 	- 20\. I/O 重定向[@mingmings]
-	- 21\. Subshells[@mingmings]
+	- 21\. Subshells
 	- 22\. 限制模式的Shell[@panblack]
 	- 23\. 进程替换[@panblack]
 	- 24\. 函数[@zy416548283]
 	- 25\. 别名[@mingmings]
 	- 26\. 列表结构[@panblack]
 	- 27\. 数组[@zy416548283]
-	- 28\. Indirect References[@panblack]
-	- 29\. /dev and /proc[@panblack]
+	- 28\. Indirect References
+	- 29\. /dev and /proc
 	- 30\. 网络编程[@Zjie]
-	- 31\. Of Zeros and Nulls[@panblack]
+	- 31\. Of Zeros and Nulls
 	- 32\. Debugging[@wuqichao]
 	- 33\. 选项[@zy416548283]
 	- 34\. 陷阱[@liuburn]
-	- 35\. Scripting With Style[@chuchingkai]
+	- 35\. Scripting With Style
 	- 36\. Miscellany[@richard-ma]
 	- 37\. Bash, versions 2, 3, and 4
-	- 38\. 后记[@zy416548283]
+- 38\. 后记[@zy416548283]
 - Bibliography
 - 附录
 	- A\. Contributed Scripts
@@ -153,6 +153,7 @@
 - @panblack
 - @richard-ma
 - @samita2030
+- @ShadowRZ
 - @wuqichao
 - @zhaozq
 - @zihengcat

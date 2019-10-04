@@ -66,14 +66,14 @@
 	* [30. 网络编程](source/part5/30_network_programming.md)
 	* [33. 选项](source/part5/33_options.md)
 	* [34. 陷阱](source/part5/34_Gotchsa.md)
-	* [38. 后记](source/part5/38_endnotes.md)
-      * [38.1 作者后记](source/part5/38_1_author's_note.md)
-      * [38.2 关于作者](source/part5/38_2_about_the_author.md)
-      * [38.3 从哪里可以获得帮助](source/part5/38_3_where_to_go_for_help.md)
-      * [38.4 用来制作这本书的工具](source/part5/38_4_tools_used_to_produce_this_book.md)
-      * [38.5 致谢](source/part5/38_5_credits.md)
-      * [38.6 免责声明](source/part5/38_6_disclaimer.md)
-
-
-
-
+* [38. 后记](source/endnotes/38_endnotes.md)
+    * [38.1 作者后记](source/endnotes/38_1_author's_note.md)
+    * [38.2 关于作者](source/endnotes/38_2_about_the_author.md)
+    * [38.3 从哪里可以获得帮助](source/endnotes/38_3_where_to_go_for_help.md)
+    * [38.4 用来制作这本书的工具](source/endnotes/38_4_tools_used_to_produce_this_book.md)
+    * [38.5 致谢](source/endnotes/38_5_credits.md)
+    * [38.6 免责声明](source/endnotes/38_6_disclaimer.md)
+* [附录]()
+    * [E. 带有特殊意义的退出代码](source/appendix/E_special_exitcodes.md)
+    * [F. I/O 与 I/O 重定向详细介绍](source/appendix/F_io_and_redirection.md)
+    * [T. ASCII 表](source/appendix/T_ascii_table.md)
