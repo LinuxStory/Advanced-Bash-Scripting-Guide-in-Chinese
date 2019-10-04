@@ -22,7 +22,7 @@
 
 ## 翻译作品
 
-翻译作品放在[GitBook](https://www.gitbook.com/book/linuxstory/advanced-bash-scripting-guide-in-chinese/details)上，欢迎阅读！
+翻译作品放在[GitBook](https://linuxstory.gitbook.io/advanced-bash-scripting-guide-in-chinese/)上，欢迎阅读！
 
 ## 翻译进度
 
