@@ -1300,15 +1300,39 @@ echo $_              #  :
 
 脚本自身的进程 ID<a id="FT5" href="#FT5CONT"><sup>\[5\]</sup></a>。该变量 `$$` 通常在脚本构建独有的临时文件时被使用（参考 [样例 32-6]()，[样例 16-31]()，以及 [样例 15-27]()）。该方法通常比调用 [`mktemp`]() 命令更简单。
 
-## 注解
+## 注记
 
-<a id="FT1CONT" href="#FT1">\[1\]</a> 栈寄存器是一段连续的内存空间，在该空间中，存入（压栈）的值是以倒序的方式取出（出栈）的。最后一个存入的值被最先取出。其通常又被称为后进先出(LIFO)或是下堆栈。
+[^1]:
 
-<a id="FT2CONT" href="#FT2">\[2\]</a> 当前运行脚本的进程 ID 就是 `$$`。
+{% hint style="info" %}
+栈寄存器是一段连续的内存空间，在该空间中，存入（压栈）的值是以倒序的方式取出（出栈）的。最后一个存入的值被最先取出。其通常又被称为后进先出(LIFO)或是下堆栈。
+{% endhint %}
 
-<a id="FT3CONT" href="#FT3">\[3\]</a> 类似于 [递归]()。在本文中，嵌套是指代一种模式被嵌入在一种更大的模式中。在 1913 年出版的韦伯斯特大辞典中用一种更加优雅的方式解释了什么是嵌套：“一组按体积大小排列的盒子、箱子或是类似的东西，它们中的每一个都被放入到另一个更大的箱子中。(A collection of boxes, cases, or the like, of graduated size, each put within the one next larger.)”。
+[^2]:
 
-<a id="FT4CONT" href="#FT4">\[4\]</a> 术语“变量(argument)”和“参数(parameter)”通常情况下是可以互相交换使用的。在本书中，它们具有相同的含义：传入脚本或函数的变量。
+{% hint style="info" %}
+当前运行脚本的进程 ID 就是 `$$`。
+{% endhint %}
 
-<a id="FT5CONT" href="#FT5">\[5\]</a> 在 subshell 中运行的脚本，`$$` [返回脚本的进程 ID]() 而非 subshell 的。
+[^3]:
+
+{% hint style="info" %}
+类似于 [递归]()。在本文中，嵌套是指代一种模式被嵌入在一种更大的模式中。在 1913 年出版的韦伯斯特大辞典中用一种更加优雅的方式解释了什么是嵌套：“一组按体积大小排列的盒子、箱子或是类似的东西，它们中的每一个都被放入到另一个更大的箱子中。(A collection of boxes, cases, or the like, of graduated size, each put within the one next larger.)”。
+{% endhint %}
+
+[^4]:
+
+{% hint style="info" %}
+术语“变量(argument)”和“参数(parameter)”通常情况下是可以互相交换使用的。在本书中，它们具有相同的含义：传入脚本或函数的变量。
+{% endhint %}
+
+[^5]:
+
+{% hint style="info" %}
+在 subshell 中运行的脚本，`$$` [返回脚本的进程 ID]() 而非 subshell 的。
+{% endhint %}
+
+
+
+
 
