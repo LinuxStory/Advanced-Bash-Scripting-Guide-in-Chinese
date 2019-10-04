@@ -1,10 +1,10 @@
 # 9.1 内部变量
 
-## 内建变量
+### 内建变量
 
 影响 Bash 脚本行为的变量。
 
-### $BASH
+#### $BASH
 
 Bash程序的路径。
 
@@ -13,17 +13,17 @@ bash$ echo $BASH
 /bin/bash
 ```
 
-### $BASH_ENV
+#### $BASH_ENV
 
 这个环境变量会指向一个 Bash 启动文件，该文件在脚本被调用时会被读取。
 
-### $BASH_SUBSHELL
+#### $BASH_SUBSHELL
 
 该变量用于提示所处的 subshell 层级。这是在 Bash version 3 中被引入的新特性。
 
 具体用法可以参考 [样例21-1](http://tldp.org/LDP/abs/html/subshells.html#SUBSHELL)。
 
-### $BASHPID
+#### $BASHPID
 
 当前 Bash 进程实例的进程ID号。虽然与 `$$` 变量不一样，但是通常它们会给出相同的结果。
 
@@ -57,7 +57,7 @@ echo
   #  注意 $$ 总是返回父进程的 PID。
 ```
 
-### $BASH_VERSINFO[n]
+#### $BASH_VERSINFO[n]
 
 这是一个6个元素的数组，其中包含了已经安装的 Bash 的版本信息。该变量与变量 `$BASH_VERSION` 类似，但是更加详细。
 
@@ -78,7 +78,7 @@ done
                                             # (与 $MACHTYPE 相同)
 ```
 
-### $BASH_VERSION
+#### $BASH_VERSION
 
 已经安装的 Bash 的版本信息。
 
@@ -94,7 +94,7 @@ BASH_VERSION: Undefined variable.
 
 利用 `$BASH_VERSION` 来判断运行的是哪个 shell 是一个不错的方法，因为变量 `$SHELL` 并不总是能够给出正确的答案。
 
-### $CDPATH
+#### $CDPATH
 
 变量指定 `cd` 命令可以搜索的路径，路径之间用冒号进行分隔。该变量的功能类似于指定可执行文件搜索路径的变量 `$PATH`。可以在本地文件 `~/.bashrc` 中设置该变量。
 
@@ -112,17 +112,17 @@ bash$ echo $PWD
 /usr/share/doc/bash-doc
 ```
 
-### $DIRSTACK
+#### $DIRSTACK
 
-指代目录栈中顶部的值<a id="FT1" href="#FT1CONT"><sup>\[1\]</sup></a>，目录栈由命令 `pushd` 和 `popd` 控制。
+指代目录栈中顶部的值[^1]，目录栈由命令 `pushd` 和 `popd` 控制。
 
 该变量相当于命令 `dirs`，但是 `dirs` 命令会显示整个目录栈。
 
-### $EDITOR
+#### $EDITOR
 
 脚本所调用的默认编辑器，通常是 `vi` 或是 `emcas`。
 
-### $EUID
+#### $EUID
 
 有效用户ID。
 
@@ -134,7 +134,7 @@ bash$ echo $PWD
 
 {% endhint %}
 
-### $FUNCNAME
+#### $FUNCNAME
 
 当前运行函数的函数名。
 
@@ -152,11 +152,11 @@ echo "FUNCNAME = $FUNCNAME"        # FUNCNAME =
 
 可以参考 [样例 A-50]()。
 
-### $GLOBIGNORE
+#### $GLOBIGNORE
 
 在[文件匹配](../part5/18_2_globbing.md)时所忽略的文件名模式列表。
 
-### $GROUPS
+#### $GROUPS
 
 当前用户所属的用户组。
 
@@ -175,15 +175,15 @@ root# echo ${GROUPS[5]}
 6
 ```
 
-### $HOME
+#### $HOME
 
 当前用户的主目录，其值通常为 `/home/username` （参考 [样例 10-7]()）。
 
-### $HOMENAME
+#### $HOMENAME
 
 系统启动的初始化脚本通过命令 `hostname` 给系统分配主机名。而函数 `gethostname()` 则是给 Bash 的内部变量 `$HOSTNAME` 赋值。可以参考 [样例 10-7]()。
 
-### $HOSTTYPE
+#### $HOSTTYPE
 
 主机类型。
 
@@ -194,7 +194,7 @@ bash$ echo $HOSTTYPE
 i686
 ```
 
-### $IFS
+#### $IFS
 
 内部字段分隔符。
 
@@ -329,11 +329,11 @@ exit
 
 也可以参考 [样例 16-41]()，[样例 11-8]() 和 [样例19-14]()，获取更多使用 `$IFS` 的技巧。
 
-### $IGNOREEOF
+#### $IGNOREEOF
 
 忽略 EOF：用于指示 Shell 在注销前需要忽略多少个文件结束符(EOF，contrl-D)。
 
-### $LC_COLLATE
+#### $LC_COLLATE
 
 经常会在文件 [`.bashrc`]() 或是文件 `/etc/profile` 中被设置。该变量控制文件名扩展和模式匹配中的排序顺序。如果设置不得当，`LC_COLLATE` 将会导致 [文件名匹配]() 中出现非预期结果。
 
@@ -344,11 +344,11 @@ exit
 
 {% endhint %}
 
-### $LC_CTYPE
+#### $LC_CTYPE
 
 这个内部变量控制在 [文件匹配]() 和模式匹配中的字符解析行为。
 
-### $LINENO
+#### $LINENO
 
 该变量记录了其在脚本中被使用时所处行的行号。该变量只有在被使用时才有意义，在调试过程中非常有用。
 
@@ -361,7 +361,7 @@ echo "Last command argument processed = $last_cmd_arg"
 # *** 调试部分终止 ***
 ```
 
-### $MACHTYPE
+#### $MACHTYPE
 
 设备类型。
 
@@ -372,11 +372,11 @@ bash$ echo $MACHTYPE
 i686
 ```
 
-### $OLDPWD
+#### $OLDPWD
 
 上一个工作目录(OLD-Print-Working-Directory)，也就是之前所在的目录。
 
-### $OSTYPE
+#### $OSTYPE
 
 操作系统类型。
 
@@ -385,7 +385,7 @@ bash$ echo $OSTYPE
 linux
 ```
 
-### $PATH
+#### $PATH
 
 可执行文件搜索路径，其值通常包含 `/usr/bin`，`/usr/X11R6/bin/`，`/usr/local/bin` 等路径。
 
@@ -404,7 +404,7 @@ bash$ echo $PATH
 
 {% endhint %}
 
-### $PIPESTATUS
+#### $PIPESTATUS
 
 该 [数组]() 变量保存了最后运行的前台 [管道]() 的 [退出状态(es)]()。
 
@@ -487,29 +487,29 @@ bash$ echo ${PIPESTATUS[@]}
 
 {% endhint %}
 
-### $PPID
+#### $PPID
 
-一个进程的 `$PPID` 即该进程的父进程的进程ID(pid)。<a id="FT2" href="#FT2CONT"><sup>\[2\]</sup></a>
+一个进程的 `$PPID` 即该进程的父进程的进程ID(pid)。[^2]
 
 可以与命令 [`pidof`]() 进行比较。
 
-### $PROMPT_COMMAND
+#### $PROMPT_COMMAND
 
 该变量存储在主提示符 `$PS1` 显示之前所需要执行的命令。
 
-### $PS1
+#### $PS1
 
 主提示符，即在命令行中显示的提示符。
 
-### $PS2
+#### $PS2
 
 次要提示符，当需要额外输入时出现的提示符。默认显示为 `>`。
 
-### $PS3
+#### $PS3
 
 三级提示符，显示在 `select` 循环中（参考 [样例 11-30]()）。
 
-### $PS4
+#### $PS4
 
 四级提示符，当使用 `-x [verbose trace]` [选项]() 调用脚本时显示的提示符。默认显示为 `+`。
 
@@ -522,7 +522,7 @@ set -x
 # 可以在后面写各种命令...
 ```
 
-### $PWD
+#### $PWD
 
 工作目录（你当前所在的目录）。
 
@@ -571,7 +571,7 @@ echo
 exit $result
 ```
 
-### $REPLY
+#### $REPLY
 
 当没有给 [`read`]() 命令提供接收参数时的默认接收参数。该变量同样适用于 [`select`]() 菜单接收用户输入值的场景，需要注意的是，用户只需要输入菜单项的编号，而不需要输入完整的菜单项内容。
 
@@ -603,7 +603,7 @@ echo
 exit 0
 ```
 
-### $SECONDS
+#### $SECONDS
 
 该变量记录到目前为止脚本执行的时间，单位为秒。
 
@@ -637,7 +637,7 @@ echo -e "\a"  # 发出蜂鸣声！
 exit 0
 ```
 
-### $SHELLOPTS
+#### $SHELLOPTS
 
 该只读变量记录了 shell 中已启用的 [选项]() 列表。
 
@@ -646,9 +646,9 @@ bash$ echo $SHELLOPTS
 braceexpand:hashall:histexpand:monitor:history:interactive-comments:emacs
 ```
 
-### $SHLVL
+#### $SHLVL
 
-当前 shell 的层级，即嵌套了多少层 Bash <a id="FT3" href="#FT3CONT"><sup>\[3\]</sup></a>。如果命令行的层级 `$SHLVL` 为 1，那么在其中执行的脚本层级则增加到 2。
+当前 shell 的层级，即嵌套了多少层 Bash [^3]。如果命令行的层级 `$SHLVL` 为 1，那么在其中执行的脚本层级则增加到 2。
 
 {% hint style="info" %}
 
@@ -656,7 +656,7 @@ braceexpand:hashall:histexpand:monitor:history:interactive-comments:emacs
 
 {% endhint %}
 
-### $TMOUT
+#### $TMOUT
 
 如果 `$TMOUT` 被设为非 0 值 `time`，那么 shell 会在 `$time` 秒后超时，然后导致 shell 登出。
 
@@ -821,7 +821,7 @@ fi
 exit 0
 ```
 
-### $UID
+#### $UID
 
 用户 ID。
 
@@ -887,17 +887,17 @@ rxvt
 
 {% endhint %}
 
-## 位置参数
+### 位置参数
 
-### \$0, \$1, \$2 等
+#### \$0, \$1, \$2 等
 
 位置参数。出现在从命令行传递给脚本、函数或是通过内建命令 [`set`]() 设置变量时（参考 [样例 4-5]() 或是 [样例 15-16]()）。
 
-### $&#35; 
+#### $&#35; 
 
-命令行参数<a id="FT4" href="#FT4CONT"><sup>\[4\]</sup></a>或是位置参数的个数（参考 [样例 36-2]()）。
+命令行参数[^4]或是位置参数的个数（参考 [样例 36-2]()）。
 
-### $*
+#### $*
 
 将所有的位置参数整合，视作一个单词。
 
@@ -907,7 +907,7 @@ rxvt
 
 {% endhint %}
 
-### $@
+#### $@
 
 该参数等同于 `$*`，但其中每个参数都是独立的被引用的字符串。也就是说，所有的参数都是被原封不动的进行传递，并没有被解析或是扩展。这意味着，参数列表中的每一个参数都被独立视为一个单词。
 
@@ -1178,9 +1178,9 @@ mecho "$@"     # a,b,c
 exit
 ```
 
-## 其他特殊参数
+### 其他特殊参数
 
-### $-
+#### $-
 
 使用 [`set`]() 命令设置的脚本标记。参考 [样例 15-16]()。
 
@@ -1190,7 +1190,7 @@ exit
 
 {% endhint %}
 
-### $!
+#### $!
 
 运行在后台的最后一个任务的 [进程ID]()。
 
@@ -1268,7 +1268,7 @@ possibly_hanging_job & {
 exit
 ```
 
-### $_
+#### $_
 
 该变量被设置为上一个执行的命令的最后一个参数。
 
@@ -1292,23 +1292,21 @@ echo $_              #  -al (最后一个参数)
 echo $_              #  :
 ```
 
-### $?
+#### $?
 
 命令、[函数]() 或是脚本自身的 [退出状态]()。参考 [样例 24-7]()。
 
-### $$
+#### $$
 
-脚本自身的进程 ID<a id="FT5" href="#FT5CONT"><sup>\[5\]</sup></a>。该变量 `$$` 通常在脚本构建独有的临时文件时被使用（参考 [样例 32-6]()，[样例 16-31]()，以及 [样例 15-27]()）。该方法通常比调用 [`mktemp`]() 命令更简单。
+脚本自身的进程 ID[^5]。该变量 `$$` 通常在脚本构建独有的临时文件时被使用（参考 [样例 32-6]()，[样例 16-31]()，以及 [样例 15-27]()）。该方法通常比调用 [`mktemp`]() 命令更简单。
 
-## 注解
+[^1]: 栈寄存器是一段连续的内存空间，在该空间中，存入（压栈）的值是以倒序的方式取出（出栈）的。最后一个存入的值被最先取出。其通常又被称为后进先出(LIFO)或是下堆栈。
 
-<a id="FT1CONT" href="#FT1">\[1\]</a> 栈寄存器是一段连续的内存空间，在该空间中，存入（压栈）的值是以倒序的方式取出（出栈）的。最后一个存入的值被最先取出。其通常又被称为后进先出(LIFO)或是下堆栈。
+[^2]: 当前运行脚本的进程 ID 就是 `$$`。
 
-<a id="FT2CONT" href="#FT2">\[2\]</a> 当前运行脚本的进程 ID 就是 `$$`。
+[^3]: 类似于 [递归]()。在本文中，嵌套是指代一种模式被嵌入在一种更大的模式中。在 1913 年出版的韦伯斯特大辞典中用一种更加优雅的方式解释了什么是嵌套：“一组按体积大小排列的盒子、箱子或是类似的东西，它们中的每一个都被放入到另一个更大的箱子中。(A collection of boxes, cases, or the like, of graduated size, each put within the one next larger.)”。
 
-<a id="FT3CONT" href="#FT3">\[3\]</a> 类似于 [递归]()。在本文中，嵌套是指代一种模式被嵌入在一种更大的模式中。在 1913 年出版的韦伯斯特大辞典中用一种更加优雅的方式解释了什么是嵌套：“一组按体积大小排列的盒子、箱子或是类似的东西，它们中的每一个都被放入到另一个更大的箱子中。(A collection of boxes, cases, or the like, of graduated size, each put within the one next larger.)”。
+[^4]: 术语“变量(argument)”和“参数(parameter)”通常情况下是可以互相交换使用的。在本书中，它们具有相同的含义：传入脚本或函数的变量。
 
-<a id="FT4CONT" href="#FT4">\[4\]</a> 术语“变量(argument)”和“参数(parameter)”通常情况下是可以互相交换使用的。在本书中，它们具有相同的含义：传入脚本或函数的变量。
-
-<a id="FT5CONT" href="#FT5">\[5\]</a> 在 subshell 中运行的脚本，`$$` [返回脚本的进程 ID]() 而非 subshell 的。
+[^5]: 在 subshell 中运行的脚本，`$$` [返回脚本的进程 ID]() 而非 subshell 的。
 
