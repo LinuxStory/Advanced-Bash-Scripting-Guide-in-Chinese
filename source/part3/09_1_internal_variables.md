@@ -114,7 +114,7 @@ bash$ echo $PWD
 
 ### $DIRSTACK
 
-指代目录栈中顶部的值<a id="FT1" href="#FT1CONT"><sup>\[1\]</sup></a>，目录栈由命令 `pushd` 和 `popd` 控制。
+指代目录栈中顶部的值[^1]，目录栈由命令 `pushd` 和 `popd` 控制。
 
 该变量相当于命令 `dirs`，但是 `dirs` 命令会显示整个目录栈。
 
@@ -489,7 +489,7 @@ bash$ echo ${PIPESTATUS[@]}
 
 ### $PPID
 
-一个进程的 `$PPID` 即该进程的父进程的进程ID(pid)。<a id="FT2" href="#FT2CONT"><sup>\[2\]</sup></a>
+一个进程的 `$PPID` 即该进程的父进程的进程ID(pid)。[^2]
 
 可以与命令 [`pidof`]() 进行比较。
 
@@ -648,7 +648,7 @@ braceexpand:hashall:histexpand:monitor:history:interactive-comments:emacs
 
 ### $SHLVL
 
-当前 shell 的层级，即嵌套了多少层 Bash <a id="FT3" href="#FT3CONT"><sup>\[3\]</sup></a>。如果命令行的层级 `$SHLVL` 为 1，那么在其中执行的脚本层级则增加到 2。
+当前 shell 的层级，即嵌套了多少层 Bash [^3]。如果命令行的层级 `$SHLVL` 为 1，那么在其中执行的脚本层级则增加到 2。
 
 {% hint style="info" %}
 
@@ -895,7 +895,7 @@ rxvt
 
 ### $&#35; 
 
-命令行参数<a id="FT4" href="#FT4CONT"><sup>\[4\]</sup></a>或是位置参数的个数（参考 [样例 36-2]()）。
+命令行参数[^4]或是位置参数的个数（参考 [样例 36-2]()）。
 
 ### $*
 
@@ -1298,7 +1298,7 @@ echo $_              #  :
 
 ### $$
 
-脚本自身的进程 ID<a id="FT5" href="#FT5CONT"><sup>\[5\]</sup></a>。该变量 `$$` 通常在脚本构建独有的临时文件时被使用（参考 [样例 32-6]()，[样例 16-31]()，以及 [样例 15-27]()）。该方法通常比调用 [`mktemp`]() 命令更简单。
+脚本自身的进程 ID[^5]。该变量 `$$` 通常在脚本构建独有的临时文件时被使用（参考 [样例 32-6]()，[样例 16-31]()，以及 [样例 15-27]()）。该方法通常比调用 [`mktemp`]() 命令更简单。
 
 ## 注记
 
@@ -1322,12 +1322,9 @@ echo $_              #  :
 在 subshell 中运行的脚本，`$$` [返回脚本的进程 ID]() 而非 subshell 的。
 {% endhint %}
 
-[^1]:
-[^2]:
-[^3]:
-[^4]:
-[^5]:
-
-
-
+[^1]: Footnotes placeholder
+[^2]: Footnotes placeholder
+[^3]: Footnotes placeholder
+[^4]: Footnotes placeholder
+[^5]: Footnotes placeholder
 
