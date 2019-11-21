@@ -57,6 +57,7 @@
         * [20.1 使用 exec](source/part5/20_1_use_exec.md)
         * [20.2 重定向代码块](source/part5/20_2_redirecting_code_blocks.md)
         * [20.3 应用程序](source/part5/20_3_applications.md)
+    * [21. 子shell](source/part5/21_subshells.md)
     * [22. 限制模式的Shell](source/part5/22_Restricted_Shells.md)
     * [23. 进程替换](source/part5/23_Process_Substitution.md)
     * [24. 函数](source/part5/24_functions.md)
