@@ -171,4 +171,4 @@ echo "$intvar"   # 0
 ```
 {% endhint %}
 
-[^1]:
+[^1]: Footnotes placeholder
