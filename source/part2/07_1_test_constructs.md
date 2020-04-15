@@ -68,7 +68,7 @@ letter_sequence=inu
 if echo "$word" | grep -q "$letter_sequence"
 # 使用 -q 选项消去 grep 的输出结果
 then
-  echo "$letter_sequence found in "$word"
+  echo "$letter_sequence found in $word"
 else
   echo "$letter_sequence not found in $word"
 fi
