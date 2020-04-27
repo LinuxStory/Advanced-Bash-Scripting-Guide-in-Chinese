@@ -1,8 +1,8 @@
 # 27 数组
-新版本的Bash支持一维数组。 数组元素可以使用符号**variable[xx]** 来初始化。另外，脚本可以使用**declare -a variable**语句来制定一个数组。 如果想引用一个数组元素（也就是取值），可以使用大括号，访问形式为 ${element[xx]} 。
+新版本的Bash支持一维数组。 数组元素可以使用符号**variable[xx]** 来初始化。另外，脚本可以使用**declare -a variable**语句来指定一个数组。 如果想引用一个数组元素（也就是取值），可以使用大括号，访问形式为 ${element[xx]} 。
 
 例子 27-1. 简单的数组使用 
-```
+```bash
 #!/bin/bash
 
 area[11]=23
@@ -80,17 +80,17 @@ echo ${area3[24]}
 exit 0
 ```
 我们可以看出，初始化整数的一个简单的方法是 array=( element1 element2 ... elementN ) 。
-```
+```bash
 base64_charset=( {A..Z} {a..z} {0..9} + / = )
 #  使用扩展的一对范围 Using extended brace expansion
 #+ 去初始化数组的元素。to initialize the elements of the array.
-# 从 vladz's "base64.sh" 脚本中摘录过来。
+# 从 vladz 的 "base64.sh" 脚本中摘录过来。
 #+ 在"Contributed Scripts" 附录中可以看到.
 ```
 
-Bash允许把变量当成数据来操作，即使这个变量没有明确地被声明为数组。
+Bash 允许把变量当成数据来操作，即使这个变量没有明确地被声明为数组。
 
-```
+```bash
 string=abcABC123ABCabc
 echo ${string[@]}   # abcABC123ABCabc
 echo ${string[*]}   # abcABC123ABCabc
@@ -106,7 +106,7 @@ echo ${#string[@]}  # 1
 类似的示范可以参考 [Bash变量是无类型的](../part2/04_3_bash_variables_are_untyped.md) 。
 
 例子 27-2. 格式化一首诗
-```
+```bash
 #!/bin/bash
 # poem.sh: 将本书作者非常喜欢的一首诗，漂亮的打印出来。
 
@@ -150,7 +150,7 @@ exit 0
 数组元素有它们独特的语法，甚至标准Bash命令和操作符，都有特殊的选项用以配合数组操作。
 
 例子 27-3. 多种数组操作 
-```
+```bash
 #!/bin/bash
 # array-ops.sh: 更多有趣的数组用法.
 
@@ -201,7 +201,7 @@ exit
 
 例子27-4. 用于数组的字符串操作
 
-```
+```bash
 #!/bin/bash
 # array-strops.sh: 用于数组的字符串操作。
 
@@ -322,7 +322,7 @@ exit 0
 [命令替换](../part3/12_command_substitution.md) 可以构造数组的独立元素。
 
 例子 27-5. 将脚本中的内容赋值给数组
-```
+```bash
 #!/bin/bash
 # script-array.sh: 将脚本中的内容赋值给数组。 
 # 这个脚本的灵感来自于 Chris Martii 的邮件 (感谢!).
@@ -353,7 +353,7 @@ exit 0
 在数组环境中，某些Bash [内建命令](../part4/15_internal_commands_and_builtins.md) 的含义可能会有些轻微的改变。比如，[unset](http://tldp.org/LDP/abs/html/internal.html#UNSETREF) 命令可以删除数组元素，甚至能够删除整个数组。
 
 例子 27-6. 一些数组的专有特性
-```
+```bash
 #!/bin/bash
 
 declare -a colors
@@ -420,7 +420,7 @@ exit 0
 正如我们在前面的例子中所看到的，**${array_name[@]}**  或者  **${array_name[\*]}**  都与数组中的所有元素相关。同样的，为了计算数组的元素个数，可以使用 **${array_name[@]}**  或者  **${array_name[\*]}**  。 **${#array_name}**  是数组第一个元素的长度，也就是  **${array_name[0]}**  的长度（字符个数）。
 
 例子 27-7. 空数组与包含空元素的数组 
-```
+```bash
 #!/bin/bash
 # empty-array.sh
 
@@ -577,7 +577,7 @@ exit
 
 **${array_name[@]}** 和 **${array_name[\*]}** 的关系非常类似于 [$@ 和$*](http://tldp.org/LDP/abs/html/internalvariables.html#APPREF)。这种数组用法非常广泛。
 
-```
+```bash
 # 复制一个数组
 array2=( "${array1[@]}" )
 # 或者
@@ -602,7 +602,7 @@ array[${#array[*]}]="new element"
 ```
 
 ![info](http://tldp.org/LDP/abs/images/tip.gif) **array=( element1 element2 ... elementN )** 初始化操作，如果有[命令替换](../part3/12_command_substitution.md)的帮助，就可以将一个文本文件的内容加载到数组。
-```
+```bash
 #!/bin/bash
 filename=sample_file
 #            cat sample_file
@@ -632,7 +632,7 @@ echo $element_count          # 8
 出色的技巧使得数组的操作技术又多了一种。
 
 例子 27-8. 初始化数组
-```
+```bash
 #! /bin/bash
 # array-assign.bash
 
@@ -717,7 +717,7 @@ exit 0
 ![extra](http://tldp.org/LDP/abs/images/note.gif) 在数组声明的时候添加一个额外的**declare -a**语句，能够加速后续的数组操作速度。
 
 例子 27-9. 拷贝和连接数组
-```
+```bash
 #! /bin/bash
 # CopyArray.sh
 #
@@ -781,7 +781,7 @@ exit 0
 ```
 
 例子27-10. 关于串联数组的更多信息
-```
+```bash
 #! /bin/bash
 # array-append.bash
 
@@ -898,7 +898,7 @@ exit 0
 有了数组, 我们就可以在脚本中实现一些比较熟悉的算法. 这么做, 到底是不是一个好主意, 我们在这里不做讨论, 还是留给读者决定吧.
 
 例子 27-11. 冒泡排序
-```
+```bash
 #!/bin/bash
 # bubble.sh: 一种排序方式, 冒泡排序.
 
