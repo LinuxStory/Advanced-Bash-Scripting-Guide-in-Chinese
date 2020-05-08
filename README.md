@@ -26,80 +26,80 @@
 
 ## 翻译进度
 
-- 第一部分 初见Shell[@imcmy][@zihengcat]
-	- 1\. 为什么使用shell编程[@imcmy][@zihengcat]
-	- 2\. Sha-Bang（#!）一起出发[@imcmy][@zihengcat]
-- 第二部分 Shell基础[@imcmy][@zihengcat]
-	- 3\. 特殊字符[@imcmy][@zihengcat]
-	- 4\. 变量与参数[@imcmy][@zihengcat]
-	- 5\. 引用[@mr253727942][@zihengcat]
-	- 6\. 退出与退出状态[@samita2030][@zihengcat]
-	- 7\. 测试[@imcmy][@zihengcat]
-	- 8\. 运算符相关话题[@samita2030][@zihengcat]
-- 第三部分 Shell进阶[@imcmy]
-	- 9\. 换个角度看变量[@imcmy]
-	- 10\. 变量处理[@imcmy]
-	- 11\. 循环与分支[@imcmy]
-	- 12\. 命令替换[@imcmy]
-	- 13\. 算术扩展[@imcmy]
-	- 14\. 休息时间[@imcmy]
-- 第四部分. 命令[@imcmy]
-	- 15\. 内建命令[@imcmy]
-	- 16\. 外部过滤器，程序与命令
-	- 17\. 系统与高级命令
-- 第五章. 高级话题
-	- 18\. 正则表达式[@Zjie]
-	- 19\. 嵌入文档[@mingmings]
-	- 20\. I/O 重定向[@mingmings]
-	- 21\. Subshells[@ysun90]
-	- 22\. 限制模式的Shell[@panblack]
-	- 23\. 进程替换[@panblack]
-	- 24\. 函数[@zy416548283]
-	- 25\. 别名[@mingmings]
-	- 26\. 列表结构[@panblack]
-	- 27\. 数组[@zy416548283]
-	- 28\. 间接引用[@plutonji]
-	- 29\. `/dev` 和 `/proc`[@plutonji]
-	- 30\. 网络编程[@Zjie]
-	- 31\. Of Zeros and Nulls
-	- 32\. 调试[@wuqichao]
-	- 33\. 选项[@zy416548283]
-	- 34\. 陷阱[@liuburn]
-	- 35\. Scripting With Style
-	- 36\. 杂项[@richard-ma]
-	- 37\. Bash, versions 2, 3, and 4
-- 38\. 后记[@zy416548283]
-- Bibliography
-- 附录
-	- A\. Contributed Scripts
-	- B\. Reference Cards
-	- C\. A Sed and Awk Micro-Primer[@wuqichao]
-		- C.1 Sed[@wuqichao]
-		- C.2 Awk[@wuqichao]
-	- D\. Parsing and Managing Pathnames
-	- E\. 带有特殊意义的退出代码[@ShadowRZ]
-	- F\. I/O 与 I/O 重定向详细介绍[@ShadowRZ]
-	- G\. Command-Line Options
-		- G.1 Standard Command-Line Options
-		- G.2 Bash Command-Line Options
-	- H\. 重要文件[@ShadowRZ]
-	- I\. Important System Directories
-	- J\. An Introduction to Programmable Completion
-	- K\. Localization
-	- L\. History Commands
-	- M\. 示例 ~/.bashrc 与 ~/.bash_profile[@ShadowRZ]
-	- N\. Converting DOS Batch Files to Shell Scripts
-	- O\. Exercises
+- [x] 第一部分 初见Shell[@imcmy][@zihengcat]
+	- [x] 1\. 为什么使用shell编程[@imcmy][@zihengcat]
+	- [x] 2\. Sha-Bang（#!）一起出发[@imcmy][@zihengcat]
+- [x] 第二部分 Shell基础[@imcmy][@zihengcat]
+	- [x] 3\. 特殊字符[@imcmy][@zihengcat]
+	- [x] 4\. 变量与参数[@imcmy][@zihengcat]
+	- [x] 5\. 引用[@mr253727942][@zihengcat]
+	- [x] 6\. 退出与退出状态[@samita2030][@zihengcat]
+	- [x] 7\. 测试[@imcmy][@zihengcat]
+	- [x] 8\. 运算符相关话题[@samita2030][@zihengcat]
+- [x] 第三部分 Shell进阶[@imcmy]
+	- [x] 9\. 换个角度看变量[@imcmy]
+	- [x] 10\. 变量处理[@imcmy]
+	- [x] 11\. 循环与分支[@imcmy]
+	- [x] 12\. 命令替换[@imcmy]
+	- [x] 13\. 算术扩展[@imcmy]
+	- [x] 14\. 休息时间[@imcmy]
+- [x] 第四部分. 命令[@imcmy]
+	- [x] 15\. 内建命令[@imcmy]
+	- [ ] 16\. 外部过滤器，程序与命令
+	- [ ] 17\. 系统与高级命令
+- [ ] 第五章. 高级话题
+	- [x] 18\. 正则表达式[@Zjie]
+	- [x] 19\. 嵌入文档[@mingmings]
+	- [x] 20\. I/O 重定向[@mingmings]
+	- [x] 21\. Subshells[@ysun90]
+	- [x] 22\. 限制模式的Shell[@panblack]
+	- [x] 23\. 进程替换[@panblack]
+	- [x] 24\. 函数[@zy416548283]
+	- [x] 25\. 别名[@mingmings]
+	- [x] 26\. 列表结构[@panblack]
+	- [x] 27\. 数组[@zy416548283]
+	- [x] 28\. 间接引用[@plutonji]
+	- [x] 29\. `/dev` 和 `/proc`[@plutonji]
+	- [x] 30\. 网络编程[@Zjie]
+	- [ ] 31\. Of Zeros and Nulls
+	- [x] 32\. 调试[@wuqichao]
+	- [x] 33\. 选项[@zy416548283]
+	- [x] 34\. 陷阱[@liuburn]
+	- [ ] 35\. Scripting With Style
+	- [x] 36\. 杂项[@richard-ma]
+	- [ ] 37\. Bash, versions 2, 3, and 4
+- [x] 38\. 后记[@zy416548283]
+- [ ] Bibliography
+- [ ] 附录
+	- [ ] A\. Contributed Scripts
+	- [ ] B\. Reference Cards
+	- [x] C\. A Sed and Awk Micro-Primer[@wuqichao]
+		- [x] C.1 Sed[@wuqichao]
+		- [x] C.2 Awk[@wuqichao]
+	- [ ] D\. Parsing and Managing Pathnames
+	- [x] E\. 带有特殊意义的退出代码[@ShadowRZ]
+	- [x] F\. I/O 与 I/O 重定向详细介绍[@ShadowRZ]
+	- [ ] G\. Command-Line Options
+		- [ ] G.1 Standard Command-Line Options
+		- [ ] G.2 Bash Command-Line Options
+	- [x] H\. 重要文件[@ShadowRZ]
+	- [ ] I\. Important System Directories
+	- [ ] J\. An Introduction to Programmable Completion
+	- [ ] K\. Localization
+	- [ ] L\. History Commands
+	- [x] M\. 示例 ~/.bashrc 与 ~/.bash_profile[@ShadowRZ]
+	- [ ] N\. Converting DOS Batch Files to Shell Scripts
+	- [ ] O\. Exercises
 		- O.1 Analyzing Scripts
 		- O.2 Writing Scripts
-	- P\. Revision History
-	- Q\. Download and Mirror Sites
-	- R\. To Do List
-	- S\. Copyright
-	- T\. ASCII 表[@ShadowRZ]
-- Index
-- List of Tables
-- List of Examples
+	- [ ] P\. Revision History
+	- [ ] Q\. Download and Mirror Sites
+	- [ ] R\. To Do List
+	- [ ] S\. Copyright
+	- [x] T\. ASCII 表[@ShadowRZ]
+- [ ] Index
+- [ ] List of Tables
+- [ ] List of Examples
 
 ## 翻译校审流程
 
@@ -153,10 +153,12 @@
 - @mingmings
 - @mr253727942
 - @panblack
+- @plutonji
 - @richard-ma
 - @samita2030
 - @ShadowRZ
 - @wuqichao
+- @ysun90
 - @zhaozq
 - @zihengcat
 - @Zjie
