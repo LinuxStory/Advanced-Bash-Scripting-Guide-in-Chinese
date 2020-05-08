@@ -45,8 +45,8 @@
 	- 14\. 休息时间[@imcmy]
 - 第四部分. 命令[@imcmy]
 	- 15\. 内建命令[@imcmy]
-	- 16\. 外部过滤器，程序与命令[@imcmy]
-	- 17\. 系统与高级命令[@imcmy]
+	- 16\. 外部过滤器，程序与命令
+	- 17\. 系统与高级命令
 - 第五章. 高级话题
 	- 18\. 正则表达式[@Zjie]
 	- 19\. 嵌入文档[@mingmings]
@@ -62,11 +62,11 @@
 	- 29\. `/dev` 和 `/proc`[@plutonji]
 	- 30\. 网络编程[@Zjie]
 	- 31\. Of Zeros and Nulls
-	- 32\. Debugging[@wuqichao]
+	- 32\. 调试[@wuqichao]
 	- 33\. 选项[@zy416548283]
 	- 34\. 陷阱[@liuburn]
 	- 35\. Scripting With Style
-	- 36\. Miscellany[@richard-ma]
+	- 36\. 杂项[@richard-ma]
 	- 37\. Bash, versions 2, 3, and 4
 - 38\. 后记[@zy416548283]
 - Bibliography
