@@ -58,8 +58,8 @@
 	- 25\. 别名[@mingmings]
 	- 26\. 列表结构[@panblack]
 	- 27\. 数组[@zy416548283]
-	- 28\. Indirect References
-	- 29\. /dev and /proc
+	- 28\. 间接引用[@plutonji]
+	- 29\. `/dev` 和 `/proc`[@plutonji]
 	- 30\. 网络编程[@Zjie]
 	- 31\. Of Zeros and Nulls
 	- 32\. Debugging[@wuqichao]
@@ -121,10 +121,12 @@
 
 1. 保证在dev分支中
 2. 打开README.md，在翻译进度后加上你自己的github名
+	
 	> 1\. Shell Programming! [@翻译人][@校审人]
 3. 本地提交修改，写明提交信息
 4. push到你fork的项目中，然后登录GitHub
 5. 在你fork的项目的首页可以看到一个 `pull request` 按钮，点击它，填写说明信息，然后提交即可
+	
 	> 为了不重复工作，请等待我们确认了你的pull request(即你的名字出现在项目中时)，再进行翻译校审工作
 6. 进行翻译校审，重复3-5步提交翻译校审的作品
 
