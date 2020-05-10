@@ -1,6 +1,7 @@
 # 第一章 为什么使用shell编程
 
 > No programming language is perfect. There is not even a single best language; there are only languages well suited or perhaps poorly suited for particular purposes.
+> 
 > 没有任何一种程序设计语言是完美的，甚至没有一个最好的语言。只有在特定环境下适合的语言。
 >
 > -- Herbert Mayer
@@ -57,21 +58,13 @@ Herbert Mayer曾说：“有用的语言需要数组、指针以及构建数据�
 
 {% hint style="info" %}
 [1] 这些操作和选项被称为内建命令（builtin），是shell的内部特征。
-{% endhint %}
 
-{% hint style="info" %}
 [2] 虽然递归可以在shell脚本中实现，但是它的效率很低且实现起来很复杂、不具有美感。
-{% endhint %}
 
-{% hint style="info" %}
 [3] 首字母缩略词是由每一个单词的首字母拼接而成的易读的代替短语。这不是一个好习惯，通常会引起一些不必要的麻烦。
-{% endhint %}
 
-{% hint style="info" %}
 [4] ksh88中的许多特性，甚至一些ksh93的特性都被合并到Bash中了。
-{% endhint %}
 
-{% hint style="info" %}
 [5] 按照惯例，用户编写的Bourne shell脚本应该在文件名后加上`.sh`的扩展名。而那些系统脚本，比如在`/etc/rc.d`中的脚本通常不遵循这种规范。
 {% endhint %}
 
