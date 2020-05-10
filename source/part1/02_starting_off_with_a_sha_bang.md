@@ -180,13 +180,9 @@ fi
 
 {% hint style="info" %}
 [1] 在文献中更常见的形式是she-bang或者sh-bang。它们都来源于词汇sharp(#)和bang(!)的连接。
-{% endhint %}
 
-{% hint style="info" %}
 [2] 一些UNIX的衍生版（基于4.2 BSD）声称他们使用四字节的幻数，在#!后增加一个空格，即`#! /bin/sh`。而[Sven Mascheck](http://www.in-ulm.de/~mascheck/various/shebang/#details)指出这是虚构的。
-{% endhint %}
 
-{% hint style="info" %}
 [3] 命令解释器首先将会解释#!这一行，而因为#!以#打头，因此解释器将其视作注释。起始行作为调用解释器的作用已经完成了。
 
 事实上即使脚本中含有不止一个#!,bash也会将除第一个`#!`以外的解释为注释。
@@ -203,9 +199,7 @@ a=1
 echo "Part 2 of script."
 echo $a  # $a的值仍旧为1
 ```
-{% endhint %}
 
-{% hint style="info" %}
 [4] 这里允许使用一些技巧。
 
 ```bash
@@ -224,17 +218,11 @@ exit $WHATEVER  # 这没有任何关系。脚本将不会从这里退出。
 ```
 
 当然你也可以建立一个起始行是`#!/bin/more`的README文件，并且使它可以执行。结果就是这个文件成为了一个可以打印本身的文件。（查看样例 19-3，使用`cat`命令的here document也许是一个更好的选择）
-{% endhint %}
 
-{% hint style="info" %}
 [5] 可移植操作系统接口（POSIX）尝试标准化类UNIX操作系统。POSIX规范可以在[Open Group site](http://www.opengroup.org/onlinepubs/007904975/toc.htm)中查看。
-{% endhint %}
 
-{% hint style="info" %}
 [6] 为了避免这种情况的发生，可以使用`#!/bin/env bash`作为起始行。这在bash不在`/bin`的UNIX系统中会有效果。
-{% endhint %}
 
-{% hint style="info" %}
 [7] 如果bash是系统默认shell，那么脚本并不一定需要#!作为起始行。但是当你在其他的shell中运行脚本，例如tcsh，则需要使用#!。
 {% endhint %}
 

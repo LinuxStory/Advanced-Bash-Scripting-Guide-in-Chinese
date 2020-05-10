@@ -20,13 +20,9 @@
 
 {% hint style="info" %}
 [1] 注意，当你使用`sh scriptname`调用*Bash*脚本时，将会禁用与Bash特性相关的功能，脚本有可能会执行失败。
-{% endhint %}
 
-{% hint style="info" %}
 [2] 脚本需要同时具有读取和执行的权限，因为shell需要读取脚本执行。
-{% endhint %}
 
-{% hint style="info" %}
 [3] 为什么不直接使用`scriptname`来调用脚本？为什么当工作目录（$PWD）正好是`scriptname`所在目录时也不起作用？因为一些安全原因，当前目录（`./`）并不会被默认添加到用户的$PATH路径中。因此需要用户显式使用`./scriptname`在当前目录下调用脚本。
 {% endhint %}
 
