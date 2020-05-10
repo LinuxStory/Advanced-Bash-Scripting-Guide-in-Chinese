@@ -22,7 +22,7 @@
 
 ## 翻译作品
 
-翻译作品放在[GitBook](https://linuxstory.gitbook.io/advanced-bash-scripting-guide-in-chinese/)上，欢迎阅读！
+翻译作品放在[GitBook](https://linuxstory.gitbook.io/advanced-bash-scripting-guide-in-chinese/)上，欢迎指正！
 
 ## 翻译进度
 
@@ -66,7 +66,7 @@
 	- [x] 33\. 选项[@zy416548283]
 	- [x] 34\. 陷阱[@liuburn]
 	- [ ] 35\. Scripting With Style
-	- [x] 36\. 杂项[@richard-ma]
+	- [ ] 36\. 杂项[@richard-ma]
 	- [ ] 37\. Bash, versions 2, 3, and 4
 - [x] 38\. 后记[@zy416548283]
 - [ ] Bibliography
@@ -140,6 +140,18 @@
 3. 有任何问题随时欢迎发issue
 4. 术语尽量保证和已翻译的一致，也可以查询[微软术语搜索](https://www.microsoft.com/zh-cn/language/search)或[Linux中国术语词典](https://github.com/LCTT/TranslateProject/blob/master/Dict.md)
 5. 你可以将你认为是术语的词汇加入术语表`TERM.md`中
+
+## 样式规范
+
+根据原文中不同的注释类型，可以使用 `>` 或下列html代码进行注释。
+
+```html
+{% hint style="info" %}
+Hello world
+{% endhint %}
+```
+
+所有的脚注footnote都需使用html代码进行注释。
 
 ## 关于版权
 
