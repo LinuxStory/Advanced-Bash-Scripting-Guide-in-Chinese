@@ -1,8 +1,6 @@
 # 《Advanced Bash-Scripting Guide》 in Chinese
 
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/Advanced-Bash-Scripting-Guide-in-Chinese/)
-
-《高级Bash脚本编程指南》Revision 10中文版
+《高级Bash脚本编程指南》第十次修订版 中文版
 
 ## 原著及早期翻译作品
 
