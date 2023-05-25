@@ -80,7 +80,7 @@ do
   # 你可以使用数组来保存
   #         original_params=("$@")
   
-  echo "$1		$2,000,000 miles from the sum"
+  echo "$1		$2,000,000 miles from the sun"
   #-------两个制表符---将后面的一系列 0 连到参数 $2 上。
 done
 
