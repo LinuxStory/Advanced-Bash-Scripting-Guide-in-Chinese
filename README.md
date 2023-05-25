@@ -168,10 +168,13 @@ Hello world
 
 翻译参与人员（按名称排序）：
 
+- @Administroot
 - @chuchingkai
 - @hsupu
+- @i-bugmaker
 - @imcmy
 - @liuburn
+- @mamh2021
 - @mingmings
 - @mr253727942
 - @panblack
