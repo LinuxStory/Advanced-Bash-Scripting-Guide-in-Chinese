@@ -202,7 +202,7 @@ exit 0
 
 ### return
 
-终止一个函数。一个return命令[1](http://tldp.org/LDP/abs/html/complexfunct.html#FTN.AEN18474) 可选的允许带一个整形参数，这个整形参数将作为函数的“退出状态码”返回给调用这个函数的脚本，并且这个证书也被赋值给变量[$?](http://tldp.org/LDP/abs/html/internalvariables.html#XSTATVARREF).
+终止一个函数。一个return命令[1](http://tldp.org/LDP/abs/html/complexfunct.html#FTN.AEN18474) 可选的允许带一个整形参数，这个整形参数将作为函数的“退出状态码”返回给调用这个函数的脚本，并且这个退出状态码也被赋值给变量[$?](http://tldp.org/LDP/abs/html/internalvariables.html#XSTATVARREF).
 
 例子 24-7. 取两个数中的最大值
 ```
