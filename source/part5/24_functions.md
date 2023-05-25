@@ -18,9 +18,10 @@ command...
 }
 ```
 第二种形式可能会更受C程序员的喜爱（并且它更具有[可移植性](http://tldp.org/LDP/abs/html/portabilityissues.html)）。
-在C语言里面，函数的圆括号可以出现在第二行。
+在C语言里面，函数的左大括号可以出现在第二行。
 ```
-function_name () {
+function_name ()
+{
 command...
 }
 ```
