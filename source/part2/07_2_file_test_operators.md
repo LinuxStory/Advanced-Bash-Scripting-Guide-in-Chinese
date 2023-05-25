@@ -184,7 +184,7 @@ drwxrwxrwt    7 root         1024 May 19 21:26 tmp/
 #+ 否则设置为传进的参数
 #####################
 
-[ $# -eq 0 ] && directory=`pwd` || directory=$@
+[ $# -eq 0 ] && directorys=`pwd` || directorys=$@
 
 
 #  函数 linkchk 是用来检测传入的文件夹中是否包含损坏的链接文件，
