@@ -229,7 +229,7 @@ echo $?             # 91
 match_string $a $b  # 匹配不到
 echo $?             # 90
 
-match_string $a $d  # 匹配成功
+match_string $b $d  # 匹配成功
 echo $?             # 0
 
 
