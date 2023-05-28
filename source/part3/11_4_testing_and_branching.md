@@ -109,7 +109,7 @@ case "$person" in
   echo "Ex-girlfriend"
   echo "Birthday: Feb. 11"
   ;;
-  
+
   # Smith 和 Zane 的信息稍后添加。
 
   *         )
@@ -118,7 +118,7 @@ case "$person" in
   echo
   echo "Not yet in database."
   ;;
-  
+
 esac
 
 echo
@@ -140,10 +140,10 @@ case "$1" in
                       # 没有命令行参数，或者第一个参数为空。
                       # 注意 ${0##*/} 是参数替换 ${var##pattern} 的一种形式。
                       # 最后的结果是 $0.
-  
+
   -*) FILENAME=./$1;; #  如果传入的参数以短横线开头，那么将其替换为 ./$1
                       #+ 以避免后续的命令将其解释为一个选项。
-  
+
   * ) FILENAME=$1;;   # 否则赋值为 $1。
 esac                  
 ```
@@ -207,14 +207,14 @@ match_string ()
   E_NOMATCH=90
   PARAMS=2     # 需要2个参数。
   E_BAD_PARAMS=91
-  
+
   [ $# -eq $PARAMS ] || return $E_BAD_PARAMS
-  
+
   case "$1" in
     "$2") return $MATCH;;
     *   ) return $E_NOMATCH;;
   esac
-  
+
 }
 
 
@@ -229,7 +229,7 @@ echo $?             # 91
 match_string $a $b  # 匹配不到
 echo $?             # 90
 
-match_string $a $d  # 匹配成功
+match_string $b $d  # 匹配成功
 echo $?             # 0
 
 
@@ -263,7 +263,7 @@ esac
 isalpha2 ()   # 测试整个字符串是否都是字母。
 {
   [ $# -eq 1 ] || return $FAILURE
-  
+
   case $1 in
   *[!a-zA-Z]*|"") return $FAILURE;;
                *) return $SUCCESS;;
@@ -273,7 +273,7 @@ isalpha2 ()   # 测试整个字符串是否都是字母。
 isdigit ()    # 测试整个字符串是否都是数字。
 {             # 换句话说，也就是测试是否是一个整型变量。
   [ $# -eq 1 ] || return $FAILURE
-  
+
   case $1 in
     *[!0-9]*|"") return $FAILURE;;
               *) return $SUCCESS;;
@@ -297,9 +297,9 @@ else
   echo "\"$*\" begins with a non-alpha character."
               # 如果没有传入参数同样同样返回“存在非字母”。
 fi
-  
+
 echo
-  
+
 }
 
 digit_check ()  # 包装后的 isdigit ()。
@@ -310,9 +310,9 @@ then
 else
   echo "\"$*\" has at least one non-digit character."
 fi
-  
+
 echo
-  
+
 }
 
 
