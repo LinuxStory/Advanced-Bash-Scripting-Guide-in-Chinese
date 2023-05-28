@@ -16,7 +16,7 @@ done
 ```
 
 > ![note](http://tldp.org/LDP/abs/images/note.gif) 在循环的过程中，`arg` 会从 `list` 中连续获得每一个变量的值。
->
+
 ```bash
 for arg in "$var1" "$var2" "$var3" ... "$varN"
 # 第一次循环中，arg = $var1
@@ -75,12 +75,12 @@ do
   set -- $planet  #  解析变量 "planet"
                   #+ 并将其每个部分赋值给位置参数。
   # "--" 防止一些极端情况，比如 $planet 为空或者以破折号开头。
-  
+
   # 因为位置参数会被覆盖掉，因此需要先保存原先的位置参数。
   # 你可以使用数组来保存
   #         original_params=("$@")
-  
-  echo "$1		$2,000,000 miles from the sun"
+
+  echo "$1        $2,000,000 miles from the sun"
   #-------两个制表符---将后面的一系列 0 连到参数 $2 上。
 done
 
@@ -104,7 +104,7 @@ FILES="/usr/sbin/accept
 /sbin/badblocks
 /sbin/ypbind"     # 你可能会感兴趣的一系列文件。
                   # 包含一个不存在的文件，/usr/bin/fakefile。
-                  
+
 echo
 
 for file in $FILES
@@ -115,7 +115,7 @@ do
     echo "$file does not exist."; echo
     continue                # 继续判断下一个文件。
   fi
-  
+
   ls -l $file | awk '{ print $8 "         file size: " $5 }'  # 输出其中的两个域。
   whatis `basename $file`   # 文件信息。
   # 脚本正常运行需要注意提前设置好 whatis 的数据。
@@ -162,7 +162,7 @@ do
   ls -l "$file"  # 列出 $PWD（当前工作目录）下的所有文件。
   #  回忆一下，通配符 "*" 会匹配所有的文件名，
   #+ 但是，在文件名扩展中，他将不会匹配以点开头的文件。
-  
+
   #  如果没有匹配到文件，那么它将会扩展为它自身。
   #  为了防止出现这种情况，需要设置 nullglob 选项。
   #+    (shopt -s nullglob)。
@@ -318,7 +318,7 @@ fstring="Free Software Foundation"  # 查看哪些文件来自于 FSF。
 
 for file in $( find $directory -type f -name '*' | sort )
 do
-  strings -f $file | grep "$fstring" | sed -e "s%$driectory%%"
+  strings -f $file | grep "$fstring" | sed -e "s%$directory%%"
   #  在 "sed" 表达式中，你需要替换掉 "/" 分隔符，
   #+ 因为 "/" 是一个会被过滤的字符。
   #  如果不做替换，将会产生一个错误。（你可以尝试一下。）
@@ -409,7 +409,7 @@ for file in $( find $directory -type 1 )
 do
   echo $file
   done | sort
-  
+
 #  上面的代码可以在目录名包含冒号（前一个允许包含空格）
 #+ 的情况下仍旧正常工作。
 ```
@@ -561,7 +561,7 @@ exit $?   # efax 同时也会将诊断信息传递给标准输出。
 ```
 
 > ![note](http://tldp.org/LDP/abs/images/note.gif) [关键字](http://tldp.org/LDP/abs/html/internal.html#KEYWORDREF) `do` 和 `done` 圈定了 for 循环代码块的范围。但是在一些特殊的情况下，也可以被 [大括号](http://tldp.org/LDP/abs/html/special-chars.html#CODEBLOCKREF) 取代。
-> 
+
 ```bash
 for((n=1; n<=10; n++))
 # 没有 do！
@@ -623,7 +623,7 @@ while [ "$var0" -lt "$LIMIT" ]
 do
   echo -n "$var0 "        # -n 不会另起一行
   #             ^           空格用来分开输出的数字。
-  
+
   var0=`expr $var0 + 1`   # var0=$(($var0+1))  效果相同。
                           # var0=$((var0 + 1)) 效果相同。
                           # let "var0 += 1"    效果相同。
@@ -731,7 +731,7 @@ t=0
 condition ()
 {
   ((t++))
-  
+
   if [ $t -lt 5 ]
   then
     return 0  # true 真
@@ -754,7 +754,7 @@ done
 ```
 
 > 和 [if 测试](http://tldp.org/LDP/abs/html/testconstructs.html#IFGREPREF) 结构一样，`while` 循环也可以省略括号。
->
+
 ```bash
 while condition
 do
@@ -778,9 +778,9 @@ done
     rt=$(echo "scale=$SC; $rt + $value" | bc)
     (( ct++ ))
   done
-  
+
   am=$(echo "scale=$SC; $rt / $ct" | bc)
-  
+
   echo $am; return $ct   # 这个功能“返回”了2个值。
   # 注意：这个技巧在 $ct > 255 的情况下会失效。
   # 如果要操作更大的数字，注释掉上面的 "return $ct" 就可以了。
