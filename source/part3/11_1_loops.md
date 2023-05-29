@@ -318,7 +318,7 @@ fstring="Free Software Foundation"  # 查看哪些文件来自于 FSF。
 
 for file in $( find $directory -type f -name '*' | sort )
 do
-  strings -f $file | grep "$fstring" | sed -e "s%$driectory%%"
+  strings -f $file | grep "$fstring" | sed -e "s%$directory%%"
   #  在 "sed" 表达式中，你需要替换掉 "/" 分隔符，
   #+ 因为 "/" 是一个会被过滤的字符。
   #  如果不做替换，将会产生一个错误。（你可以尝试一下。）
