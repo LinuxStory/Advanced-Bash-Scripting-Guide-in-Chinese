@@ -1,6 +1,6 @@
 # 《Advanced Bash-Scripting Guide》 in Chinese
 
-《高级Bash脚本编程指南》第十次修订版 中文版
+《Bash脚本进阶指南》第十次修订版 中文版
 
 ## 原著及早期翻译作品
 
