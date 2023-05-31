@@ -19,7 +19,7 @@
 	- [7.5 牛刀小试](07_5_testing_your_knowledge_of_tests.md)
 - [8. 运算符和相关话题](08_operations_and_related_topics.md)
 	- [8.1 运算符](08_1_operators.md)
-	- 8.2 数字常量
-	- 8.3 双圆括号结构
-	- 8.4 运算符优先级
+	- [8.2 数字常量](08_2_numerical_constants.md)
+	- [8.3 双圆括号结构](08_3_the_double_parentheses_construct.md)
+	- [8.4 运算符优先级](08_4_operator_precedence.md)
 
