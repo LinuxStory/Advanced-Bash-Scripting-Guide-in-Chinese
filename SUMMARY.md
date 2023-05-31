@@ -50,7 +50,7 @@
     * [14. 休息时间](source/part3/14_recess_time.md)
 * [第四部分 命令](source/part4/part4.md)
     * [15. 内建命令](source/part4/15_internal_commands_and_builtins.md)
-        * [15.1 任务控制命令]()
+        * [15.1 任务控制命令](source/part4/15_1_job_control_commands.md)
     * [16. 外部筛选器，任务及命令]()
         * [16.1 基础命令]()
         * [16.2 复杂命令]()
