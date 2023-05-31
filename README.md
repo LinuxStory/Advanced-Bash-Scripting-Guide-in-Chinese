@@ -1,6 +1,6 @@
 # 《Advanced Bash-Scripting Guide》 in Chinese
 
-《Bash脚本进阶指南》第十次修订版 中文版
+《高级Bash脚本编程指南》第十次修订版 中文版
 
 ## 原著及早期翻译作品
 
@@ -43,11 +43,7 @@
 	- [x] 14\. 休息时间[@imcmy]
 - [x] 第四部分. 命令[@imcmy]
 	- [x] 15\. 内建命令[@imcmy]
-<<<<<<< HEAD
 		- [x] 15.1 任务控制命令[@Administroot]
-=======
-	    - [x] 15.1 任务控制命令[@Administroot]
->>>>>>> 83af2ed (Add 15.1 prompt info)
 	- [ ] 16\. 外部过滤器，程序与命令[@hsupu]
 		- [x] 16.1 基本命令[@hsupu]
 		- [x] 16.2 复杂命令[@Administroot]
