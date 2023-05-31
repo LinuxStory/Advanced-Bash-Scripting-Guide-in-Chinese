@@ -11,3 +11,5 @@
 | generalize | 泛化 |
 | POSIX | 可移植操作系统接口 |
 | stdin | 标准输入 |
+| job | 作业 |
+| process | 进程 |
