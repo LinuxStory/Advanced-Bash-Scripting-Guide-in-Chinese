@@ -54,7 +54,7 @@
     * [16. 外部筛选器，任务及命令](source\part4\16_external_filters_programs_and_commands.md)
         * [16.1 基础命令](source\part4\16_1_basic_commands.md)
         * [16.2 复杂命令](source\part4\16_2_complex_commands.md)
-        * [16.3 时间/日期命令]()
+        * [16.3 时间/日期命令](source\part4\16_3_time_and_date_commands.md)
         * [16.4 文本处理命令]()
         * [16.5 文件与归档命令]()
         * [16.6 通信命令]()
