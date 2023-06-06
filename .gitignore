@@ -90,3 +90,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/linux,macos,windows,gitbook
+
+# Please do not ignore book.json! It will cause gitbook exception!
+# See https://jonathanmh.com/p/solved-gitbook-typeerror-cannot-read-property-file-of-undefined/
