@@ -393,7 +393,7 @@
 	- [16.1 基础命令](16_1_basic_commands.md)
 	- [16.2 复杂命令](16_2_complex_commands.md)
 	- [16.3 时间/日期命令](16_3_time_date_commands.md)
-	- [16.4 文本处理命令]()
+	- [16.4 文本处理命令](16_4_text_processing_commands.md)
 	- [16.5 文件与归档命令]()
 	- [16.6 通信命令]()
 	- [16.7 终端控制命令]()
