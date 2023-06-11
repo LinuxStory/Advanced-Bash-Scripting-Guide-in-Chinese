@@ -111,12 +111,12 @@
 
 ## 附录及索引
 
-- [参考文献]()
-- [附录]()
-  - [E. 带有特殊意义的退出代码](source/appendix/E_special_exitcodes.md)
-  - [F. I/O 与 I/O 重定向详细介绍](source/appendix/F_io_and_redirection.md)
-  - [T. ASCII 表](source/appendix/T_ascii_table.md)
-- [索引]()
-  - [术语表]()
-  - [表格索引]()
-  - [样例索引]()
+* [参考文献]()
+* [附录]()
+  * [E. 带有特殊意义的退出代码](source/appendix/E_special_exitcodes.md)
+  * [F. I/O 与 I/O 重定向详细介绍](source/appendix/F_io_and_redirection.md)
+  * [T. ASCII 表](source/appendix/T_ascii_table.md)
+* [索引]()
+  * [术语表]()
+  * [表格索引]()
+  * [样例索引]()
