@@ -4,7 +4,7 @@
 
 ### sort
 
-这是给文本排序的实用程序，通常用作管道的过滤器。该命令按照升序或降序给*文本流*或文件排序，或者根据各种键或字符位置排序。使用`-m`选项，它会合并预排序(presorted)的输入文件。*info手册*列出了该命令的许多功能和选项。你可以参阅[样例11-10](https://tldp.org/LDP/abs/html/loops1.html#FINDSTRING)，[样例11-11](https://tldp.org/LDP/abs/html/loops1.html#SYMLINKS)和[样例A-8](https://tldp.org/LDP/abs/html/contributed-scripts.html#MAKEDICT)。
+这是给文本排序的实用程序，通常用作管道的过滤器。该命令按照升序或降序给*文本流*或文件排序，或者根据各种键或字符位置排序。使用`-m`选项，它会合并预排序(presorted)的输入文件。*info手册*列出了该命令的许多功能和选项。你可以参阅[样例 11-10](https://tldp.org/LDP/abs/html/loops1.html#FINDSTRING)，[样例 11-11](https://tldp.org/LDP/abs/html/loops1.html#SYMLINKS)和[样例 A-8](https://tldp.org/LDP/abs/html/contributed-scripts.html#MAKEDICT)。
 
 ### tsort
 
@@ -50,7 +50,7 @@ bash$ sort testfile | uniq -c | sort -nr
 
 `sort INPUTFILE | uniq -c | sort -nr`命令字符串会在`INPUTFILE`文件上*生成频率列表* (**sort**的`-nr`选项会导致反向数值排序)。此模板可用于分析日志文件和字典列表，以及需要检查文档的词汇结构的任何地方。
 
-**样例16-12. 词频分析**
+**样例 16-12. 词频分析**
 
 ```shell
 #!/bin/bash
@@ -196,7 +196,7 @@ This is line 3 of testfile.
 
 感谢Jaka Kranjc指出。
 
-你也可以参阅[样例16-48](https://tldp.org/LDP/abs/html/mathc.html#BASE)。
+你也可以参阅[样例 16-48](https://tldp.org/LDP/abs/html/mathc.html#BASE)。
 
 ### paste
 
@@ -256,7 +256,7 @@ File: 1.data 2.data
 
 将文件的起始传递给`标准输出(stdout)`。默认为`10`行，但可以指定不同的数字。该命令有许多有趣的选项。
 
-**样例16-13. 哪些文件是脚本？**
+**样例 16-13. 哪些文件是脚本？**
 
 ```shell
 #!/bin/bash
@@ -287,7 +287,7 @@ exit 0
 #     尝试纠正这个。
 ```
 
-**样例16-14. 生成10位随机数**
+**样例 16-14. 生成10位随机数**
 
 ```shell
 #!/bin/bash
@@ -369,13 +369,13 @@ head -c4 /dev/urandom | od -N4 -tu4 | sed -ne '1s/.* //p'
 exit
 ```
 
-你也可以参阅[样例16-39](https://tldp.org/LDP/abs/html/filearchiv.html#EX52)。
+你也可以参阅[样例 16-39](https://tldp.org/LDP/abs/html/filearchiv.html#EX52)。
 
 ### tail
 
 将文件的末尾传递给`标准输出(stdout)`。默认为`10`行，但这可以通过`-n`选项进行更改。通常用于跟踪系统日志文件的更改，使用`-f`选项，它输出附加到文件的行。
 
-**样例16-15. 使用*tail*来监控系统日志**
+**样例 16-15. 使用*tail*来监控系统日志**
 
 ```shell
 #!/bin/bash
@@ -413,7 +413,7 @@ var=$(head -n $m $filename | tail -n $n)
 
 > ![note](http://tldp.org/LDP/abs/images/note.gif)新版本的**tail**弃用了旧版本的<strong>tail -\$LINES filename</strong>的用法。标准的<strong>tail -n \$LINES filename</strong>仍然是正确的。
 
-你也可以参阅[样例16-5](https://tldp.org/LDP/abs/html/moreadv.html#EX41)、[样例16-39](https://tldp.org/LDP/abs/html/filearchiv.html#EX52)和[样例32-6](https://tldp.org/LDP/abs/html/debugging.html#ONLINE)。
+你也可以参阅[样例 16-5](https://tldp.org/LDP/abs/html/moreadv.html#EX41)、[样例 16-39](https://tldp.org/LDP/abs/html/filearchiv.html#EX52)和[样例 32-6](https://tldp.org/LDP/abs/html/debugging.html#ONLINE)。
 
 ### grep
 
@@ -485,7 +485,7 @@ printf 'a b\nc  d\n\n\n\n\n\000\n\000e\000\000\nf' | grep -c '$'    # 9
 
 `--color`（或者`--colour`）选项会用颜色在（控制台或*xterm*窗口）中标记匹配的字符串。由于*grep*会打印出包含匹配模式的整行，这会让你清晰地看到*哪个*被匹配到了。另请参阅`-o`选项，该选项仅显示行中匹配到的部分。
 
-**样例16-16. 打印出本地电子邮件中的*From*行**
+**样例 16-16. 打印出本地电子邮件中的*From*行**
 
 ```shell
 #!/bin/bash
@@ -553,9 +553,9 @@ else
 fi
 ```
 
-[样例32-6](https://tldp.org/LDP/abs/html/debugging.html#ONLINE)演示了如何使用**grep**命令在系统日志文件中搜索单词。
+[样例 32-6](https://tldp.org/LDP/abs/html/debugging.html#ONLINE)演示了如何使用**grep**命令在系统日志文件中搜索单词。
 
-**样例16-17. 在脚本中模仿*grep*命令**
+**样例 16-17. 在脚本中模仿*grep*命令**
 
 ```shell
 #!/bin/bash
@@ -627,7 +627,7 @@ This is an ordinary text file.
 
 现在，让我们来玩一下*grep*吧~~
 
-**样例16-18. 纵横字谜解算器**
+**样例 16-18. 纵横字谜解算器**
 
 ```shell
 #!/bin/bash
@@ -711,7 +711,7 @@ Line 1 matches.
 
 > ![note](http://tldp.org/LDP/abs/images/note.gif)在某些Linux发行版上，**egrep**和**fgrep**是**grep**的符号链接或者别名(aliase)，但分别使用`-E`和`-F`选项调用。
 
-**样例16-19. 在*Webster 1913字典*中查找定义**
+**样例 16-19. 在*Webster 1913字典*中查找定义**
 
 ```shell
 #!/bin/bash
@@ -796,7 +796,7 @@ exit $?
 #     例如美国人口普查局地名词典(U.S. Census Bureau Gazetteer)。
 ```
 
-> ![note](http://tldp.org/LDP/abs/images/note.gif)另请参阅[样例A-41](https://tldp.org/LDP/abs/html/contributed-scripts.html#QKY)，了解如何在大型文本文件上进行快速*fgrep*查找。
+> ![note](http://tldp.org/LDP/abs/images/note.gif)另请参阅[样例 A-41](https://tldp.org/LDP/abs/html/contributed-scripts.html#QKY)，了解如何在大型文本文件上进行快速*fgrep*查找。
 
 **agrep** (*近似的grep*) 将**grep**的能力扩展到近似匹配。搜索字符串可能与结果匹配的字符数不同。此实用程序不是核心Linux发行版的一部分。
 
@@ -812,7 +812,7 @@ exit $?
 
 **look**命令像**grep**，但是在 “字典”，即已排序的单词列表上进行查找。默认情况下，**look**在/`usr/dict/words`中搜索匹配项，但也有可能会指定其他字典文件。
 
-**样例16-20. 检查列表中的单词是否有效**
+**样例 16-20. 检查列表中的单词是否有效**
 
 ```shell
 #!/bin/bash
@@ -920,7 +920,7 @@ bash$ grep Linux abs-book.sgml | wc -l
 138
 ```
 
-你也可以参阅[样例16-39](https://tldp.org/LDP/abs/html/filearchiv.html#EX52)和[样例20-8](https://tldp.org/LDP/abs/html/redircb.html#REDIR4)。
+你也可以参阅[样例 16-39](https://tldp.org/LDP/abs/html/filearchiv.html#EX52)和[样例 20-8](https://tldp.org/LDP/abs/html/redircb.html#REDIR4)。
 
 某些命令会使用**wc**的一些功能作为选项。
 
@@ -974,7 +974,7 @@ bash$ echo "abcd2ef1" | tr '[:alpha:]' -
 ----2--1*
 ```
 
-**样例16-21. *toupper*：将文本全部转换为大写字母**
+**样例 16-21. *toupper*：将文本全部转换为大写字母**
 
 ```shell
 #!/bin/bash
@@ -1052,7 +1052,7 @@ done
 exit $?
 ```
 
-**样例16-23. *du*：将DOS文本文件转换为UNIX文本文件**
+**样例 16-23. *du*：将DOS文本文件转换为UNIX文本文件**
 
 ```shell
 #!/bin/bash
@@ -1086,7 +1086,7 @@ exit 0
 # 将上面的脚本改为从UNIX转换为DOS。
 ```
 
-**样例16-24. *rot13*：超弱加密**
+**样例 16-24. *rot13*：超弱加密**
 
 ```shell
 #!/bin/bash
@@ -1154,13 +1154,13 @@ echo $x | tr "a-z" 'oh, turtleneck Phrase Jar!'
 
 ### fold
 
-将输入包装为每行为指定宽度的过滤器。`-s`选项特别有用，该选项在单词空格处中断行 (请参阅[样例16-26](https://tldp.org/LDP/abs/html/textproc.html#EX50)和[样例A-1](https://tldp.org/LDP/abs/html/contributed-scripts.html#MAILFORMAT))。
+将输入包装为每行为指定宽度的过滤器。`-s`选项特别有用，该选项在单词空格处中断行 (请参阅[样例 16-26](https://tldp.org/LDP/abs/html/textproc.html#EX50)和[样例 A-1](https://tldp.org/LDP/abs/html/contributed-scripts.html#MAILFORMAT))。
 
 ### fmt
 
 简单的文件格式化程序，用作管道中的过滤器，以 “包装” 长文本输出。
 
-**样例16-26. 格式化文件列表**
+**样例 16-26. 格式化文件列表**
 
 ```shell
 #!/bin/bash
@@ -1177,7 +1177,7 @@ echo $b | fmt -w $WIDTH
 exit 0
 ```
 
-你也可以参阅[样例16-5](https://tldp.org/LDP/abs/html/moreadv.html#EX41)。
+你也可以参阅[样例 16-5](https://tldp.org/LDP/abs/html/moreadv.html#EX41)。
 
 {% hint style="info" %}
 
@@ -1193,7 +1193,7 @@ Kamil Toman的**par**实用工具是**fmt**的强大替换品，你可以从[htt
 
 列格式化程序。此过滤器通过在适当的位置插入tab来将列表类型的文本输出转换为 “格式美观” 的表格。
 
-**样例16-27. 使用*column*命令来格式化一个目录列表**
+**样例 16-27. 使用*column*命令来格式化一个目录列表**
 
 ```shell
 #!/bin/bash
@@ -1224,7 +1224,7 @@ exit 0
 
 `nl`命令的输出与`cat -b`非常类似，因为默认情况下`nl`命令不列出空白行。
 
-**样例16-28. *nl*：一个自编号脚本**
+**样例 16-28. *nl*：一个自编号脚本**
 
 ```shell
 #!/bin/bash
@@ -1322,7 +1322,7 @@ texexec --pdfarrange --result=Concatenated.pdf *pdf
 
 **eqn**公式处理工具同样是**groff**的一部分，其功能是将方程标记(equation markup)转换为**groff**命令。
 
-**样例16-29. *manview*：查看格式化的man手册**
+**样例 16-29. *manview*：查看格式化的man手册**
 
 ```shell
 #!/bin/bash
@@ -1355,7 +1355,7 @@ groff -Tascii -man $1 | less
 exit $?   # 你也可以参阅"maned.sh"脚本。
 ```
 
-你也可以参阅[样例A-39](https://tldp.org/LDP/abs/html/contributed-scripts.html#MANED)。
+你也可以参阅[样例 A-39](https://tldp.org/LDP/abs/html/contributed-scripts.html#MANED)。
 
 ### lex, yacc
 

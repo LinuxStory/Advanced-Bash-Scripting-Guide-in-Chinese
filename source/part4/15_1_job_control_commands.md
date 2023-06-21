@@ -154,7 +154,7 @@ Done.
 
 ### kill
 
-通过向进程发送适当的*终止*信号来强制终止进程 (参见[样例17-6](https://tldp.org/LDP/abs/html/system.html#KILLPROCESS))。
+通过向进程发送适当的*终止*信号来强制终止进程 (参见[样例 17-6](https://tldp.org/LDP/abs/html/system.html#KILLPROCESS))。
 
 **样例 15-27. 一个杀死自己的脚本**
 

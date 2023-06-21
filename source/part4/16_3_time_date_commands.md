@@ -45,7 +45,7 @@ Sat Mar 30 04:07:42 UTC 2002
 
 此选项便于计算不同日期之间的时间。
 
-**样例16-11. *日期*计算**
+**样例 16-11. *日期*计算**
 
 ```shell
 #!/bin/bash
@@ -126,7 +126,7 @@ OneMonthAgo=$(date --date='1 month ago')  # 4周前(不是一个月！)
 OneYearAgo=$(date --date='1 year ago')
 ```
 
-你也可以参见[样例3-4](https://tldp.org/LDP/abs/html/special-chars.html#EX58)和[样例A-43](https://tldp.org/LDP/abs/html/contributed-scripts.html#STOPWATCH)。
+你也可以参见[样例 3-4](https://tldp.org/LDP/abs/html/special-chars.html#EX58)和[样例 A-43](https://tldp.org/LDP/abs/html/contributed-scripts.html#STOPWATCH)。
 
 ### zdump
 
@@ -193,7 +193,7 @@ job 2 at 2000-10-27 02:30
 
 ### sleep
 
-该命令是*等待循环*的shell等效项。它暂停指定的秒数，什么也不做。它可以用于定时或在后台运行的进程中，经常用于检查特定事件 (轮询)中，如[样例32-6](https://tldp.org/LDP/abs/html/debugging.html#ONLINE)所示。
+该命令是*等待循环*的shell等效项。它暂停指定的秒数，什么也不做。它可以用于定时或在后台运行的进程中，经常用于检查特定事件 (轮询)中，如[样例 32-6](https://tldp.org/LDP/abs/html/debugging.html#ONLINE)所示。
 
 ```shell
 sleep 3     # 暂停3秒。
