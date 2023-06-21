@@ -4,7 +4,7 @@
 
 ### tar
 
-标准UNIX归档实用程序。[[1] ](https://tldp.org/LDP/abs/html/filearchiv.html#FTN.AEN11885)最初是一个*磁带归档*程序，现在已经发展成为一个通用软件包，可以处理所有类型的目标设备的各种归档方式，从磁带驱动器到常规文件，甚至是`标准输出(stdout)` (参阅[样例3-4](https://tldp.org/LDP/abs/html/special-chars.html#EX58))。GNU *tar*程序已经成为能够接受各种压缩文件的过滤器，例如: **tar czvf archive_name.tar.gz ***，它递归地归档并[gzip](https://tldp.org/LDP/abs/html/filearchiv.html#GZIPREF)当前工作目录([$PWD](https://tldp.org/LDP/abs/html/internalvariables.html#PWDREF))下除[点文件](https://tldp.org/LDP/abs/html/basic.html#DOTFILESREF)之外的目录树中的所有文件。[[2]](https://tldp.org/LDP/abs/html/filearchiv.html#FTN.AEN11896)
+标准UNIX归档实用程序。[[1] ](https://tldp.org/LDP/abs/html/filearchiv.html#FTN.AEN11885)最初是一个*磁带归档*程序，现在已经发展成为一个通用软件包，可以处理所有类型的目标设备的各种归档方式，从磁带驱动器到常规文件，甚至是`标准输出(stdout)` (参阅[样例 3-4](https://tldp.org/LDP/abs/html/special-chars.html#EX58))。GNU *tar*程序已经成为能够接受各种压缩文件的过滤器，例如: **tar czvf archive_name.tar.gz ***，它递归地归档并[gzip](https://tldp.org/LDP/abs/html/filearchiv.html#GZIPREF)当前工作目录([$PWD](https://tldp.org/LDP/abs/html/internalvariables.html#PWDREF))下除[点文件](https://tldp.org/LDP/abs/html/basic.html#DOTFILESREF)之外的目录树中的所有文件。[[2]](https://tldp.org/LDP/abs/html/filearchiv.html#FTN.AEN11896)
 
 一些有用的**tar**选项：
 
@@ -101,7 +101,7 @@ docbook-dtd31-sgml-1.0-10
 
 这种专门的归档复制命令 (复制输入和输出) 已被**tar**/**gzip**取代，现在很少见到。但是它仍然有其用途，例如移动目录树。指定适当的块大小 (用于复制) 后，它可能比**tar**快得多。
 
-**样例16-30. 使用*cpio*命令移动一个目录树**
+**样例 16-30. 使用*cpio*命令移动一个目录树**
 
 ```shell
 #!/bin/bash
@@ -146,7 +146,7 @@ exit $?
 
 该命令会从[rpm包](https://tldp.org/LDP/abs/html/filearchiv.html#RPMREF)中解压cpio存档文件。
 
-**样例16-31. 解压一个*rpm*存档文件**
+**样例 16-31. 解压一个*rpm*存档文件**
 
 ```shell
 #!/bin/bash
@@ -203,7 +203,7 @@ pax -rf daily_backup.pax ~/bsd-server/files
 
 > ![note](https://tldp.org/LDP/abs/images/caution.gif)在某些商业UNIX系统上，**zcat**是**uncompress -c**的同义词，并且在*gzip压缩文件*上不起作用。
 
-另请[样例7-7](https://tldp.org/LDP/abs/html/comparison-ops.html#EX14)。
+另请[样例 7-7](https://tldp.org/LDP/abs/html/comparison-ops.html#EX14)。
 
 ### bzip2
 
@@ -285,7 +285,7 @@ file $DIRECTORY/* | fgrep $KEYWORD
 # . . .
 ```
 
-**样例16-32. 去除C程序文件注释**
+**样例 16-32. 去除C程序文件注释**
 
 ```shell
 #!/bin/bash
@@ -379,7 +379,7 @@ exit 0
 /usr/bin/rm
 ```
 
-如果你想了解该命令有趣的使用方法，请参阅[样例36-16](https://tldp.org/LDP/abs/html/colorizing.html#HORSERACE)。
+如果你想了解该命令有趣的使用方法，请参阅[样例 36-16](https://tldp.org/LDP/abs/html/colorizing.html#HORSERACE)。
 
 ### whereis
 
@@ -401,7 +401,7 @@ rm: /bin/rm /usr/share/man/man1/rm.1.bz2
 whatis               (1)  - search the whatis database for complete words
 ```
 
-**样例16-33. 浏览`/usr/X11R6/bin`**
+**样例 16-33. 浏览`/usr/X11R6/bin`**
 
 ```shell
 #!/bin/bash
@@ -426,7 +426,7 @@ exit 0
 #    ./what.sh | less
 ```
 
-另请参阅[样例11-3](https://tldp.org/LDP/abs/html/loops1.html#FILEINFO)。
+另请参阅[样例 11-3](https://tldp.org/LDP/abs/html/loops1.html#FILEINFO)。
 
 ### vdir
 
@@ -504,9 +504,9 @@ bash$ readlink /usr/bin/awk
 
 ### strings
 
-使用**strings**命令可以在二进制文件或数据文件中查找可打印字符串。它将列出在目标文件中找到的可打印字符序列。这便于快速检查核心转储(core dump)或查看未知图像文件 (<code>**strings image-file | more**</code>可能显示类似*JFIF*的东西，那么该文件标识为*jpeg*图形) 。在脚本中，也可以使用[grep](https://tldp.org/LDP/abs/html/textproc.html#GREPREF)或[sed](https://tldp.org/LDP/abs/html/sedawk.html#SEDREF)命令解析**strings**的输出。请参阅[样例11-8](https://tldp.org/LDP/abs/html/loops1.html#BINGREP)和[样例11-10](https://tldp.org/LDP/abs/html/loops1.html#FINDSTRING)。
+使用**strings**命令可以在二进制文件或数据文件中查找可打印字符串。它将列出在目标文件中找到的可打印字符序列。这便于快速检查核心转储(core dump)或查看未知图像文件 (<code>**strings image-file | more**</code>可能显示类似*JFIF*的东西，那么该文件标识为*jpeg*图形) 。在脚本中，也可以使用[grep](https://tldp.org/LDP/abs/html/textproc.html#GREPREF)或[sed](https://tldp.org/LDP/abs/html/sedawk.html#SEDREF)命令解析**strings**的输出。请参阅[样例 11-8](https://tldp.org/LDP/abs/html/loops1.html#BINGREP)和[样例 11-10](https://tldp.org/LDP/abs/html/loops1.html#FINDSTRING)。
 
-**样例16-34. 一个“改进的”*strings*命令**
+**样例 16-34. 一个“改进的”*strings*命令**
 
 ```shell
 #!/bin/bash
@@ -668,7 +668,7 @@ bash$ diff3 file-1 file-2 file-3
 
 > ![note](https://tldp.org/LDP/abs/images/note.gif)类似于**diff**命令，当两个文件相同时**cmp**返回0的退出状态，当不同时返回1的退出状态。这允许在shell脚本中的测试结构中使用。
 
-**样例16-35. 使用*cmp*在脚本中比较两个文件**
+**样例 16-35. 使用*cmp*在脚本中比较两个文件**
 
 ```shell
 #!/bin/bash
@@ -754,9 +754,9 @@ echo "Usage: `basename $0` arg1 arg2 ... argn"
 
 从文件名中剥离**basename**，仅打印路径信息。
 
-> ![note](https://tldp.org/LDP/abs/images/note.gif)**basename**和**dirname**可以对任意字符串进行操作。该参数不需要引用现有文件，甚至不需要引用该文件的文件名。请参阅[样例A-7](https://tldp.org/LDP/abs/html/contributed-scripts.html#DAYSBETWEEN)。
+> ![note](https://tldp.org/LDP/abs/images/note.gif)**basename**和**dirname**可以对任意字符串进行操作。该参数不需要引用现有文件，甚至不需要引用该文件的文件名。请参阅[样例 A-7](https://tldp.org/LDP/abs/html/contributed-scripts.html#DAYSBETWEEN)。
 
-**样例16-36. *basename*和*dirname***
+**样例 16-36. *basename*和*dirname***
 
 ```shell
 #!/bin/bash
@@ -778,7 +778,7 @@ exit 0
 
 **csplit**命令根据*上下文*拆分文件，当模式匹配成功时则进行拆分。
 
-**样例16-37. 将自己分区域复制的脚本**
+**样例 16-37. 将自己分区域复制的脚本**
 
 ```shell
 #!/bin/bash
@@ -832,7 +832,7 @@ bash$ echo -n "Top Secret" | md5sum
 > 
 > 当**md5sum**和**sha1sum**命令从`标准输出(stdout)`中接受输入时会显示一个[短划线](https://tldp.org/LDP/abs/html/special-chars.html#DASHREF2)。
 
-**样例16-38. 检查文件完整性**
+**样例 16-38. 检查文件完整性**
 
 ```shell
 #!/bin/bash
@@ -951,7 +951,7 @@ exit 0
 #  http://sourceforge.net/projects/tripwire/。
 ```
 
-了解更多**md5sum**命令的有趣用法，另请参阅[样例A-19](https://tldp.org/LDP/abs/html/contributed-scripts.html#DIRECTORYINFO)、[样例36-16](https://tldp.org/LDP/abs/html/colorizing.html#HORSERACE)和[样例10-2](https://tldp.org/LDP/abs/html/string-manipulation.html#RANDSTRING)。
+了解更多**md5sum**命令的有趣用法，另请参阅[样例 A-19](https://tldp.org/LDP/abs/html/contributed-scripts.html#DIRECTORYINFO)、[样例 36-16](https://tldp.org/LDP/abs/html/colorizing.html#HORSERACE)和[样例 10-2](https://tldp.org/LDP/abs/html/string-manipulation.html#RANDSTRING)。
 
 > ![note](https://tldp.org/LDP/abs/images/note.gif)有报道称，128位**md5sum**可以被破解，因此更安全的160位**sha1sum**是校验和工具包的一个受欢迎的新成员。
 
@@ -974,7 +974,7 @@ bash$ sha1sum testfile
 
 它反转了编码过程，解码*uuencode*编码文件成为原先的二进制文件。
 
-**样例16-39. 使用uudecode解码uuencode编码文件**
+**样例 16-39. 使用uudecode解码uuencode编码文件**
 
 ```shell
 #!/bin/bash
@@ -1021,7 +1021,7 @@ exit 0
 
 ### crypt
 
-曾几何时，这是标准的UNIX文件加密实用程序。[[5]](https://tldp.org/LDP/abs/html/filearchiv.html#FTN.AEN12969)出于政治动机的政府法规禁止加密软件的出口，导致**crypt**从许多UNIX世界中消失，并且在大多数Linux发行版中仍然缺少它。幸运的是，程序员已经提出了许多不错的替代方案，其中包括作者自己的[作品]([ftp://metalab.unc.edu/pub/Linux/utils/file/cruft-0.2.tar.gz](ftp://metalab.unc.edu/pub/Linux/utils/file/cruft-0.2.tar.gz)) (请参见[样例A-4](https://tldp.org/LDP/abs/html/contributed-scripts.html#ENCRYPTEDPW))。
+曾几何时，这是标准的UNIX文件加密实用程序。[[5]](https://tldp.org/LDP/abs/html/filearchiv.html#FTN.AEN12969)出于政治动机的政府法规禁止加密软件的出口，导致**crypt**从许多UNIX世界中消失，并且在大多数Linux发行版中仍然缺少它。幸运的是，程序员已经提出了许多不错的替代方案，其中包括作者自己的[作品]([ftp://metalab.unc.edu/pub/Linux/utils/file/cruft-0.2.tar.gz](ftp://metalab.unc.edu/pub/Linux/utils/file/cruft-0.2.tar.gz)) (请参见[样例 A-4](https://tldp.org/LDP/abs/html/contributed-scripts.html#ENCRYPTEDPW))。
 
 ### openssl
 
@@ -1064,7 +1064,7 @@ tar -xzv
 
 ### shred
 
-通过在删除文件之前用随机位模式多次覆盖文件来安全地擦除它。此命令与[样例16-61](https://tldp.org/LDP/abs/html/extmisc.html#BLOTOUT)具有相同的效果，但以更彻底和优雅的方式进行。
+通过在删除文件之前用随机位模式多次覆盖文件来安全地擦除它。此命令与[样例 16-61](https://tldp.org/LDP/abs/html/extmisc.html#BLOTOUT)具有相同的效果，但以更彻底和优雅的方式进行。
 
 这是其中一个*GNU* fileutils。
 
@@ -1133,7 +1133,7 @@ ls /home/bozo | awk '{print "rm -rf " $1}' | more
 #      交给shell来执行 . . .                          ^^
 ```
 
-*less*寻呼机(pager)具有一个有趣的属性，即对*man手册*的源进行格式化显示。请参阅[样例A-39](https://tldp.org/LDP/abs/html/contributed-scripts.html#MANED)。
+*less*寻呼机(pager)具有一个有趣的属性，即对*man手册*的源进行格式化显示。请参阅[样例 A-39](https://tldp.org/LDP/abs/html/contributed-scripts.html#MANED)。
 
 ## 注记
 

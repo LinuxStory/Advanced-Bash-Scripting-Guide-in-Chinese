@@ -65,7 +65,7 @@ bash$ dig -x 81.9.6.2
  ;; MSG SIZE  rcvd: 91
 ```
 
-**样例16-40. 找出垃圾邮件发送者**
+**样例 16-40. 找出垃圾邮件发送者**
 
 ```shell
 #!/bin/bash
@@ -115,7 +115,7 @@ exit $?
 #  请前往SpamViz主页。http://www.spamviz.net/index.html。
 ```
 
-**样例16-41. 分析一个垃圾邮件域名**
+**样例 16-41. 分析一个垃圾邮件域名**
 
 ```shell
 #! /bin/bash
@@ -265,7 +265,7 @@ exit 0
 # 4) 通过给'dig'命令添加"+time="选项来给脚本设置超时时间。
 ```
 
-有关上述脚本的更详细的版本，请参阅[样例A-28](https://tldp.org/LDP/abs/html/contributed-scripts.html#ISSPAMMER2)。
+有关上述脚本的更详细的版本，请参阅[样例 A-28](https://tldp.org/LDP/abs/html/contributed-scripts.html#ISSPAMMER2)。
 
 ### traceroute
 
@@ -312,7 +312,7 @@ fi
 
 ### whois
 
-执行DNS (域名系统) 查找。`-h`选项允许指定要查询哪个特定的*whois*服务器。参阅[样例4-6](https://tldp.org/LDP/abs/html/othertypesv.html#EX18)和[样例16-40](https://tldp.org/LDP/abs/html/communications.html#SPAMLOOKUP)。
+执行DNS (域名系统) 查找。`-h`选项允许指定要查询哪个特定的*whois*服务器。参阅[样例 4-6](https://tldp.org/LDP/abs/html/othertypesv.html#EX18)和[样例 16-40](https://tldp.org/LDP/abs/html/communications.html#SPAMLOOKUP)。
 
 ### finger
 
@@ -363,7 +363,7 @@ Login: bozo                             Name: Bozo Bozeman
 
 ### ftp
 
-用于远程主机中上传/下载文件的实用程序和协议。ftp会话可以在脚本中自动化 (请参阅[样例19-6](https://tldp.org/LDP/abs/html/here-docs.html#EX72)和[样例A-4](https://tldp.org/LDP/abs/html/contributed-scripts.html#ENCRYPTEDPW))。
+用于远程主机中上传/下载文件的实用程序和协议。ftp会话可以在脚本中自动化 (请参阅[样例 19-6](https://tldp.org/LDP/abs/html/here-docs.html#EX72)和[样例 A-4](https://tldp.org/LDP/abs/html/contributed-scripts.html#ENCRYPTEDPW))。
 
 ### uucp, uux, cu
 
@@ -402,7 +402,7 @@ wget -c ftp://ftp.xyz25.net/bozofiles/filename.tar.bz2
 #  这在ftp服务器和许多HTTP站点上均有效。
 ```
 
-**样例16-42. 获取股票报价**
+**样例 16-42. 获取股票报价**
 
 ```shell
 #!/bin/bash
@@ -447,7 +447,7 @@ exit $?
 #    并将用户的邮政编码作为参数。
 ```
 
-另请参阅[样例A-30](https://tldp.org/LDP/abs/html/contributed-scripts.html#WGETTER2)和[样例A-31](https://tldp.org/LDP/abs/html/contributed-scripts.html#BASHPODDER)。
+另请参阅[样例 A-30](https://tldp.org/LDP/abs/html/contributed-scripts.html#WGETTER2)和[样例 A-31](https://tldp.org/LDP/abs/html/contributed-scripts.html#BASHPODDER)。
 
 ### lynx
 
@@ -479,7 +479,7 @@ lynx -dump http://www.xyz23.com/file01.html >$SAVEFILE
 bash$ rsync -a ~/sourcedir/*txt /node1/subdirectory/
 ```
 
-**样例16-43. 升级FC4**
+**样例 16-43. 升级FC4**
 
 ```shell
 #!/bin/bash
@@ -701,7 +701,7 @@ fi
 exit $RET
 ```
 
-另请参阅[样例A-32](https://tldp.org/LDP/abs/html/contributed-scripts.html#NIGHTLYBACKUP)。
+另请参阅[样例 A-32](https://tldp.org/LDP/abs/html/contributed-scripts.html#NIGHTLYBACKUP)。
 
 > ![note](https://tldp.org/LDP/abs/images/note.gif)在shell脚本中不建议使用[rcp](https://tldp.org/LDP/abs/html/communications.html#RCPREF)、[rsync](https://tldp.org/LDP/abs/html/communications.html#RSYNCREF)和类似的具有安全隐患的实用程序。相反，请考虑使用**ssh**、[scp](https://tldp.org/LDP/abs/html/communications.html#SCPREF)或**expect**脚本。
 
@@ -709,7 +709,7 @@ exit $RET
 
 <code>*安全的shell*</code>，登录到远程主机并在那里执行命令。它使用了身份认证和加密技术，是**telnet**、**rlogin**、**rcp**和**rsh**的安全替代品。请参阅其[man手册](https://tldp.org/LDP/abs/html/basic.html#MANREF)。
 
-**样例16-44. 使用*ssh*命令**
+**样例 16-44. 使用*ssh*命令**
 
 ```shell
 #!/bin/bash
@@ -807,7 +807,7 @@ exit 0
 
 这个精简的命令行邮件客户端适配脚本使用。
 
-**样例16-45. 一个给自己发邮件的脚本**
+**样例 16-45. 一个给自己发邮件的脚本**
 
 ```shell
 #!/bin/sh

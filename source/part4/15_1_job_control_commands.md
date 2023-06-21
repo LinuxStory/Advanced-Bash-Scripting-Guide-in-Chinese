@@ -1,6 +1,6 @@
 # 15.1 任务控制命令
 
-以下某些作业控制命令将*作业标识符*作为参数。您可以参阅本章末尾的[表格](#biao-ge-15-1.-zuo-ye-biao-shi-fu)。
+以下某些作业控制命令将*作业标识符*作为参数。您可以参阅本章末尾的[表格](#biao-ge-151.-zuo-ye-biao-shi-fu)。
 
 ### jobs
 
@@ -154,7 +154,7 @@ Done.
 
 ### kill
 
-通过向进程发送适当的*终止*信号来强制终止进程 (参见[样例17-6](https://tldp.org/LDP/abs/html/system.html#KILLPROCESS))。
+通过向进程发送适当的*终止*信号来强制终止进程 (参见[样例 17-6](https://tldp.org/LDP/abs/html/system.html#KILLPROCESS))。
 
 **样例 15-27. 一个杀死自己的脚本**
 

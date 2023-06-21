@@ -172,7 +172,7 @@ do
 done
 ```
 
-您可以查看使用**find**命令的[样例16-30](https://tldp.org/LDP/abs/html/filearchiv.html#EX48)，[样例3-4](https://tldp.org/LDP/abs/html/special-chars.html#EX58)和[样例11-10](https://tldp.org/LDP/abs/html/loops1.html#FINDSTRING)。它的[man手册](https://tldp.org/LDP/abs/html/basic.html#MANREF)提供了关于这个复杂且强大的命令的更多细节。
+您可以查看使用**find**命令的[样例 16-30](https://tldp.org/LDP/abs/html/filearchiv.html#EX48)，[样例 3-4](https://tldp.org/LDP/abs/html/special-chars.html#EX58)和[样例 11-10](https://tldp.org/LDP/abs/html/loops1.html#FINDSTRING)。它的[man手册](https://tldp.org/LDP/abs/html/basic.html#MANREF)提供了关于这个复杂且强大的命令的更多细节。
 
 ### xargs
 
@@ -341,7 +341,7 @@ ls . | xargs -i -t cp ./{} $1
 exit 0
 ```
 
-**样例16-7. 通过进程名杀死进程**
+**样例 16-7. 通过进程名杀死进程**
 
 ```shell
 #!/bin/bash
@@ -385,7 +385,7 @@ exit $?
 #  但是使用它并不具有教育意义。
 ```
 
-**样例16-8. 使用*xargs*进行词频分析**
+**样例 16-8. 使用*xargs*进行词频分析**
 
 ```shell
 #!/bin/bash
