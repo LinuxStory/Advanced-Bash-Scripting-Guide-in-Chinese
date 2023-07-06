@@ -51,9 +51,9 @@
 		- [x] 16.4 文本处理命令[@Administroot]
 		- [x] 16.5 文件与归档命令[@Administroot]
 		- [x] 16.6 通信命令[@Administroot]
-		- [ ] 16.7 终端控制命令
-		- [ ] 16.8 数学命令
-		- [ ] 16.9 杂项命令
+		- [x] 16.7 终端控制命令[@Administroot]
+		- [x] 16.8 数学命令[@Administroot]
+		- [x] 16.9 杂项命令[@Administroot]
 	- [ ] 17\. 系统与高级命令
 - [ ] 第五章. 高级话题
 	- [x] 18\. 正则表达式[@Zjie]
