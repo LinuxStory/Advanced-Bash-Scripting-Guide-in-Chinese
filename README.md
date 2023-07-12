@@ -1,26 +1,34 @@
-# 《Advanced Bash-Scripting Guide》 in Chinese
+# Bash脚本进阶指南
 
-《Bash脚本进阶指南》第十次修订版 中文版
+[![CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://img.shields.io/badge/License-CC0%201.0%20Universal-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![GitBook](https://img.shields.io/badge/GitBook-read-blue)](https://linuxstory.gitbook.io/advanced-bash-scripting-guide-in-chinese/)
 
-## 原著及早期翻译作品
-
-### 原著
-
-- 原著链接：http://tldp.org/LDP/abs/html/
-- 原作：Mendel Cooper
-- 原著版本：Revision 10, 10 Mar 2014
-
-### 译著
-
-- 早期译著连接：http://www.linuxsir.org/bbs/thread256887.html
-- 译者：杨春敏 黄毅
-- 译著版本：Revision 3.7, 23 Oct 2005
-- 最新 Revision 10 由 Linux Story 社区的 imcmy 同学发起并组织翻译
-- Linux Story 通告地址 ：http://www.linuxstory.org/asdvanced-bash-scripting-guide-in-chinese/ 
+*Advanced Bash-Scripting Guide* in Chinese
 
 ## 翻译作品
 
-翻译作品放在[GitBook](https://linuxstory.gitbook.io/advanced-bash-scripting-guide-in-chinese/)上，欢迎指正！
+翻译作品展示于[GitBook](https://linuxstory.gitbook.io/advanced-bash-scripting-guide-in-chinese/)，欢迎指正！
+
+## 原著及译著
+
+### 原著
+
+- 链接：http://tldp.org/LDP/abs/html/
+- 作者：Mendel Cooper
+- 版本：Revision 10, 10 Mar 2014
+- 版权：公共领域(Public Domain)
+
+### 最新译著
+
+- Linux Story 通告地址：http://www.linuxstory.org/asdvanced-bash-scripting-guide-in-chinese/
+- 版本：Revision 10, 10 Mar 2014
+- 版权：公共领域(CC0)
+
+### 早期译著
+
+- 链接（已失效）：http://www.linuxsir.org/bbs/thread256887.html
+- 译者：杨春敏 黄毅
+- 版本：Revision 3.7, 23 Oct 2005
 
 ## 翻译进度
 
@@ -161,11 +169,7 @@ Hello world
 
 所有的脚注footnote都需使用html代码进行注释。
 
-## 关于版权
-
-根据原著作者的要求，翻译成果属于公有领域(CC0)，翻译参与人员及原著作者Mendel Cooper享有署名权
-
-翻译参与人员（按名称排序）：
+## 参与人员（按名称排序）
 
 - @Administroot
 - @chuchingkai
