@@ -62,7 +62,8 @@
 		- [x] 16.7 终端控制命令[@Administroot]
 		- [x] 16.8 数学命令[@Administroot]
 		- [x] 16.9 杂项命令[@Administroot]
-	- [ ] 17\. 系统与高级命令
+	- [ ] 17\. 系统与高级命令[@Administroot]
+	    - [x] 17.1 分析一个系统脚本[@Administroot]
 - [ ] 第五章. 高级话题
 	- [x] 18\. 正则表达式[@Zjie]
 	- [x] 19\. 嵌入文档[@mingmings]
