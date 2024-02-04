@@ -248,5 +248,5 @@ $ sh shift-past.sh 1 2 3 4 5
 
 [^1]: 函数同样也可以接受与使用位置参数。
 [^2]: 是调用脚本的进程设置了 $0 参数。就是脚本的文件名。详情可以查看 `execv` 的使用手册。<br>在命令行中，$0 是shell的名称。<pre>bash$ echo $0<br>bash<br><br>tcsh% echo $0<br>tcsh</pre>
-[^3]: 如果脚本被引用（sourced）执行或者被链接（symlinked）执行时会失效。安全的方法是检测变量 `$BASH_Source`。
+[^3]: 如果脚本被引用（sourced）执行或者被链接（symlinked）执行时会失效。安全的方法是检测变量 `$BASH_SOURCE`。
 
